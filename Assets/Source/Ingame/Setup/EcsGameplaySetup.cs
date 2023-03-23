@@ -2,6 +2,7 @@ using System;
 using Entitas;
 using Ingame.ConfigProvision;
 using Ingame.Player.Movement;
+using Ingame.Ai;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +21,10 @@ namespace Ingame.Setup
 			_updateSystems = new Systems();
 			_fixedUpdateSystems = new Systems();
 			
-			_updateSystems.Add(new PlayerMovementFeature(configProvider));
+			_updateSystems
+				.Add(new PlayerMovementFeature(configProvider))
+				.Add(new AiFeature());
+			
 			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
 		}
 
