@@ -33,10 +33,12 @@ namespace Ingame.Ai.FSM.State
             }
             
             aiContextMdl.actionIndex = actions.Count;
-            
+
             if (isRepeatable)
+            {
                 aiContextMdl.actionIndex = 0;
-            
+            }
+           
         }
 
         private StateBase GetState(AiContextMdl aiContextMdl)
@@ -76,8 +78,6 @@ namespace Ingame.Ai.FSM.State
         }
     }
 
-
- 
     [Serializable]
     public sealed class StateTransformerChecker
     {
@@ -93,7 +93,7 @@ namespace Ingame.Ai.FSM.State
         [SerializeField]
         private List<ConditionBase> conditions = new ();
 
-        [SerializeField] 
+        [SerializeField]
         private Operator logicalOperator = Operator.And;
 
         public StateBase State => state;

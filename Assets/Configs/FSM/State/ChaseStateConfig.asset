@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8782ccd2e7fc44f9afa599fce07e65a7, type: 3}
-  m_Name: DebugStateConfig
+  m_Script: {fileID: 11500000, guid: dd40ab320b334eca93882e8ab097552f, type: 3}
+  m_Name: ChaseStateConfig
   m_EditorClassIdentifier: 
   stateTransformerCheckers: []
   actions:
-  - {fileID: 11400000, guid: 6bf97bcfee7ab424089019473974bad6, type: 2}
+  - {fileID: 11400000, guid: 90e96df04c38e3d4aaab40ed4682ff84, type: 2}
   isRepeatable: 1

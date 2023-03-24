@@ -20,7 +20,7 @@ namespace Ingame.Ai
         private void Construct()
         {
             var entity = Contexts.sharedInstance.gameplay.CreateEntity();
-	        entity.AddAiContextMdl(navMeshAgent, aiConfig , aiConfig.InitState, true);
+            entity.AddAiContextMdl(navMeshAgent, aiConfig, null, aiConfig.InitState,true,0);
         }
     }
 }
