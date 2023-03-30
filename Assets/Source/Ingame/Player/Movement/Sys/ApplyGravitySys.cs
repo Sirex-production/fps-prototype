@@ -14,8 +14,8 @@ namespace Ingame.Player.Movement
 			var gameplayContext = Contexts.sharedInstance.gameplay;
 			var playerMatcher = GameplayMatcher.AllOf
 			(
-				GameplayMatcher.CharacterControllerMdl,
 				GameplayMatcher.VelocityCmp,
+				GameplayMatcher.GroundCheckCmp,
 				GameplayMatcher.PlayerCmp
 			);
 			
@@ -27,10 +27,10 @@ namespace Ingame.Player.Movement
 		{
 			var playerEntity = _playerGroup.GetSingleEntity();
 
-			var characterController = playerEntity.characterControllerMdl.characterController;
+			var groundCheck = playerEntity.groundCheckCmp; 
 			var velocityCmp = playerEntity.velocityCmp;
 
-			if (characterController.isGrounded)
+			if (groundCheck.IsGrounded())
 			{
 				velocityCmp.currentVelocity.y = Mathf.Max(0f, velocityCmp.currentVelocity.y);
 				return;

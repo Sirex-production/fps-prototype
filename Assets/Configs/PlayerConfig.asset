@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520c2c197d1c4aef954749498e8e4f8f, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  accelerationSpeed: 100
-  frictionDumping: 0.0001
+  accelerationSpeed: 130
+  frictionDumping: 0.000001
+  accelerationDumping: 0.3
   jumpForce: 10
   gravityForce: 30

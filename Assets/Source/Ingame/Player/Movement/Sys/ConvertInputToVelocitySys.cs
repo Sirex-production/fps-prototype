@@ -18,7 +18,7 @@ namespace Ingame.Player.Movement
 			(
 				GameplayMatcher.TransformMdl,
 				GameplayMatcher.VelocityCmp,
-				GameplayMatcher.CharacterControllerMdl,
+				GameplayMatcher.GroundCheckCmp,
 				GameplayMatcher.PlayerCmp
 			);
 
@@ -32,19 +32,17 @@ namespace Ingame.Player.Movement
 			var inputCmp = _appContext.inputCmp;
 			var playerEntity = _playerGroup.GetSingleEntity();
 			var transformMdl = playerEntity.transformMdl;
-			var characterController = playerEntity.characterControllerMdl.characterController;
+			var groundCheckCmp = playerEntity.groundCheckCmp;
 			var velocityCmp = playerEntity.velocityCmp;
 			var movementVector = transformMdl.transform.forward * inputCmp.moveInput.y;
 			movementVector += transformMdl.transform.right * inputCmp.moveInput.x;
 			movementVector = movementVector.normalized;
 
-			velocityCmp.currentVelocity += movementVector * _playerConfig.AccelerationSpeed * Time.deltaTime;
+			velocityCmp.currentVelocity = Vector3.Lerp(velocityCmp.currentVelocity, velocityCmp.currentVelocity + movementVector * _playerConfig.AccelerationSpeed, 1f - Mathf.Pow(_playerConfig.AccelerationDumping, Time.deltaTime));
 
-			if (!inputCmp.jumpInput || !characterController.isGrounded)
+			if (!inputCmp.jumpInput || !groundCheckCmp.IsGrounded())
 				return;
-			
-			Debug.Log("JUMP");
-			
+
 			playerEntity.velocityCmp.currentVelocity += Vector3.up * _playerConfig.JumpForce;
 		}
 	}

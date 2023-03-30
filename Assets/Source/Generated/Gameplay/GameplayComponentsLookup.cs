@@ -13,9 +13,10 @@ public static class GameplayComponentsLookup {
     public const int TransformMdl = 2;
     public const int MainCameraTag = 3;
     public const int PlayerCmp = 4;
-    public const int VelocityCmp = 5;
+    public const int GroundCheckCmp = 5;
+    public const int VelocityCmp = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "CameraMdl",
@@ -23,6 +24,7 @@ public static class GameplayComponentsLookup {
         "TransformMdl",
         "MainCameraTag",
         "PlayerCmp",
+        "GroundCheckCmp",
         "VelocityCmp"
     };
 
@@ -32,6 +34,7 @@ public static class GameplayComponentsLookup {
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
         typeof(Ingame.Camerawork.MainCameraTag),
         typeof(Ingame.Player.Common.PlayerCmp),
+        typeof(Ingame.Player.Movement.GroundCheckCmp),
         typeof(Ingame.Player.Movement.VelocityCmp)
     };
 }

@@ -6,6 +6,6 @@ namespace Ingame.Player.Common
 	[Gameplay, Unique]
 	public sealed class PlayerCmp : IComponent
 	{
-		
+		public float currentRotationX;
 	}
 }

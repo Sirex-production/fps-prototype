@@ -9,19 +9,30 @@
 public partial class GameplayContext {
 
     public GameplayEntity playerCmpEntity { get { return GetGroup(GameplayMatcher.PlayerCmp).GetSingleEntity(); } }
+    public Ingame.Player.Common.PlayerCmp playerCmp { get { return playerCmpEntity.playerCmp; } }
+    public bool hasPlayerCmp { get { return playerCmpEntity != null; } }
 
-    public bool isPlayerCmp {
-        get { return playerCmpEntity != null; }
-        set {
-            var entity = playerCmpEntity;
-            if (value != (entity != null)) {
-                if (value) {
-                    CreateEntity().isPlayerCmp = true;
-                } else {
-                    entity.Destroy();
-                }
-            }
+    public GameplayEntity SetPlayerCmp(float newCurrentRotationX) {
+        if (hasPlayerCmp) {
+            throw new Entitas.EntitasException("Could not set PlayerCmp!\n" + this + " already has an entity with Ingame.Player.Common.PlayerCmp!",
+                "You should check if the context already has a playerCmpEntity before setting it or use context.ReplacePlayerCmp().");
         }
+        var entity = CreateEntity();
+        entity.AddPlayerCmp(newCurrentRotationX);
+        return entity;
+    }
+
+    public void ReplacePlayerCmp(float newCurrentRotationX) {
+        var entity = playerCmpEntity;
+        if (entity == null) {
+            entity = SetPlayerCmp(newCurrentRotationX);
+        } else {
+            entity.ReplacePlayerCmp(newCurrentRotationX);
+        }
+    }
+
+    public void RemovePlayerCmp() {
+        playerCmpEntity.Destroy();
     }
 }
 
@@ -35,25 +46,25 @@ public partial class GameplayContext {
 //------------------------------------------------------------------------------
 public partial class GameplayEntity {
 
-    static readonly Ingame.Player.Common.PlayerCmp playerCmpComponent = new Ingame.Player.Common.PlayerCmp();
+    public Ingame.Player.Common.PlayerCmp playerCmp { get { return (Ingame.Player.Common.PlayerCmp)GetComponent(GameplayComponentsLookup.PlayerCmp); } }
+    public bool hasPlayerCmp { get { return HasComponent(GameplayComponentsLookup.PlayerCmp); } }
 
-    public bool isPlayerCmp {
-        get { return HasComponent(GameplayComponentsLookup.PlayerCmp); }
-        set {
-            if (value != isPlayerCmp) {
-                var index = GameplayComponentsLookup.PlayerCmp;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : playerCmpComponent;
+    public void AddPlayerCmp(float newCurrentRotationX) {
+        var index = GameplayComponentsLookup.PlayerCmp;
+        var component = (Ingame.Player.Common.PlayerCmp)CreateComponent(index, typeof(Ingame.Player.Common.PlayerCmp));
+        component.currentRotationX = newCurrentRotationX;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePlayerCmp(float newCurrentRotationX) {
+        var index = GameplayComponentsLookup.PlayerCmp;
+        var component = (Ingame.Player.Common.PlayerCmp)CreateComponent(index, typeof(Ingame.Player.Common.PlayerCmp));
+        component.currentRotationX = newCurrentRotationX;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePlayerCmp() {
+        RemoveComponent(GameplayComponentsLookup.PlayerCmp);
     }
 }
 

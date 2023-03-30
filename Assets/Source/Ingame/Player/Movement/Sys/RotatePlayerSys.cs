@@ -17,7 +17,7 @@ namespace Ingame.Player.Movement
 				GameplayMatcher.TransformMdl,
 				GameplayMatcher.PlayerCmp
 			);
-			var cameraMatcher = GameplayMatcher.AllOf
+			var mainCameraMatcher = GameplayMatcher.AllOf
 			(
 				GameplayMatcher.CameraMdl,
 				GameplayMatcher.MainCameraTag
@@ -25,21 +25,28 @@ namespace Ingame.Player.Movement
 
 			_appContext = Contexts.sharedInstance.app;
 			_playerGroup = gameplayContext.GetGroup(playerMatcher);
-			_mainCameraGroup = gameplayContext.GetGroup(cameraMatcher);
+			_mainCameraGroup = gameplayContext.GetGroup(mainCameraMatcher);
 		}
 
 		public void Execute()
 		{
-			var rotateInput = _appContext.inputCmp.rotateInput;
+			var rotationOffset = _appContext.inputCmp.rotateInput * 30f * Time.deltaTime;
 			
 			var playerEntity = _playerGroup.GetSingleEntity();
 			var mainCameraEntity = _mainCameraGroup.GetSingleEntity();
 			
 			var playerTransform = playerEntity.transformMdl.transform;
+			var playerCmp = playerEntity.playerCmp;
 			var cameraTransform = mainCameraEntity.transformMdl.transform;
-			
-			playerTransform.Rotate(Vector3.up, rotateInput.x * 30f * Time.deltaTime);
-			cameraTransform.Rotate(Vector3.right, -rotateInput.y *  30f * Time.deltaTime);
+			var targetCameraRotation = cameraTransform.localEulerAngles;
+
+			playerCmp.currentRotationX -= rotationOffset.y;
+			playerCmp.currentRotationX = Mathf.Clamp(playerCmp.currentRotationX, -90f, 90f);
+
+			targetCameraRotation.x = playerCmp.currentRotationX;
+
+			cameraTransform.localEulerAngles = targetCameraRotation;
+			playerTransform.Rotate(Vector3.up, rotationOffset.x);
 		}
 	}
 }

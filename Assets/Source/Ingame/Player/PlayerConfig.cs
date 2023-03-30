@@ -13,12 +13,15 @@ namespace Ingame.Player
 		[BoxGroup("Movement")]
 		[SerializeField] [Range(0f, 1f)] private float frictionDumping = .2f;
 		[BoxGroup("Movement")]
+		[SerializeField] [Range(0f, 1f)] private float accelerationDumping = .5f;
+		[BoxGroup("Movement")]
 		[SerializeField] [Min(0f)] private float jumpForce = 10f;
 		[BoxGroup("Movement")]
 		[SerializeField] [Min(0f)] private float gravityForce = 10f;
 
 		public float AccelerationSpeed => accelerationSpeed;
 		public float FrictionDumping => frictionDumping;
+		public float AccelerationDumping => accelerationDumping;
 		public float JumpForce => jumpForce;
 		public float GravityForce => gravityForce;
 	}
