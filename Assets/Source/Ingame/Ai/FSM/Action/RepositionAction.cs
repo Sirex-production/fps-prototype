@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ingame.Ai.FSM.Action
 {
-    public class RepositionAction : ActionBase
+    public abstract class RepositionAction : ActionBase
     {
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {

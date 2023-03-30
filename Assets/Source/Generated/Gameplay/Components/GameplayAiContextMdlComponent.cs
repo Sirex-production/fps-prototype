@@ -11,27 +11,25 @@ public partial class GameplayEntity {
     public Ingame.Ai.Cmp.AiContextMdl aiContextMdl { get { return (Ingame.Ai.Cmp.AiContextMdl)GetComponent(GameplayComponentsLookup.AiContextMdl); } }
     public bool hasAiContextMdl { get { return HasComponent(GameplayComponentsLookup.AiContextMdl); } }
 
-    public void AddAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, Ingame.Ai.FSM.State.StateBase newCurentState, bool newWasStateChanged, int newActionIndex) {
+    public void AddAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Animator newAnimator, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
         var index = GameplayComponentsLookup.AiContextMdl;
         var component = (Ingame.Ai.Cmp.AiContextMdl)CreateComponent(index, typeof(Ingame.Ai.Cmp.AiContextMdl));
         component.navMeshAgent = newNavMeshAgent;
         component.aiConfig = newAiConfig;
         component.player = newPlayer;
-        component.curentState = newCurentState;
-        component.wasStateChanged = newWasStateChanged;
-        component.actionIndex = newActionIndex;
+        component.animator = newAnimator;
+        component.aiStateWrapper = newAiStateWrapper;
         AddComponent(index, component);
     }
 
-    public void ReplaceAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, Ingame.Ai.FSM.State.StateBase newCurentState, bool newWasStateChanged, int newActionIndex) {
+    public void ReplaceAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Animator newAnimator, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
         var index = GameplayComponentsLookup.AiContextMdl;
         var component = (Ingame.Ai.Cmp.AiContextMdl)CreateComponent(index, typeof(Ingame.Ai.Cmp.AiContextMdl));
         component.navMeshAgent = newNavMeshAgent;
         component.aiConfig = newAiConfig;
         component.player = newPlayer;
-        component.curentState = newCurentState;
-        component.wasStateChanged = newWasStateChanged;
-        component.actionIndex = newActionIndex;
+        component.animator = newAnimator;
+        component.aiStateWrapper = newAiStateWrapper;
         ReplaceComponent(index, component);
     }
 

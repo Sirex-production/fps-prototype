@@ -31,6 +31,9 @@ namespace Ingame.Ai.Sys
             {
                 var aiContent = aiEntity.aiContextMdl;
                 aiContent.player = _player;
+                
+                ref var stateWrapper = ref aiContent.aiStateWrapper;
+                stateWrapper.currentState = aiContent.aiConfig.InitState;
             }
         }
         
@@ -39,7 +42,10 @@ namespace Ingame.Ai.Sys
             foreach (var aiEntity in _stateMachineGroup)
             {
                 var aiContent = aiEntity.aiContextMdl;
-                aiContent.curentState = aiContent.curentState.Tick(aiContent);
+                ref var stateWrapper = ref aiContent.aiStateWrapper;
+                
+               // Debug.Log( stateWrapper.currentState.ToString());
+                stateWrapper.currentState = stateWrapper.currentState.Tick(aiContent);
             }
         }
     }

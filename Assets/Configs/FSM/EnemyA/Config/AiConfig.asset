@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AiConfig
   m_EditorClassIdentifier: 
   maxHealth: 1.52
-  initState: {fileID: 11400000, guid: 1239be7a7bebf444b8b4d6a3fc42028b, type: 2}
+  initState: {fileID: 11400000, guid: 3ecdd854dbee22148b71214ec8e0c0eb, type: 2}
   chasingDistance: 2.94
   movementSpeed: 0
   detectionRange: 0

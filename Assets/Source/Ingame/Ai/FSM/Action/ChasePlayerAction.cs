@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Ingame.Ai.FSM.Action
 {
-    [CreateAssetMenu(fileName = "RepositionCloserToPlayerAction", menuName = "Ai/Action/RepositionCloserToPlayer")]
-    public sealed class RepositionCloserToPlayer : RepositionAction
+    [CreateAssetMenu(fileName = "ChaseAction", menuName = "Ai/Action/Chase")]
+    public sealed class ChasePlayerAction : RepositionAction
     {
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {

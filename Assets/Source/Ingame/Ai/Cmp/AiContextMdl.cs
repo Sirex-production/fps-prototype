@@ -11,13 +11,11 @@ namespace Ingame.Ai.Cmp
         //Config 
         public NavMeshAgent navMeshAgent;
         public AiConfig aiConfig;
-            
-        //World
         public Transform player;
+        public Animator animator;
         //FSM
-        public StateBase curentState;
-        public bool wasStateChanged;
-        public int actionIndex;
-
+        public AiStateWrapper aiStateWrapper;
     }
+    
+    
 }

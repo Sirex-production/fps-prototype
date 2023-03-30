@@ -15,7 +15,11 @@ MonoBehaviour:
   stateTransformerCheckers:
   - state: {fileID: 11400000, guid: 57e15637a6c86ec439a2b0afd455c6f2, type: 2}
     conditions:
-    - {fileID: 11400000, guid: 530bb032bc5896e4bb90d3e8158ce4ae, type: 2}
-    logicalOperator: 1
-  actions: []
-  isRepeatable: 0
+    - {fileID: 11400000, guid: c9501b6547b212e4faa505f89ed012b2, type: 2}
+    logicalOperator: 0
+  actions:
+  - {fileID: 11400000, guid: 03f0cf000c374f64894c842a4ba5ef2f, type: 2}
+  - {fileID: 11400000, guid: c4bb3389e5683af439e1924fa88e354f, type: 2}
+  - {fileID: 11400000, guid: 6d28881e8d202a84aa449a4dd59ef541, type: 2}
+  - {fileID: 11400000, guid: 20a2cf21d44ea1f4da596fb24a08c73f, type: 2}
+  isRepeatable: 1

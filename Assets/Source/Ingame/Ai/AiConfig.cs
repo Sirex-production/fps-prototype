@@ -63,5 +63,6 @@ namespace Ingame.Ai
         public float AttackAngle => attackAngle;
 
         public float ChasingDistance => chasingDistance;
+        
     }
 }

@@ -23,20 +23,26 @@ namespace Ingame.Ai.FSM.State
         protected virtual void OnTick(AiContextMdl aiContextMdl)
         {
             var actionSize = actions.Count;
-            for (int i = aiContextMdl.actionIndex; i < actionSize; i++)
+            ref var stateWrapper = ref aiContextMdl.aiStateWrapper;
+            
+            if(isRepeatable && !stateWrapper.isActionStarted )
+                stateWrapper.isActionStarted = true; 
+            
+            for (int i = stateWrapper.actionIndex; i < actionSize; i++)
             {
                 var status = actions[i].Run(aiContextMdl);
-                aiContextMdl.actionIndex = i;
+                stateWrapper.actionIndex = i;
                 
                 if (status == ActionStatus.Running)
                     return;
             }
             
-            aiContextMdl.actionIndex = actions.Count;
-
+            stateWrapper.actionIndex = actions.Count;
+            stateWrapper.isActionStarted = false; 
+            
             if (isRepeatable)
             {
-                aiContextMdl.actionIndex = 0;
+                stateWrapper.actionIndex = 0;
             }
            
         }
@@ -47,6 +53,7 @@ namespace Ingame.Ai.FSM.State
             {
                 if (stateTransformer.ShouldChangeState(aiContextMdl))
                 {
+                    
                     return stateTransformer.State;
                 }
             }
@@ -56,10 +63,12 @@ namespace Ingame.Ai.FSM.State
 
         public StateBase Tick(AiContextMdl aiContextMdl)
         {
-            if (aiContextMdl.wasStateChanged)
+            ref var stateWrapper = ref aiContextMdl.aiStateWrapper;
+            if (stateWrapper.wasStateChanged)
             {
                 OnEnter(aiContextMdl);
-                aiContextMdl.wasStateChanged = false;
+                stateWrapper.wasStateChanged = false;
+                stateWrapper.isActionStarted = true; 
             }
             
             OnTick(aiContextMdl);
@@ -71,8 +80,9 @@ namespace Ingame.Ai.FSM.State
             
             OnExit(aiContextMdl);
             
-            aiContextMdl.wasStateChanged = true;
-            aiContextMdl.actionIndex = 0;
+            stateWrapper.wasStateChanged = true;
+            stateWrapper.isActionStarted = false; 
+            stateWrapper.actionIndex = 0;
             
             return state;
         }
