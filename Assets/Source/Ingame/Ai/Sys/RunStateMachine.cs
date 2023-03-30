@@ -43,8 +43,7 @@ namespace Ingame.Ai.Sys
             {
                 var aiContent = aiEntity.aiContextMdl;
                 ref var stateWrapper = ref aiContent.aiStateWrapper;
-                
-               // Debug.Log( stateWrapper.currentState.ToString());
+        
                 stateWrapper.currentState = stateWrapper.currentState.Tick(aiContent);
             }
         }

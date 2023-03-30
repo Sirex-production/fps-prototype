@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdccf8e16b94485d93b5003ffa0f5de9, type: 3}
-  m_Name: AnimationLockAttackAction
+  m_Script: {fileID: 11500000, guid: 3695ea7083dd454c8e609dd8f476235f, type: 3}
+  m_Name: AttackAnimationAwaitAction
   m_EditorClassIdentifier: 
+  stringValue: A

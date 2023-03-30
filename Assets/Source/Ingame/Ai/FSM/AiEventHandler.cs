@@ -1,19 +1,27 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 namespace Ingame.Ai.FSM
 {
-    public sealed class AiEventHandler : MonoBehaviour
+    public class AiEventHandler : MonoBehaviour
     {
-        private void Attack()
+        [Required] [SerializeField] private Animator animator;
+        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+        private static readonly int IsDodging = Animator.StringToHash("IsDodging");
+
+        private void ReleaseAttackAnimation()
         {
-            GetComponent<Animator>().SetBool("IsAttacking", false);
-            Debug.Log("Attack");
+            animator.SetBool(IsAttacking, false);
         }
 
-        private void Dodge()
+        private void Attack()
         {
-            GetComponent<Animator>().SetBool("IsDodging", false);
-            Debug.Log("Dodge");
+            
+        }
+        
+        private void ReleaseDodgeAnimation()
+        {
+            animator.SetBool(IsDodging, false);
         }
     }
 }

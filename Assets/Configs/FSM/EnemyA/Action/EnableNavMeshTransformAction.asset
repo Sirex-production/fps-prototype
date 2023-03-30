@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73e55aa505b4589ac02586dffef9bd9, type: 3}
-  m_Name: AnimationAwaitAttackAction
+  m_Script: {fileID: 11500000, guid: 50d9cbd10a0240a48dc9a7e87db7d3ad, type: 3}
+  m_Name: EnableNavMeshTransformAction
   m_EditorClassIdentifier: 
+  isEnable: 1

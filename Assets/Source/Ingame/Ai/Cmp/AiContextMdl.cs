@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using Ingame.Ai.FSM.State;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,7 @@ namespace Ingame.Ai.Cmp
         public Animator animator;
         //FSM
         public AiStateWrapper aiStateWrapper;
+        
     }
     
     

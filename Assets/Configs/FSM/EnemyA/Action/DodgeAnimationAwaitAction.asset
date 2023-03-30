@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dbf59fbf7144010ae3cd36d393e2a51, type: 3}
-  m_Name: AnimationLockDodgeAction
+  m_Script: {fileID: 11500000, guid: 3695ea7083dd454c8e609dd8f476235f, type: 3}
+  m_Name: DodgeAnimationAwaitAction
   m_EditorClassIdentifier: 
+  stringValue: A

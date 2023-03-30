@@ -18,6 +18,7 @@ namespace Ingame.Ai
 
         [Required]
         [SerializeField] 
+        [Expandable]
         private AiConfig aiConfig;
         
         [Required]

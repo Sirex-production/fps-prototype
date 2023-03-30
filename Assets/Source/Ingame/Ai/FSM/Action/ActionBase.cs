@@ -1,4 +1,6 @@
-﻿using Ingame.Ai.Cmp;
+﻿using System.Collections.Generic;
+using Ingame.Ai.Cmp;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Ingame.Ai.FSM.Action
@@ -8,6 +10,7 @@ namespace Ingame.Ai.FSM.Action
         Done,
         Running
     }
+    
     public abstract class ActionBase : ScriptableObject
     {
         public abstract ActionStatus Run(AiContextMdl aiContextMdl);

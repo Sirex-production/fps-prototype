@@ -16,10 +16,13 @@ MonoBehaviour:
   - state: {fileID: 11400000, guid: 57e15637a6c86ec439a2b0afd455c6f2, type: 2}
     conditions:
     - {fileID: 11400000, guid: c9501b6547b212e4faa505f89ed012b2, type: 2}
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
     logicalOperator: 0
   actions:
-  - {fileID: 11400000, guid: 03f0cf000c374f64894c842a4ba5ef2f, type: 2}
-  - {fileID: 11400000, guid: c4bb3389e5683af439e1924fa88e354f, type: 2}
-  - {fileID: 11400000, guid: 6d28881e8d202a84aa449a4dd59ef541, type: 2}
-  - {fileID: 11400000, guid: 20a2cf21d44ea1f4da596fb24a08c73f, type: 2}
+  - {fileID: 11400000, guid: c6df79f642ca0db4d97653425e1eda35, type: 2}
+  - {fileID: 11400000, guid: ccb23f06e6ccdd84db67488e4b79258b, type: 2}
+  - {fileID: 11400000, guid: 6101639aa02592e4daad444fc7ee7693, type: 2}
+  - {fileID: 11400000, guid: 0a3ada4a6eba9094e95c3b90406210d0, type: 2}
+  - {fileID: 11400000, guid: 4e26ad900bb1e084f82a70858f687342, type: 2}
+  - {fileID: 11400000, guid: dc3ca1c4c31c6cd4f809a38cf181391a, type: 2}
   isRepeatable: 1
