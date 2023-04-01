@@ -21,11 +21,11 @@ namespace Ingame.Player
 		{
 			var entity = Contexts.sharedInstance.gameplay.CreateEntity();
 			
-			entity.AddTransformMdl(transform);
+			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
 			entity.AddCharacterControllerMdl(characterController);
-			entity.AddVelocityCmp(Vector3.zero);
+			entity.AddVelocityCmp(Vector3.zero, 0f);
 			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius);
-			entity.AddPlayerCmp(0f);
+			entity.isPlayerCmp = true;
 		}
 
 		private void OnDrawGizmos()

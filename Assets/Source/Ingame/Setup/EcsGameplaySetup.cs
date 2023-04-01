@@ -1,6 +1,8 @@
 using System;
 using Entitas;
+using Ingame.Camerawork;
 using Ingame.ConfigProvision;
+using Ingame.Gunplay.Sway;
 using Ingame.Player.Movement;
 using UnityEngine;
 using Zenject;
@@ -21,6 +23,9 @@ namespace Ingame.Setup
 			_fixedUpdateSystems = new Systems();
 			
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
+			_updateSystems.Add(new SwayFeature());
+			_updateSystems.Add(new CameraworkFeature());
+			
 			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
 		}
 

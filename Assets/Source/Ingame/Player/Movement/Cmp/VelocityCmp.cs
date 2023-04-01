@@ -7,5 +7,6 @@ namespace Ingame.Player.Movement
 	public sealed class VelocityCmp : IComponent
 	{
 		public Vector3 currentVelocity;
+		public float timeSpentTraveling;
 	}
 }

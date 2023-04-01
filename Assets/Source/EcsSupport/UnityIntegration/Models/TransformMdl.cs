@@ -7,5 +7,7 @@ namespace EcsSupport.UnityIntegration.Models
 	public sealed class TransformMdl : IComponent
 	{
 		public Transform transform;
+		public Quaternion initialLocalRotation;
+		public Vector3 initialLocalPosition;
 	}
 }

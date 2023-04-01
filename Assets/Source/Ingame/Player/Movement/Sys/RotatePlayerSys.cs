@@ -7,7 +7,7 @@ namespace Ingame.Player.Movement
 	{
 		private readonly AppContext _appContext;
 		private readonly IGroup<GameplayEntity> _playerGroup;
-		private readonly IGroup<GameplayEntity> _mainCameraGroup;
+		private readonly IGroup<GameplayEntity> _hudOriginGroup;
 
 		public RotatePlayerSys()
 		{
@@ -17,15 +17,15 @@ namespace Ingame.Player.Movement
 				GameplayMatcher.TransformMdl,
 				GameplayMatcher.PlayerCmp
 			);
-			var mainCameraMatcher = GameplayMatcher.AllOf
+			var hudOriginMatcher = GameplayMatcher.AllOf
 			(
-				GameplayMatcher.CameraMdl,
-				GameplayMatcher.MainCameraTag
+				GameplayMatcher.TransformMdl,
+				GameplayMatcher.HudOriginCmp
 			);
 
 			_appContext = Contexts.sharedInstance.app;
 			_playerGroup = gameplayContext.GetGroup(playerMatcher);
-			_mainCameraGroup = gameplayContext.GetGroup(mainCameraMatcher);
+			_hudOriginGroup = gameplayContext.GetGroup(hudOriginMatcher);
 		}
 
 		public void Execute()
@@ -33,19 +33,19 @@ namespace Ingame.Player.Movement
 			var rotationOffset = _appContext.inputCmp.rotateInput * 30f * Time.deltaTime;
 			
 			var playerEntity = _playerGroup.GetSingleEntity();
-			var mainCameraEntity = _mainCameraGroup.GetSingleEntity();
-			
+			var hudOriginEntity = _hudOriginGroup.GetSingleEntity();
+
 			var playerTransform = playerEntity.transformMdl.transform;
-			var playerCmp = playerEntity.playerCmp;
-			var cameraTransform = mainCameraEntity.transformMdl.transform;
-			var targetCameraRotation = cameraTransform.localEulerAngles;
+			var hudOriginCmp = hudOriginEntity.hudOriginCmp;
+			var hudOriginTransform = hudOriginEntity.transformMdl.transform;
+			var targetHudOriginRotation = hudOriginTransform.localEulerAngles;
 
-			playerCmp.currentRotationX -= rotationOffset.y;
-			playerCmp.currentRotationX = Mathf.Clamp(playerCmp.currentRotationX, -90f, 90f);
+			hudOriginCmp.currentRotationX -= rotationOffset.y;
+			hudOriginCmp.currentRotationX = Mathf.Clamp(hudOriginCmp.currentRotationX, -90f, 90f);
 
-			targetCameraRotation.x = playerCmp.currentRotationX;
+			targetHudOriginRotation.x = hudOriginCmp.currentRotationX;
 
-			cameraTransform.localEulerAngles = targetCameraRotation;
+			hudOriginTransform.localEulerAngles = targetHudOriginRotation;
 			playerTransform.Rotate(Vector3.up, rotationOffset.x);
 		}
 	}

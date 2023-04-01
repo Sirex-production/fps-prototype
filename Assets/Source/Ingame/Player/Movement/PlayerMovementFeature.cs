@@ -10,6 +10,7 @@ namespace Ingame.Player.Movement
 			Add(new ApplyGravitySys(configProvider));
 			Add(new ApplyFrictionSys(configProvider));
 			Add(new RotatePlayerSys());
+			Add(new UpdateTravelTimeSystem());
 		}
 	}
 }

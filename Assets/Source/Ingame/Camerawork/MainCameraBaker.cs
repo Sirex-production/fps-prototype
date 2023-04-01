@@ -14,7 +14,7 @@ namespace Ingame.Camerawork
 			var gameplayContext = Contexts.sharedInstance.gameplay;
 			var entity = gameplayContext.CreateEntity();
 			
-			entity.AddTransformMdl(mainCamera.transform);
+			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
 			entity.AddCameraMdl(mainCamera);
 			entity.hasMainCameraTag = true;
 		}

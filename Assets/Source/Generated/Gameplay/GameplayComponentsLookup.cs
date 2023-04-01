@@ -12,19 +12,25 @@ public static class GameplayComponentsLookup {
     public const int CharacterControllerMdl = 1;
     public const int TransformMdl = 2;
     public const int MainCameraTag = 3;
-    public const int PlayerCmp = 4;
-    public const int GroundCheckCmp = 5;
-    public const int VelocityCmp = 6;
+    public const int InHangsTag = 4;
+    public const int SwayCmp = 5;
+    public const int PlayerCmp = 6;
+    public const int GroundCheckCmp = 7;
+    public const int HudOriginCmp = 8;
+    public const int VelocityCmp = 9;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "CameraMdl",
         "CharacterControllerMdl",
         "TransformMdl",
         "MainCameraTag",
+        "InHangsTag",
+        "SwayCmp",
         "PlayerCmp",
         "GroundCheckCmp",
+        "HudOriginCmp",
         "VelocityCmp"
     };
 
@@ -33,8 +39,11 @@ public static class GameplayComponentsLookup {
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
         typeof(Ingame.Camerawork.MainCameraTag),
+        typeof(Ingame.Gunplay.Common.InHangsTag),
+        typeof(Ingame.Gunplay.Sway.SwayCmp),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.GroundCheckCmp),
+        typeof(Ingame.Player.Movement.HudOriginCmp),
         typeof(Ingame.Player.Movement.VelocityCmp)
     };
 }

@@ -11,17 +11,21 @@ public partial class GameplayEntity {
     public EcsSupport.UnityIntegration.Models.TransformMdl transformMdl { get { return (EcsSupport.UnityIntegration.Models.TransformMdl)GetComponent(GameplayComponentsLookup.TransformMdl); } }
     public bool hasTransformMdl { get { return HasComponent(GameplayComponentsLookup.TransformMdl); } }
 
-    public void AddTransformMdl(UnityEngine.Transform newTransform) {
+    public void AddTransformMdl(UnityEngine.Transform newTransform, UnityEngine.Quaternion newInitialLocalRotation, UnityEngine.Vector3 newInitialLocalPosition) {
         var index = GameplayComponentsLookup.TransformMdl;
         var component = (EcsSupport.UnityIntegration.Models.TransformMdl)CreateComponent(index, typeof(EcsSupport.UnityIntegration.Models.TransformMdl));
         component.transform = newTransform;
+        component.initialLocalRotation = newInitialLocalRotation;
+        component.initialLocalPosition = newInitialLocalPosition;
         AddComponent(index, component);
     }
 
-    public void ReplaceTransformMdl(UnityEngine.Transform newTransform) {
+    public void ReplaceTransformMdl(UnityEngine.Transform newTransform, UnityEngine.Quaternion newInitialLocalRotation, UnityEngine.Vector3 newInitialLocalPosition) {
         var index = GameplayComponentsLookup.TransformMdl;
         var component = (EcsSupport.UnityIntegration.Models.TransformMdl)CreateComponent(index, typeof(EcsSupport.UnityIntegration.Models.TransformMdl));
         component.transform = newTransform;
+        component.initialLocalRotation = newInitialLocalRotation;
+        component.initialLocalPosition = newInitialLocalPosition;
         ReplaceComponent(index, component);
     }
 
