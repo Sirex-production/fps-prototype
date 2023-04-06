@@ -6,6 +6,7 @@ namespace Ingame.Gunplay.Sway
 		{
 			Add(new SwayWeaponSystem());
 			Add(new MoveWeaponDueToBobbingSystem());
+			Add(new RotateWeaponDueToRecoilSystem());
 		}
 	}
 }

@@ -158,6 +158,15 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""9aea2577-ef44-43b3-9e1a-605346c68849"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -182,6 +191,17 @@ namespace Ingame.Input
                     ""action"": ""PrevWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd8d47f2-1f18-4178-90bc-ca96ea79e7e5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ namespace Ingame.Input
             m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
             m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
             m_Combat_PrevWeapon = m_Combat.FindAction("PrevWeapon", throwIfNotFound: true);
+            m_Combat_Shoot = m_Combat.FindAction("Shoot", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -322,12 +343,14 @@ namespace Ingame.Input
         private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
         private readonly InputAction m_Combat_NextWeapon;
         private readonly InputAction m_Combat_PrevWeapon;
+        private readonly InputAction m_Combat_Shoot;
         public struct CombatActions
         {
             private @InputActions m_Wrapper;
             public CombatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @NextWeapon => m_Wrapper.m_Combat_NextWeapon;
             public InputAction @PrevWeapon => m_Wrapper.m_Combat_PrevWeapon;
+            public InputAction @Shoot => m_Wrapper.m_Combat_Shoot;
             public InputActionMap Get() { return m_Wrapper.m_Combat; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -343,6 +366,9 @@ namespace Ingame.Input
                 @PrevWeapon.started += instance.OnPrevWeapon;
                 @PrevWeapon.performed += instance.OnPrevWeapon;
                 @PrevWeapon.canceled += instance.OnPrevWeapon;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
 
             private void UnregisterCallbacks(ICombatActions instance)
@@ -353,6 +379,9 @@ namespace Ingame.Input
                 @PrevWeapon.started -= instance.OnPrevWeapon;
                 @PrevWeapon.performed -= instance.OnPrevWeapon;
                 @PrevWeapon.canceled -= instance.OnPrevWeapon;
+                @Shoot.started -= instance.OnShoot;
+                @Shoot.performed -= instance.OnShoot;
+                @Shoot.canceled -= instance.OnShoot;
             }
 
             public void RemoveCallbacks(ICombatActions instance)
@@ -380,6 +409,7 @@ namespace Ingame.Input
         {
             void OnNextWeapon(InputAction.CallbackContext context);
             void OnPrevWeapon(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
         }
     }
 }

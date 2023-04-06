@@ -30,7 +30,7 @@ namespace Ingame.Gunplay.Sway
 				var swayCmp = entity.swayCmp;
 				var destinationLocalRotation = swayTransformMdl.initialLocalRotation * GetSwayDeltaRotationDueToInput(rotateInput, swayCmp);
 				var destinationLocalPosition = swayTransformMdl.initialLocalPosition + GetSwayDeltaMovementDueToInput(playerVelocity, swayCmp);
-				
+
 				swayTransformMdl.transform.localRotation = Quaternion.Slerp
 					(
 						swayTransformMdl.transform.localRotation,

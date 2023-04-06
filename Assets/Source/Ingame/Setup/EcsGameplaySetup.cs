@@ -1,6 +1,8 @@
 using Entitas;
 using Ingame.Camerawork;
 using Ingame.ConfigProvision;
+using Ingame.Gunplay.ArrowGun;
+using Ingame.Gunplay.Projectile;
 using Ingame.Gunplay.Sway;
 using Ingame.Gunplay.Sway.WeaponSwitch;
 using Ingame.Player.Movement;
@@ -16,7 +18,7 @@ namespace Ingame.Setup
 		private Systems _fixedUpdateSystems;
 
 		[Inject]
-		private void Construct(ConfigProvider configProvider)
+		private void Construct(DiContainer diContainer, ConfigProvider configProvider)
 		{
 			_gameplayContext = Contexts.sharedInstance.gameplay;
 			_updateSystems = new Systems();
@@ -24,8 +26,11 @@ namespace Ingame.Setup
 			
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
+			_updateSystems.Add(new ArrowGunFeature(diContainer));
+			_updateSystems.Add(new MoveProjectileSystem());
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
+			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));
 			
 			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
 		}

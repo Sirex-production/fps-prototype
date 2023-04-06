@@ -12,35 +12,71 @@ public static class GameplayComponentsLookup {
     public const int CameraMdl = 1;
     public const int CharacterControllerMdl = 2;
     public const int TransformMdl = 3;
-    public const int MainCameraTag = 4;
-    public const int InHangsTag = 5;
-    public const int SwayCmp = 6;
-    public const int WeaponHolderCmp = 7;
-    public const int AwaitingWeaponSwitchReq = 8;
-    public const int WeaponSwitchEvent = 9;
-    public const int PlayerCmp = 10;
-    public const int GroundCheckCmp = 11;
-    public const int HudOriginCmp = 12;
-    public const int VelocityCmp = 13;
-    public const int WeaponSwitchEventListener = 14;
+    public const int OnCollisionEnterEvent = 4;
+    public const int OnCollisionExitEvent = 5;
+    public const int OnCollisionStayEvent = 6;
+    public const int OnTriggerEnterEvent = 7;
+    public const int OnTriggerExitEvent = 8;
+    public const int OnTriggerStayEvent = 9;
+    public const int MainCameraTag = 10;
+    public const int ArrowCmp = 11;
+    public const int ArrowSpawnerCmp = 12;
+    public const int InHangsTag = 13;
+    public const int ShotPerformedEvent = 14;
+    public const int ProjectileCmp = 15;
+    public const int RecoilCmp = 16;
+    public const int SwayCmp = 17;
+    public const int WeaponHolderCmp = 18;
+    public const int AwaitingWeaponSwitchReq = 19;
+    public const int WeaponSwitchEvent = 20;
+    public const int FreeToReuseTag = 21;
+    public const int PlayerCmp = 22;
+    public const int GroundCheckCmp = 23;
+    public const int HudOriginCmp = 24;
+    public const int VelocityCmp = 25;
+    public const int OnCollisionEnterEventListener = 26;
+    public const int OnCollisionExitEventListener = 27;
+    public const int OnCollisionStayEventListener = 28;
+    public const int OnTriggerEnterEventListener = 29;
+    public const int OnTriggerExitEventListener = 30;
+    public const int OnTriggerStayEventListener = 31;
+    public const int WeaponSwitchEventListener = 32;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
         "CameraMdl",
         "CharacterControllerMdl",
         "TransformMdl",
+        "OnCollisionEnterEvent",
+        "OnCollisionExitEvent",
+        "OnCollisionStayEvent",
+        "OnTriggerEnterEvent",
+        "OnTriggerExitEvent",
+        "OnTriggerStayEvent",
         "MainCameraTag",
+        "ArrowCmp",
+        "ArrowSpawnerCmp",
         "InHangsTag",
+        "ShotPerformedEvent",
+        "ProjectileCmp",
+        "RecoilCmp",
         "SwayCmp",
         "WeaponHolderCmp",
         "AwaitingWeaponSwitchReq",
         "WeaponSwitchEvent",
+        "FreeToReuseTag",
         "PlayerCmp",
         "GroundCheckCmp",
         "HudOriginCmp",
         "VelocityCmp",
+        "OnCollisionEnterEventListener",
+        "OnCollisionExitEventListener",
+        "OnCollisionStayEventListener",
+        "OnTriggerEnterEventListener",
+        "OnTriggerExitEventListener",
+        "OnTriggerStayEventListener",
         "WeaponSwitchEventListener"
     };
 
@@ -49,16 +85,34 @@ public static class GameplayComponentsLookup {
         typeof(EcsSupport.UnityIntegration.Models.CameraMdl),
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionEnterEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionExitEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionStayEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerEnterEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerExitEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerStayEvent),
         typeof(Ingame.Camerawork.MainCameraTag),
+        typeof(Ingame.Gunplay.ArrowGun.ArrowCmp),
+        typeof(Ingame.Gunplay.ArrowGun.ArrowSpawnerCmp),
         typeof(Ingame.Gunplay.Common.InHangsTag),
+        typeof(Ingame.Gunplay.Common.ShotPerformedEvent),
+        typeof(Ingame.Gunplay.Projectile.ProjectileCmp),
+        typeof(Ingame.Gunplay.Sway.RecoilCmp),
         typeof(Ingame.Gunplay.Sway.SwayCmp),
         typeof(Ingame.Gunplay.Sway.WeaponSwitch.WeaponHolderCmp),
         typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq),
         typeof(Ingame.Gunplay.WeaponSwitch.WeaponSwitchEvent),
+        typeof(Ingame.ObjectPooling.FreeToReuseTag),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.GroundCheckCmp),
         typeof(Ingame.Player.Movement.HudOriginCmp),
         typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(OnCollisionEnterEventListenerComponent),
+        typeof(OnCollisionExitEventListenerComponent),
+        typeof(OnCollisionStayEventListenerComponent),
+        typeof(OnTriggerEnterEventListenerComponent),
+        typeof(OnTriggerExitEventListenerComponent),
+        typeof(OnTriggerStayEventListenerComponent),
         typeof(WeaponSwitchEventListenerComponent)
     };
 }

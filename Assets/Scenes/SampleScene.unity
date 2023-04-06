@@ -392,7 +392,7 @@ MonoBehaviour:
   attachedAnimator: {fileID: 308281414}
   weaponsEntities:
   - {fileID: 564522338}
-  - {fileID: 621841627}
+  - {fileID: 621841629}
 --- !u!95 &308281414
 Animator:
   serializedVersion: 5
@@ -837,7 +837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &564522336
 Transform:
   m_ObjectHideFlags: 0
@@ -972,15 +972,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621841625}
-  - component: {fileID: 621841626}
-  - component: {fileID: 621841627}
+  - component: {fileID: 621841628}
+  - component: {fileID: 621841629}
   m_Layer: 7
   m_Name: Weapon - Arbalet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &621841625
 Transform:
   m_ObjectHideFlags: 0
@@ -995,10 +995,11 @@ Transform:
   m_Children:
   - {fileID: 2009777991}
   - {fileID: 1880421714}
+  - {fileID: 837857268}
   m_Father: {fileID: 308281412}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &621841626
+--- !u!114 &621841628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1007,10 +1008,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 621841624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76fad4a652e749c6b1d5623bfd5e9e2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 08469f301ad1498ea2a58cb6ac8f85a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayEntityReference: {fileID: 621841627}
+  gameplayEntityReference: {fileID: 621841629}
   bobbingAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -1046,9 +1047,125 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotationDumping: 0.0001
   movementDumping: 0.0001
-  rotationSwayForce: 0.5
+  rotationSwayForce: 1
   movementSwayForce: 0.5
---- !u!114 &621841627
+  recoilCurveX:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.002166748
+      value: -0.0024328232
+      inSlope: 0.13346174
+      outSlope: 0.13346174
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.17051814
+    - serializedVersion: 3
+      time: 0.4963259
+      value: -0.5046532
+      inSlope: -0.010938068
+      outSlope: -0.010938068
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0007684
+      value: -0.0005120039
+      inSlope: -0.10541577
+      outSlope: -0.10541577
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24703555
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilCurveY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.005104065
+      value: 0.0015563965
+      inSlope: -0.02958759
+      outSlope: -0.02958759
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.61825645
+    - serializedVersion: 3
+      time: 0.18402831
+      value: -0.06214881
+      inSlope: 0.06295438
+      outSlope: 0.06295438
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3055649
+    - serializedVersion: 3
+      time: 0.49608088
+      value: 0.19885656
+      inSlope: 0.026195949
+      outSlope: 0.026195949
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.31284478
+    - serializedVersion: 3
+      time: 0.8217801
+      value: -0.060275137
+      inSlope: 0.010323861
+      outSlope: 0.010323861
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8305697
+    - serializedVersion: 3
+      time: 0.9997074
+      value: -0.00045039668
+      inSlope: -1.0270799
+      outSlope: -1.0270799
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.335749
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilCurveZ:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0005645752
+      inSlope: 0.0023878738
+      outSlope: 0.0023878738
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9920654
+      value: 0.0029335022
+      inSlope: 0.0023878738
+      outSlope: 0.0023878738
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  positionDumping: 0.01
+  recoilStabilizationDumping: 0.1
+  recoilGain: 0.2
+  recoilStrength: 50
+  spawnOriginTransform: {fileID: 837857268}
+  arrowProjectilePrefab: {fileID: 257478083326485117, guid: c672c43b84ac3814f8bf1e51000992d1,
+    type: 3}
+  pauseBetweenShots: 0.05
+--- !u!114 &621841629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1108,6 +1225,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &837857267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 837857268}
+  m_Layer: 7
+  m_Name: Transform - ArrowSpawnOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &837857268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837857267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.253, z: 0.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621841625}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050299419
 GameObject:

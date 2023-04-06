@@ -15,5 +15,6 @@ namespace Ingame.Input
 		//Combat
 		public bool nextWeaponInput;
 		public bool prevWeaponInput;
+		public bool shootInput;
 	}
 }

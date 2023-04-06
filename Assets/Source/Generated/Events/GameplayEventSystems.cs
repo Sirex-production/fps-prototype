@@ -9,6 +9,12 @@
 public sealed class GameplayEventSystems : Feature {
 
     public GameplayEventSystems(Contexts contexts) {
+        Add(new OnCollisionEnterEventEventSystem(contexts)); // priority: 0
+        Add(new OnCollisionExitEventEventSystem(contexts)); // priority: 0
+        Add(new OnCollisionStayEventEventSystem(contexts)); // priority: 0
+        Add(new OnTriggerEnterEventEventSystem(contexts)); // priority: 0
+        Add(new OnTriggerExitEventEventSystem(contexts)); // priority: 0
+        Add(new OnTriggerStayEventEventSystem(contexts)); // priority: 0
         Add(new WeaponSwitchEventEventSystem(contexts)); // priority: 0
     }
 }

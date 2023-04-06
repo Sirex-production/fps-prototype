@@ -1,14 +1,12 @@
 using EcsSupport.UnityIntegration;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Ingame.Gunplay.Sway
 {
 	public sealed class WeaponBaker : MonoBehaviour
 	{
-		[FormerlySerializedAs("entityReference")]
 		[BoxGroup("Entity reference")]
 		[Required, SerializeField] [Min(0f)] private GameplayEntityReference gameplayEntityReference;
 		

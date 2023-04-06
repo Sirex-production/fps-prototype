@@ -21,7 +21,7 @@ namespace Ingame.Input
 
 		public void Initialize()
 		{
-			_appContext.CreateEntity().AddInputCmp(Vector2.zero, Vector2.zero, false, false, false);
+			_appContext.CreateEntity().AddInputCmp(Vector2.zero, Vector2.zero, false, false, false, false);
 		}
 		
 		public void Execute()
@@ -50,9 +50,11 @@ namespace Ingame.Input
 		{
 			bool nextWeaponInput = _inputActions.Combat.NextWeapon.WasPerformedThisFrame();
 			bool prevWeaponInput = _inputActions.Combat.PrevWeapon.WasPerformedThisFrame();
+			bool shootInput = _inputActions.Combat.Shoot.WasPressedThisFrame();
 
 			inputCmp.nextWeaponInput = nextWeaponInput;
 			inputCmp.prevWeaponInput = prevWeaponInput;
+			inputCmp.shootInput = shootInput;
 		}
 	}
 }
