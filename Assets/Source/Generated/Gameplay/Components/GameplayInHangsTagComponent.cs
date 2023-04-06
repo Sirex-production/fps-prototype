@@ -10,10 +10,10 @@ public partial class GameplayEntity {
 
     static readonly Ingame.Gunplay.Common.InHangsTag inHangsTagComponent = new Ingame.Gunplay.Common.InHangsTag();
 
-    public bool isInHangsTag {
+    public bool hasInHangsTag {
         get { return HasComponent(GameplayComponentsLookup.InHangsTag); }
         set {
-            if (value != isInHangsTag) {
+            if (value != hasInHangsTag) {
                 var index = GameplayComponentsLookup.InHangsTag;
                 if (value) {
                     var componentPool = GetComponentPool(index);

@@ -8,42 +8,57 @@
 //------------------------------------------------------------------------------
 public static class GameplayComponentsLookup {
 
-    public const int CameraMdl = 0;
-    public const int CharacterControllerMdl = 1;
-    public const int TransformMdl = 2;
-    public const int MainCameraTag = 3;
-    public const int InHangsTag = 4;
-    public const int SwayCmp = 5;
-    public const int PlayerCmp = 6;
-    public const int GroundCheckCmp = 7;
-    public const int HudOriginCmp = 8;
-    public const int VelocityCmp = 9;
+    public const int AnimatorMdl = 0;
+    public const int CameraMdl = 1;
+    public const int CharacterControllerMdl = 2;
+    public const int TransformMdl = 3;
+    public const int MainCameraTag = 4;
+    public const int InHangsTag = 5;
+    public const int SwayCmp = 6;
+    public const int WeaponHolderCmp = 7;
+    public const int AwaitingWeaponSwitchReq = 8;
+    public const int WeaponSwitchEvent = 9;
+    public const int PlayerCmp = 10;
+    public const int GroundCheckCmp = 11;
+    public const int HudOriginCmp = 12;
+    public const int VelocityCmp = 13;
+    public const int WeaponSwitchEventListener = 14;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
+        "AnimatorMdl",
         "CameraMdl",
         "CharacterControllerMdl",
         "TransformMdl",
         "MainCameraTag",
         "InHangsTag",
         "SwayCmp",
+        "WeaponHolderCmp",
+        "AwaitingWeaponSwitchReq",
+        "WeaponSwitchEvent",
         "PlayerCmp",
         "GroundCheckCmp",
         "HudOriginCmp",
-        "VelocityCmp"
+        "VelocityCmp",
+        "WeaponSwitchEventListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(EcsSupport.UnityIntegration.Models.AnimatorMdl),
         typeof(EcsSupport.UnityIntegration.Models.CameraMdl),
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
         typeof(Ingame.Camerawork.MainCameraTag),
         typeof(Ingame.Gunplay.Common.InHangsTag),
         typeof(Ingame.Gunplay.Sway.SwayCmp),
+        typeof(Ingame.Gunplay.Sway.WeaponSwitch.WeaponHolderCmp),
+        typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq),
+        typeof(Ingame.Gunplay.WeaponSwitch.WeaponSwitchEvent),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.GroundCheckCmp),
         typeof(Ingame.Player.Movement.HudOriginCmp),
-        typeof(Ingame.Player.Movement.VelocityCmp)
+        typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(WeaponSwitchEventListenerComponent)
     };
 }

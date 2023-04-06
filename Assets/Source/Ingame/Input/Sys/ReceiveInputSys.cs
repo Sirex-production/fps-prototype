@@ -21,14 +21,17 @@ namespace Ingame.Input
 
 		public void Initialize()
 		{
-			_appContext.CreateEntity().AddInputCmp(Vector2.zero, Vector2.zero, false);
+			_appContext.CreateEntity().AddInputCmp(Vector2.zero, Vector2.zero, false, false, false);
 		}
 		
 		public void Execute()
 		{
 			foreach (var entity in _inputGroup)
 			{
-				ReceiveMovementInput(entity.inputCmp);
+				var inputCmp = entity.inputCmp;
+				
+				ReceiveMovementInput(inputCmp);
+				ReceiveCombatInput(inputCmp);
 			}
 		}
 
@@ -41,6 +44,15 @@ namespace Ingame.Input
 			inputCmp.moveInput = moveInput;
 			inputCmp.rotateInput = rotateInput;
 			inputCmp.jumpInput = jumpInput;
+		}
+
+		private void ReceiveCombatInput(InputCmp inputCmp)
+		{
+			bool nextWeaponInput = _inputActions.Combat.NextWeapon.WasPerformedThisFrame();
+			bool prevWeaponInput = _inputActions.Combat.PrevWeapon.WasPerformedThisFrame();
+
+			inputCmp.nextWeaponInput = nextWeaponInput;
+			inputCmp.prevWeaponInput = prevWeaponInput;
 		}
 	}
 }

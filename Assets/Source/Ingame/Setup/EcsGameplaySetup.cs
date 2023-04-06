@@ -1,8 +1,8 @@
-using System;
 using Entitas;
 using Ingame.Camerawork;
 using Ingame.ConfigProvision;
 using Ingame.Gunplay.Sway;
+using Ingame.Gunplay.Sway.WeaponSwitch;
 using Ingame.Player.Movement;
 using UnityEngine;
 using Zenject;
@@ -23,6 +23,7 @@ namespace Ingame.Setup
 			_fixedUpdateSystems = new Systems();
 			
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
+			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
 			
@@ -31,6 +32,9 @@ namespace Ingame.Setup
 
 		private void Awake()
 		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+			
 			_updateSystems.Initialize();
 			_fixedUpdateSystems.Initialize();
 		}

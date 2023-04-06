@@ -136,6 +136,54 @@ namespace Ingame.Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Combat"",
+            ""id"": ""d670d018-e7d2-4ad8-8a44-f184692e7b52"",
+            ""actions"": [
+                {
+                    ""name"": ""NextWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""a1bb1036-1bf4-4483-924e-507a54f7cb1e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PrevWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""58b3ab39-1002-43fc-8a6c-23d155903872"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7520597d-b06e-4619-88c3-dab265b58a2c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d50e359-c5f0-4ef1-8168-8dc6fc3cf324"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -145,6 +193,10 @@ namespace Ingame.Input
             m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
             m_Movement_Rotate = m_Movement.FindAction("Rotate", throwIfNotFound: true);
             m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+            // Combat
+            m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
+            m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
+            m_Combat_PrevWeapon = m_Combat.FindAction("PrevWeapon", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -264,11 +316,70 @@ namespace Ingame.Input
             }
         }
         public MovementActions @Movement => new MovementActions(this);
+
+        // Combat
+        private readonly InputActionMap m_Combat;
+        private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
+        private readonly InputAction m_Combat_NextWeapon;
+        private readonly InputAction m_Combat_PrevWeapon;
+        public struct CombatActions
+        {
+            private @InputActions m_Wrapper;
+            public CombatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @NextWeapon => m_Wrapper.m_Combat_NextWeapon;
+            public InputAction @PrevWeapon => m_Wrapper.m_Combat_PrevWeapon;
+            public InputActionMap Get() { return m_Wrapper.m_Combat; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(CombatActions set) { return set.Get(); }
+            public void AddCallbacks(ICombatActions instance)
+            {
+                if (instance == null || m_Wrapper.m_CombatActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_CombatActionsCallbackInterfaces.Add(instance);
+                @NextWeapon.started += instance.OnNextWeapon;
+                @NextWeapon.performed += instance.OnNextWeapon;
+                @NextWeapon.canceled += instance.OnNextWeapon;
+                @PrevWeapon.started += instance.OnPrevWeapon;
+                @PrevWeapon.performed += instance.OnPrevWeapon;
+                @PrevWeapon.canceled += instance.OnPrevWeapon;
+            }
+
+            private void UnregisterCallbacks(ICombatActions instance)
+            {
+                @NextWeapon.started -= instance.OnNextWeapon;
+                @NextWeapon.performed -= instance.OnNextWeapon;
+                @NextWeapon.canceled -= instance.OnNextWeapon;
+                @PrevWeapon.started -= instance.OnPrevWeapon;
+                @PrevWeapon.performed -= instance.OnPrevWeapon;
+                @PrevWeapon.canceled -= instance.OnPrevWeapon;
+            }
+
+            public void RemoveCallbacks(ICombatActions instance)
+            {
+                if (m_Wrapper.m_CombatActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ICombatActions instance)
+            {
+                foreach (var item in m_Wrapper.m_CombatActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_CombatActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public CombatActions @Combat => new CombatActions(this);
         public interface IMovementActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+        }
+        public interface ICombatActions
+        {
+            void OnNextWeapon(InputAction.CallbackContext context);
+            void OnPrevWeapon(InputAction.CallbackContext context);
         }
     }
 }
