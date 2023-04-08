@@ -15,8 +15,8 @@ MonoBehaviour:
   accelerationSpeed: 100
   frictionDumping: 0.000001
   accelerationDumping: 0.3
-  jumpForce: 10
+  jumpForce: 11
   gravityForce: 30
-  dashDuration: 0.1
+  dashDuration: 0.12
   dashSpeed: 50
   dashCooldown: 1

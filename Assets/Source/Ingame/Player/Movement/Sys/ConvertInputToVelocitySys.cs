@@ -40,9 +40,13 @@ namespace Ingame.Player.Movement
 
 			velocityCmp.currentVelocity = Vector3.Lerp(velocityCmp.currentVelocity, velocityCmp.currentVelocity + movementVector * _playerConfig.AccelerationSpeed, 1f - Mathf.Pow(_playerConfig.AccelerationDumping, Time.deltaTime));
 
-			if (!inputCmp.jumpInput || !groundCheckCmp.IsGrounded())
+			if (!inputCmp.jumpInput)
 				return;
 
+			if(!groundCheckCmp.IsGrounded() && !playerEntity.hasCanPerformDoubleJumpTag)
+				return;
+
+			playerEntity.hasCanPerformDoubleJumpTag = false;
 			playerEntity.velocityCmp.currentVelocity = Vector3.up * _playerConfig.JumpForce;
 		}
 	}

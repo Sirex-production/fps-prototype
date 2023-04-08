@@ -6,6 +6,7 @@ namespace Ingame.Player.Movement
 	{
 		public PlayerMovementFeature(ConfigProvider configProvider)
 		{
+			Add(new CheckIfDoubleJumpCanBePerformedSystem());
 			Add(new ConvertInputToVelocitySys(configProvider));
 			Add(new ConvertInputToDashSystem(configProvider));
 			Add(new ApplyGravitySys(configProvider));

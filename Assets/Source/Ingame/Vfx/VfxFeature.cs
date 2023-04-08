@@ -1,3 +1,5 @@
+using Ingame.Vfx.Dash;
+
 namespace Ingame.Vfx.ShotTrail
 {
 	public sealed class VfxFeature : Feature
@@ -5,6 +7,7 @@ namespace Ingame.Vfx.ShotTrail
 		public VfxFeature()
 		{
 			Add(new DrawShotTrailSystem());
+			Add(new ApplyDashPostProcessingWileDashingSystem());
 		}
 	}
 }

@@ -11,21 +11,23 @@ public partial class GameplayEntity {
     public Ingame.Player.Movement.GroundCheckCmp groundCheckCmp { get { return (Ingame.Player.Movement.GroundCheckCmp)GetComponent(GameplayComponentsLookup.GroundCheckCmp); } }
     public bool hasGroundCheckCmp { get { return HasComponent(GameplayComponentsLookup.GroundCheckCmp); } }
 
-    public void AddGroundCheckCmp(UnityEngine.Transform newRaycastOrigin, float newDistance, float newSphereCastRadius) {
+    public void AddGroundCheckCmp(UnityEngine.Transform newRaycastOrigin, float newDistance, float newSphereCastRadius, bool newWasGroundedPreviousFrame) {
         var index = GameplayComponentsLookup.GroundCheckCmp;
         var component = (Ingame.Player.Movement.GroundCheckCmp)CreateComponent(index, typeof(Ingame.Player.Movement.GroundCheckCmp));
         component.raycastOrigin = newRaycastOrigin;
         component.distance = newDistance;
         component.sphereCastRadius = newSphereCastRadius;
+        component.wasGroundedPreviousFrame = newWasGroundedPreviousFrame;
         AddComponent(index, component);
     }
 
-    public void ReplaceGroundCheckCmp(UnityEngine.Transform newRaycastOrigin, float newDistance, float newSphereCastRadius) {
+    public void ReplaceGroundCheckCmp(UnityEngine.Transform newRaycastOrigin, float newDistance, float newSphereCastRadius, bool newWasGroundedPreviousFrame) {
         var index = GameplayComponentsLookup.GroundCheckCmp;
         var component = (Ingame.Player.Movement.GroundCheckCmp)CreateComponent(index, typeof(Ingame.Player.Movement.GroundCheckCmp));
         component.raycastOrigin = newRaycastOrigin;
         component.distance = newDistance;
         component.sphereCastRadius = newSphereCastRadius;
+        component.wasGroundedPreviousFrame = newWasGroundedPreviousFrame;
         ReplaceComponent(index, component);
     }
 

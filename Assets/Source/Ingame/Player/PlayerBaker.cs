@@ -25,7 +25,7 @@ namespace Ingame.Player
 			entity.AddDashingCmp(Vector3.zero, 0f, 0f);
 			entity.AddCharacterControllerMdl(characterController);
 			entity.AddVelocityCmp(Vector3.zero, 0f);
-			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius);
+			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius, false);
 			entity.hasPlayerCmp = true;
 		}
 
