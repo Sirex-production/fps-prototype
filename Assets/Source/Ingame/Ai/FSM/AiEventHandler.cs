@@ -1,27 +1,41 @@
-﻿using NaughtyAttributes;
+﻿using System;
+using System.Collections.Generic;
+using Ingame.Ai.FSM.AiAttackConfig;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Ingame.Ai.FSM
 {
-    public class AiEventHandler : MonoBehaviour
+    [RequireComponent(typeof(AiBaker))]
+    public sealed class AiEventHandler : MonoBehaviour
     {
-        [Required] [SerializeField] private Animator animator;
-        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
-        private static readonly int IsDodging = Animator.StringToHash("IsDodging");
+        [Required] 
+        [SerializeField]
+        private AiAttackBaseConfig attackPattern;
 
-        private void ReleaseAttackAnimation()
+        [Required]
+        [SerializeField]
+        private AiBaker aiBaker;
+        
+        private readonly Dictionary<string, int> _cashedAnimationToHash = new ();
+        private Animator _animator;
+
+        private void Awake()
         {
-            animator.SetBool(IsAttacking, false);
+            _animator = aiBaker.Animator;
+        }
+
+        private void ReleaseAnimation(string animationName)
+        {
+            if(!_cashedAnimationToHash.ContainsKey(animationName))
+                _cashedAnimationToHash.Add(animationName, Animator.StringToHash(animationName));
+            
+            _animator.SetBool(_cashedAnimationToHash[animationName], false);
         }
 
         private void Attack()
         {
-            
-        }
-        
-        private void ReleaseDodgeAnimation()
-        {
-            animator.SetBool(IsDodging, false);
+            attackPattern.Attack(aiBaker);
         }
     }
 }

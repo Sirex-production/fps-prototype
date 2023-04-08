@@ -10,7 +10,7 @@ namespace Ingame.Ai.FSM.Action
             if (aiContextMdl.navMeshAgent.pathPending)
                 return ActionStatus.Running; 
             
-            aiContextMdl.navMeshAgent.stoppingDistance = aiContextMdl.aiConfig.ChasingDistance;
+            aiContextMdl.navMeshAgent.stoppingDistance = aiContextMdl.aiConfig.StoppingDistance;
             
             if (!(aiContextMdl.navMeshAgent.remainingDistance <= aiContextMdl.navMeshAgent.stoppingDistance))
                 return ActionStatus.Running;

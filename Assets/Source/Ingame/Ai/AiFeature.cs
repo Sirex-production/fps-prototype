@@ -4,9 +4,9 @@ namespace Ingame.Ai
 {
     public sealed class AiFeature : Feature
     {
-        public AiFeature()
+        public AiFeature(GameplayContext contexts)
         {
-            Add(new RunStateMachine());
+            Add(new RunStateMachine(contexts));
         }
     }
 }

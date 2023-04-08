@@ -1,8 +1,10 @@
-﻿using Ingame.Ai.Cmp;
+﻿using System;
+using Ingame.Ai.Cmp;
 using UnityEngine;
 
 namespace Ingame.Ai.FSM.Action
 {
+    [Serializable]
     [CreateAssetMenu(fileName = "AnimationLockBoolAction", menuName = "Ai/Action/AnimationLockBoolAction")]
     public class AnimationLockBoolAction : AnimationAction
     {
@@ -10,7 +12,7 @@ namespace Ingame.Ai.FSM.Action
         
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {
-            aiContextMdl.animator.SetBool(variableAnimationName, boolValue);
+            aiContextMdl.animator.SetBool(VariableAnimationHash, boolValue);
             return ActionStatus.Done;
         }
     }

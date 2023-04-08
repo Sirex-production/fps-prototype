@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
@@ -6,26 +7,26 @@ using UnityEngine;
 
 namespace Ingame.Ai.FSM.Action
 {
+    [Serializable]
     public abstract class AnimationAction : ActionBase
     {
-        private static readonly string[] _animationVariablesNames = new[]{ 
-            "IsAttacking",
-            "IsDodging", 
-        };
+        [SerializeField]
+        protected string variableAnimationName;
 
-        private static Dictionary<string, int> _cashedAnimationVariables;
-        public static Dictionary<string, int> CashedAnimationVariables
+        private int _variableAnimationHash;
+        private bool _isCashed;
+        protected int VariableAnimationHash
         {
             get
             {
-                _cashedAnimationVariables ??= _animationVariablesNames.ToDictionary(e => e, Animator.StringToHash);
-                return _cashedAnimationVariables;
+                if (_isCashed) return _variableAnimationHash;
+                
+                _variableAnimationHash = Animator.StringToHash(variableAnimationName);
+                _isCashed = true;
+
+                return _variableAnimationHash;
             }
         }
-        
-        [Dropdown("_animationVariablesNames")]
-        [SerializeField]
-        protected string variableAnimationName;
-        
+             
     }
 }

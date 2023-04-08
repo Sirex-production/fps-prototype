@@ -10,31 +10,55 @@ public static class GameplayComponentsLookup {
 
     public const int CameraMdl = 0;
     public const int CharacterControllerMdl = 1;
-    public const int TransformMdl = 2;
-    public const int AiContextMdl = 3;
-    public const int MainCameraTag = 4;
-    public const int PlayerCmp = 5;
-    public const int VelocityCmp = 6;
+    public const int ParticleEffectMdl = 2;
+    public const int TransformMdl = 3;
+    public const int AiContextMdl = 4;
+    public const int EnemyTag = 5;
+    public const int MainCameraTag = 6;
+    public const int GasPipeTag = 7;
+    public const int InteractiveObjectTag = 8;
+    public const int PerformInteractionTag = 9;
+    public const int PlayerCmp = 10;
+    public const int VelocityCmp = 11;
+    public const int DeceasedTag = 12;
+    public const int HealthCmp = 13;
+    public const int TakeDamageRequest = 14;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "CameraMdl",
         "CharacterControllerMdl",
+        "ParticleEffectMdl",
         "TransformMdl",
         "AiContextMdl",
+        "EnemyTag",
         "MainCameraTag",
+        "GasPipeTag",
+        "InteractiveObjectTag",
+        "PerformInteractionTag",
         "PlayerCmp",
-        "VelocityCmp"
+        "VelocityCmp",
+        "DeceasedTag",
+        "HealthCmp",
+        "TakeDamageRequest"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(EcsSupport.UnityIntegration.Models.CameraMdl),
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
+        typeof(EcsSupport.UnityIntegration.Models.ParticleEffectMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
         typeof(Ingame.Ai.Cmp.AiContextMdl),
+        typeof(Ingame.Ai.Cmp.EnemyTag),
         typeof(Ingame.Camerawork.MainCameraTag),
+        typeof(Ingame.Interactive.Environment.Cmp.GasPipeTag),
+        typeof(Ingame.Interactive.Environment.Cmp.InteractiveObjectTag),
+        typeof(Ingame.Interactive.Environment.Cmp.PerformInteractionTag),
         typeof(Ingame.Player.Common.PlayerCmp),
-        typeof(Ingame.Player.Movement.VelocityCmp)
+        typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(Source.Ingame.Health.Cmp.DeceasedTag),
+        typeof(Source.Ingame.Health.Cmp.HealthCmp),
+        typeof(Source.Ingame.Health.Cmp.TakeDamageRequest)
     };
 }

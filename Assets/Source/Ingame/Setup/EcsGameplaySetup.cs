@@ -3,6 +3,8 @@ using Entitas;
 using Ingame.ConfigProvision;
 using Ingame.Player.Movement;
 using Ingame.Ai;
+using Ingame.Interactive.Environment;
+using Source.Ingame.Health;
 using UnityEngine;
 using Zenject;
 
@@ -23,7 +25,9 @@ namespace Ingame.Setup
 			
 			_updateSystems
 				.Add(new PlayerMovementFeature(configProvider))
-				.Add(new AiFeature());
+				.Add(new AiFeature(_gameplayContext))
+		 	    .Add(new EnvironmentFeature(_gameplayContext))
+				.Add(new HealthFeature(_gameplayContext));
 			
 			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
 		}
@@ -48,9 +52,15 @@ namespace Ingame.Setup
 
 		private void OnDestroy()
 		{
+			_updateSystems.DeactivateReactiveSystems();
+			_fixedUpdateSystems.DeactivateReactiveSystems();
+			
+			_updateSystems.ClearReactiveSystems();
+			_fixedUpdateSystems.ClearReactiveSystems();
+			
 			_updateSystems.TearDown();
 			_fixedUpdateSystems.TearDown();
-
+		 
 			_gameplayContext.DestroyAllEntities();
 		}
 	}

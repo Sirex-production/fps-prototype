@@ -11,15 +11,13 @@ namespace Ingame.Ai.Sys
 
         private Transform _player;
 
-        public RunStateMachine()
+        public RunStateMachine(IContext<GameplayEntity> context)
         {
-            var gameplayContext = Contexts.sharedInstance.gameplay;
-            
             var aiMatcher = GameplayMatcher.AllOf(GameplayMatcher.AiContextMdl);
-            _stateMachineGroup = gameplayContext.GetGroup(aiMatcher);
+            _stateMachineGroup = context.GetGroup(aiMatcher);
             
             var playerMatcher = GameplayMatcher.AllOf(GameplayMatcher.PlayerCmp, GameplayMatcher.TransformMdl);
-            _playerGroup = gameplayContext.GetGroup(playerMatcher);
+            _playerGroup = context.GetGroup(playerMatcher);
         }
         
         public void Initialize()
@@ -30,7 +28,7 @@ namespace Ingame.Ai.Sys
             foreach (var aiEntity in _stateMachineGroup)
             {
                 var aiContent = aiEntity.aiContextMdl;
-                aiContent.player = _player;
+                aiContent.player ??= _player;
                 
                 ref var stateWrapper = ref aiContent.aiStateWrapper;
                 stateWrapper.currentState = aiContent.aiConfig.InitState;

@@ -26,11 +26,22 @@ namespace Ingame.Ai
         [Min(0)]
         private float movementSpeed;
         
+        [SerializeField]
+        [Min(0)]
+        private float stoppingDistance;
+        
         [Header("Detection")]
         [SerializeField]
         [Min(0)] 
         private float detectionRange;
+        
+        [SerializeField]
+        [Range(0,360)] 
+        private float detectionAngle;
 
+        [SerializeField] 
+        private LayerMask visibilityMask;
+        
         [Header("Attack")]
         [SerializeField]
         [Min(0)]
@@ -63,6 +74,11 @@ namespace Ingame.Ai
         public float AttackAngle => attackAngle;
 
         public float ChasingDistance => chasingDistance;
-        
+
+        public float StoppingDistance => stoppingDistance;
+
+        public float DetectionAngle => detectionAngle;
+
+        public LayerMask VisibilityMask => visibilityMask;
     }
 }

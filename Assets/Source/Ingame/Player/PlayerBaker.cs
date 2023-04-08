@@ -1,3 +1,5 @@
+using System;
+using Entitas.Unity;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -17,6 +19,13 @@ namespace Ingame.Player
 			entity.AddCharacterControllerMdl(characterController);
 			entity.AddVelocityCmp(Vector3.zero);
 			entity.isPlayerCmp = true;
+
+			gameObject.Link(entity);
+		}
+
+		private void OnDestroy()
+		{
+			gameObject.Unlink();
 		}
 	}
 }
