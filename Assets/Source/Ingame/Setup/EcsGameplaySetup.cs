@@ -27,7 +27,7 @@ namespace Ingame.Setup
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new ArrowGunFeature(diContainer));
-			_updateSystems.Add(new MoveProjectileSystem());
+			_updateSystems.Add(new ProjectileFeature());
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
 			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));

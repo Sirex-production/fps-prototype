@@ -13,8 +13,10 @@ namespace Ingame.Player.Movement
 				return;
 
 			var velocityCmp = playerEntity.velocityCmp;
-
-			if(velocityCmp.currentVelocity.sqrMagnitude < .1f)
+			var horizontalVelocity = velocityCmp.currentVelocity;
+			horizontalVelocity.y = 0;
+			
+			if(horizontalVelocity.sqrMagnitude < .1f)
 				return;
 
 			velocityCmp.timeSpentTraveling += Time.deltaTime;

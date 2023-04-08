@@ -24,7 +24,7 @@ namespace Ingame.Gunplay.ArrowGun
 			);
 			var freeArrowSpawner = GameplayMatcher.AllOf
 			(
-				GameplayMatcher.ArrowSpawnerCmp,
+				GameplayMatcher.ArrowCmp,
 				GameplayMatcher.FreeToReuseTag
 			);
 
@@ -55,6 +55,7 @@ namespace Ingame.Gunplay.ArrowGun
 
 				arrowTransform.position = arrowSpawnerCmp.spawnOriginTransform.position;
 				arrowTransform.rotation = arrowSpawnerCmp.spawnOriginTransform.rotation;
+				arrowTransform.gameObject.SetActive(true);
 				
 				if(!Contexts.sharedInstance.gameplay.hasShotPerformedEvent)
 					Contexts.sharedInstance.gameplay.hasShotPerformedEvent = true;
