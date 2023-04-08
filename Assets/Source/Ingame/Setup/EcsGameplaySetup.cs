@@ -2,10 +2,12 @@ using Entitas;
 using Ingame.Camerawork;
 using Ingame.ConfigProvision;
 using Ingame.Gunplay.ArrowGun;
+using Ingame.Gunplay.EnergyGun;
 using Ingame.Gunplay.Projectile;
 using Ingame.Gunplay.Sway;
 using Ingame.Gunplay.Sway.WeaponSwitch;
 using Ingame.Player.Movement;
+using Ingame.Vfx.ShotTrail;
 using UnityEngine;
 using Zenject;
 
@@ -27,9 +29,11 @@ namespace Ingame.Setup
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new ArrowGunFeature(diContainer));
+			_updateSystems.Add(new EnergyGunFeature());
 			_updateSystems.Add(new ProjectileFeature());
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
+			_updateSystems.Add(new VfxFeature());
 			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));
 		}
 

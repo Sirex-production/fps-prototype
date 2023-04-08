@@ -1,4 +1,3 @@
-using System;
 using EcsSupport.UnityIntegration;
 using NaughtyAttributes;
 using UnityEngine;

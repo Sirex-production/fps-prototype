@@ -12,47 +12,51 @@ public static class GameplayComponentsLookup {
     public const int CameraMdl = 1;
     public const int CharacterControllerMdl = 2;
     public const int CinemachineVirtualCameraMdl = 3;
-    public const int TransformMdl = 4;
-    public const int OnCollisionEnterEvent = 5;
-    public const int OnCollisionExitEvent = 6;
-    public const int OnCollisionStayEvent = 7;
-    public const int OnTriggerEnterEvent = 8;
-    public const int OnTriggerExitEvent = 9;
-    public const int OnTriggerStayEvent = 10;
-    public const int MainCameraTag = 11;
-    public const int MainVirtualCameraTag = 12;
-    public const int ArrowCmp = 13;
-    public const int ArrowSpawnerCmp = 14;
-    public const int InHangsTag = 15;
-    public const int ShotPerformedEvent = 16;
-    public const int ProjectileCmp = 17;
-    public const int RecoilCmp = 18;
-    public const int SwayCmp = 19;
-    public const int WeaponHolderCmp = 20;
-    public const int AwaitingWeaponSwitchReq = 21;
-    public const int WeaponSwitchEvent = 22;
-    public const int FreeToReuseTag = 23;
-    public const int PlayerCmp = 24;
-    public const int DashingCmp = 25;
-    public const int GroundCheckCmp = 26;
-    public const int HudOriginCmp = 27;
-    public const int IsDashingTag = 28;
-    public const int VelocityCmp = 29;
-    public const int OnCollisionEnterEventListener = 30;
-    public const int OnCollisionExitEventListener = 31;
-    public const int OnCollisionStayEventListener = 32;
-    public const int OnTriggerEnterEventListener = 33;
-    public const int OnTriggerExitEventListener = 34;
-    public const int OnTriggerStayEventListener = 35;
-    public const int WeaponSwitchEventListener = 36;
+    public const int LineRendererMdl = 4;
+    public const int TransformMdl = 5;
+    public const int OnCollisionEnterEvent = 6;
+    public const int OnCollisionExitEvent = 7;
+    public const int OnCollisionStayEvent = 8;
+    public const int OnTriggerEnterEvent = 9;
+    public const int OnTriggerExitEvent = 10;
+    public const int OnTriggerStayEvent = 11;
+    public const int MainCameraTag = 12;
+    public const int MainVirtualCameraTag = 13;
+    public const int ArrowCmp = 14;
+    public const int ArrowSpawnerCmp = 15;
+    public const int InHangsTag = 16;
+    public const int ShotPerformedEvent = 17;
+    public const int EnergyGunCmp = 18;
+    public const int ProjectileCmp = 19;
+    public const int RecoilCmp = 20;
+    public const int SwayCmp = 21;
+    public const int WeaponHolderCmp = 22;
+    public const int AwaitingWeaponSwitchReq = 23;
+    public const int WeaponSwitchEvent = 24;
+    public const int FreeToReuseTag = 25;
+    public const int PlayerCmp = 26;
+    public const int DashingCmp = 27;
+    public const int GroundCheckCmp = 28;
+    public const int HudOriginCmp = 29;
+    public const int IsDashingTag = 30;
+    public const int VelocityCmp = 31;
+    public const int ShotTrailCmp = 32;
+    public const int OnCollisionEnterEventListener = 33;
+    public const int OnCollisionExitEventListener = 34;
+    public const int OnCollisionStayEventListener = 35;
+    public const int OnTriggerEnterEventListener = 36;
+    public const int OnTriggerExitEventListener = 37;
+    public const int OnTriggerStayEventListener = 38;
+    public const int WeaponSwitchEventListener = 39;
 
-    public const int TotalComponents = 37;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
         "CameraMdl",
         "CharacterControllerMdl",
         "CinemachineVirtualCameraMdl",
+        "LineRendererMdl",
         "TransformMdl",
         "OnCollisionEnterEvent",
         "OnCollisionExitEvent",
@@ -66,6 +70,7 @@ public static class GameplayComponentsLookup {
         "ArrowSpawnerCmp",
         "InHangsTag",
         "ShotPerformedEvent",
+        "EnergyGunCmp",
         "ProjectileCmp",
         "RecoilCmp",
         "SwayCmp",
@@ -79,6 +84,7 @@ public static class GameplayComponentsLookup {
         "HudOriginCmp",
         "IsDashingTag",
         "VelocityCmp",
+        "ShotTrailCmp",
         "OnCollisionEnterEventListener",
         "OnCollisionExitEventListener",
         "OnCollisionStayEventListener",
@@ -93,6 +99,7 @@ public static class GameplayComponentsLookup {
         typeof(EcsSupport.UnityIntegration.Models.CameraMdl),
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
         typeof(EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl),
+        typeof(EcsSupport.UnityIntegration.Models.LineRendererMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
         typeof(EcsSupport.UnityIntegration.Physics.OnCollisionEnterEvent),
         typeof(EcsSupport.UnityIntegration.Physics.OnCollisionExitEvent),
@@ -106,6 +113,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Gunplay.ArrowGun.ArrowSpawnerCmp),
         typeof(Ingame.Gunplay.Common.InHangsTag),
         typeof(Ingame.Gunplay.Common.ShotPerformedEvent),
+        typeof(Ingame.Gunplay.EnergyGun.EnergyGunCmp),
         typeof(Ingame.Gunplay.Projectile.ProjectileCmp),
         typeof(Ingame.Gunplay.Sway.RecoilCmp),
         typeof(Ingame.Gunplay.Sway.SwayCmp),
@@ -119,6 +127,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Player.Movement.HudOriginCmp),
         typeof(Ingame.Player.Movement.IsDashingTag),
         typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(Ingame.Vfx.ShotTrail.ShotTrailCmp),
         typeof(OnCollisionEnterEventListenerComponent),
         typeof(OnCollisionExitEventListenerComponent),
         typeof(OnCollisionStayEventListenerComponent),
