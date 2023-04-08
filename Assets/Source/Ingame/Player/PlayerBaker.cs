@@ -22,10 +22,11 @@ namespace Ingame.Player
 			var entity = Contexts.sharedInstance.gameplay.CreateEntity();
 			
 			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
+			entity.AddDashingCmp(Vector3.zero, 0f, 0f);
 			entity.AddCharacterControllerMdl(characterController);
 			entity.AddVelocityCmp(Vector3.zero, 0f);
 			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius);
-			entity.isPlayerCmp = true;
+			entity.hasPlayerCmp = true;
 		}
 
 		private void OnDrawGizmos()

@@ -1,10 +1,11 @@
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace Ingame.Player.Common
+namespace Ingame.Camerawork
 {
 	[Gameplay, Unique, FlagPrefix("has")]
-	public sealed class PlayerCmp : IComponent
+	public sealed class MainVirtualCameraTag : IComponent
 	{
+		
 	}
 }

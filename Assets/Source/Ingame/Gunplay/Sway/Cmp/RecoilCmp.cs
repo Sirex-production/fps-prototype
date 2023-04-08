@@ -9,7 +9,7 @@ namespace Ingame.Gunplay.Sway
 		public AnimationCurve recoilCurveX;
 		public AnimationCurve recoilCurveY;
 		public AnimationCurve recoilCurveZ;
-		
+
 		public float positionDumping;
 		public float recoilStabilizationDumping;
 		public float recoilGain;

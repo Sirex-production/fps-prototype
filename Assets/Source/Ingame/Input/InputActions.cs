@@ -55,6 +55,15 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""49b55185-67ed-43d7-9951-801edd3c3ebb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""295720c9-1c2b-4c64-8b2a-8a813651ddcf"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -213,6 +233,7 @@ namespace Ingame.Input
             m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
             m_Movement_Rotate = m_Movement.FindAction("Rotate", throwIfNotFound: true);
             m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+            m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
             // Combat
             m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
             m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
@@ -282,6 +303,7 @@ namespace Ingame.Input
         private readonly InputAction m_Movement_Move;
         private readonly InputAction m_Movement_Rotate;
         private readonly InputAction m_Movement_Jump;
+        private readonly InputAction m_Movement_Dash;
         public struct MovementActions
         {
             private @InputActions m_Wrapper;
@@ -289,6 +311,7 @@ namespace Ingame.Input
             public InputAction @Move => m_Wrapper.m_Movement_Move;
             public InputAction @Rotate => m_Wrapper.m_Movement_Rotate;
             public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+            public InputAction @Dash => m_Wrapper.m_Movement_Dash;
             public InputActionMap Get() { return m_Wrapper.m_Movement; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -307,6 +330,9 @@ namespace Ingame.Input
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
 
             private void UnregisterCallbacks(IMovementActions instance)
@@ -320,6 +346,9 @@ namespace Ingame.Input
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
             }
 
             public void RemoveCallbacks(IMovementActions instance)
@@ -404,6 +433,7 @@ namespace Ingame.Input
             void OnMove(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
         }
         public interface ICombatActions
         {

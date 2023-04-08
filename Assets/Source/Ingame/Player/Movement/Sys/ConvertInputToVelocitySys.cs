@@ -43,7 +43,7 @@ namespace Ingame.Player.Movement
 			if (!inputCmp.jumpInput || !groundCheckCmp.IsGrounded())
 				return;
 
-			playerEntity.velocityCmp.currentVelocity += Vector3.up * _playerConfig.JumpForce;
+			playerEntity.velocityCmp.currentVelocity = Vector3.up * _playerConfig.JumpForce;
 		}
 	}
 }

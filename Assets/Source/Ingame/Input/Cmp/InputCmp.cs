@@ -11,6 +11,7 @@ namespace Ingame.Input
 		public Vector2 moveInput;
 		public Vector2 rotateInput;
 		public bool jumpInput;
+		public bool dashInput;
 
 		//Combat
 		public bool nextWeaponInput;

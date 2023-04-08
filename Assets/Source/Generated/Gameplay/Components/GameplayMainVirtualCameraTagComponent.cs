@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public partial class GameplayContext {
 
-    public GameplayEntity playerCmpEntity { get { return GetGroup(GameplayMatcher.PlayerCmp).GetSingleEntity(); } }
+    public GameplayEntity mainVirtualCameraTagEntity { get { return GetGroup(GameplayMatcher.MainVirtualCameraTag).GetSingleEntity(); } }
 
-    public bool hasPlayerCmp {
-        get { return playerCmpEntity != null; }
+    public bool hasMainVirtualCameraTag {
+        get { return mainVirtualCameraTagEntity != null; }
         set {
-            var entity = playerCmpEntity;
+            var entity = mainVirtualCameraTagEntity;
             if (value != (entity != null)) {
                 if (value) {
-                    CreateEntity().hasPlayerCmp = true;
+                    CreateEntity().hasMainVirtualCameraTag = true;
                 } else {
                     entity.Destroy();
                 }
@@ -35,18 +35,18 @@ public partial class GameplayContext {
 //------------------------------------------------------------------------------
 public partial class GameplayEntity {
 
-    static readonly Ingame.Player.Common.PlayerCmp playerCmpComponent = new Ingame.Player.Common.PlayerCmp();
+    static readonly Ingame.Camerawork.MainVirtualCameraTag mainVirtualCameraTagComponent = new Ingame.Camerawork.MainVirtualCameraTag();
 
-    public bool hasPlayerCmp {
-        get { return HasComponent(GameplayComponentsLookup.PlayerCmp); }
+    public bool hasMainVirtualCameraTag {
+        get { return HasComponent(GameplayComponentsLookup.MainVirtualCameraTag); }
         set {
-            if (value != hasPlayerCmp) {
-                var index = GameplayComponentsLookup.PlayerCmp;
+            if (value != hasMainVirtualCameraTag) {
+                var index = GameplayComponentsLookup.MainVirtualCameraTag;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : playerCmpComponent;
+                            : mainVirtualCameraTagComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -67,17 +67,17 @@ public partial class GameplayEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameplayMatcher {
 
-    static Entitas.IMatcher<GameplayEntity> _matcherPlayerCmp;
+    static Entitas.IMatcher<GameplayEntity> _matcherMainVirtualCameraTag;
 
-    public static Entitas.IMatcher<GameplayEntity> PlayerCmp {
+    public static Entitas.IMatcher<GameplayEntity> MainVirtualCameraTag {
         get {
-            if (_matcherPlayerCmp == null) {
-                var matcher = (Entitas.Matcher<GameplayEntity>)Entitas.Matcher<GameplayEntity>.AllOf(GameplayComponentsLookup.PlayerCmp);
+            if (_matcherMainVirtualCameraTag == null) {
+                var matcher = (Entitas.Matcher<GameplayEntity>)Entitas.Matcher<GameplayEntity>.AllOf(GameplayComponentsLookup.MainVirtualCameraTag);
                 matcher.componentNames = GameplayComponentsLookup.componentNames;
-                _matcherPlayerCmp = matcher;
+                _matcherMainVirtualCameraTag = matcher;
             }
 
-            return _matcherPlayerCmp;
+            return _matcherMainVirtualCameraTag;
         }
     }
 }

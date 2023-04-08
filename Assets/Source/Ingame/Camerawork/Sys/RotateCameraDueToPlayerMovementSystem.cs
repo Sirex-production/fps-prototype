@@ -7,26 +7,26 @@ namespace Ingame.Camerawork.Sys
 	{
 		public void Execute()
 		{
-			var mainCameraEntity = Contexts.sharedInstance.gameplay.mainCameraTagEntity;
+			var mainVirtualCameraEntity = Contexts.sharedInstance.gameplay.mainVirtualCameraTagEntity;
 			var moveInput = Contexts.sharedInstance.app.inputCmp.moveInput;
 
-			if(!mainCameraEntity.hasCameraMdl || !mainCameraEntity.hasTransformMdl)
+			if(!mainVirtualCameraEntity.hasCinemachineVirtualCameraMdl || !mainVirtualCameraEntity.hasTransformMdl)
 				return;
 
-			var transformMdl = mainCameraEntity.transformMdl;
+			var transformMdl = mainVirtualCameraEntity.transformMdl;
 			var destinationLocalRotation = transformMdl.initialLocalRotation * GetCameraRotationOffsetDueToMovement(moveInput);
 
 			transformMdl.transform.localRotation = Quaternion.Slerp
 			(
 				transformMdl.transform.localRotation,
 				destinationLocalRotation,
-				1f - Mathf.Pow(.0001f, Time.deltaTime)
+				1f - Mathf.Pow(.00001f, Time.deltaTime)
 			);
 		}
 
 		private Quaternion GetCameraRotationOffsetDueToMovement(in Vector2 movementInput)
 		{
-			float zRotationOffset = -movementInput.x * 3f;
+			float zRotationOffset = -movementInput.x * 1.5f;
 
 			return Quaternion.AngleAxis(zRotationOffset, Vector3.forward);
 		}

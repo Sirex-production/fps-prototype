@@ -1,12 +1,13 @@
+using Cinemachine;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
 
 namespace Ingame.Camerawork
 {
-	public sealed class MainCameraBaker : MonoBehaviour
+	public sealed class MainVirtualCameraBaker : MonoBehaviour
 	{
-		[Required, SerializeField] private Camera mainCamera;
+		[Required, SerializeField] private CinemachineVirtualCamera mainVirtualCamera;
 		
 		[Inject]
 		private void Construct()
@@ -15,8 +16,8 @@ namespace Ingame.Camerawork
 			var entity = gameplayContext.CreateEntity();
 			
 			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
-			entity.AddCameraMdl(mainCamera);
-			entity.hasMainCameraTag = true;
+			entity.AddCinemachineVirtualCameraMdl(mainVirtualCamera);
+			entity.hasMainVirtualCameraTag = true;
 		}
 	}
 }

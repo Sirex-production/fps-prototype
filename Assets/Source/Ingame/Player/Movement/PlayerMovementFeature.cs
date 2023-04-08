@@ -7,10 +7,12 @@ namespace Ingame.Player.Movement
 		public PlayerMovementFeature(ConfigProvider configProvider)
 		{
 			Add(new ConvertInputToVelocitySys(configProvider));
+			Add(new ConvertInputToDashSystem(configProvider));
 			Add(new ApplyGravitySys(configProvider));
 			Add(new ApplyFrictionSys(configProvider));
 			Add(new RotatePlayerSys());
 			Add(new UpdateTravelTimeSystem());
+			Add(new MoveObjectDueToVelocitySystem());
 		}
 	}
 }

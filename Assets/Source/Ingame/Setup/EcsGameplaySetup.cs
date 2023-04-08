@@ -23,7 +23,7 @@ namespace Ingame.Setup
 			_gameplayContext = Contexts.sharedInstance.gameplay;
 			_updateSystems = new Systems();
 			_fixedUpdateSystems = new Systems();
-			
+
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new ArrowGunFeature(diContainer));
@@ -31,8 +31,6 @@ namespace Ingame.Setup
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
 			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));
-			
-			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
 		}
 
 		private void Awake()

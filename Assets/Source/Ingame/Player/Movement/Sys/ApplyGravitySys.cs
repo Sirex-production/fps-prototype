@@ -32,7 +32,7 @@ namespace Ingame.Player.Movement
 
 			if (groundCheck.IsGrounded())
 			{
-				velocityCmp.currentVelocity.y = Mathf.Max(0f, velocityCmp.currentVelocity.y);
+				velocityCmp.currentVelocity.y = Mathf.Max(-5f, velocityCmp.currentVelocity.y);
 				return;
 			}
 
