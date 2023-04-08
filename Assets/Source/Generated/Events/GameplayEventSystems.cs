@@ -15,6 +15,7 @@ public sealed class GameplayEventSystems : Feature {
         Add(new OnTriggerEnterEventEventSystem(contexts)); // priority: 0
         Add(new OnTriggerExitEventEventSystem(contexts)); // priority: 0
         Add(new OnTriggerStayEventEventSystem(contexts)); // priority: 0
+        Add(new PerformMeleeAttackReqEventSystem(contexts)); // priority: 0
         Add(new WeaponSwitchEventEventSystem(contexts)); // priority: 0
     }
 }

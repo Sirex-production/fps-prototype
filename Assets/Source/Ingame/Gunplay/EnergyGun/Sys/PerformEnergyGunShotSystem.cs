@@ -22,7 +22,7 @@ namespace Ingame.Gunplay.EnergyGun
 
 			energyGunCmp.timePassedSinceLastShot += Time.deltaTime;
 			
-			if(!inputCmp.shootInput || !mainCameraEntity.hasCameraMdl)
+			if(!inputCmp.shootTapInput || !mainCameraEntity.hasCameraMdl)
 				return;
 			
 			if(!energyGunEntity.hasInHangsTag || energyGunCmp.timePassedSinceLastShot < energyGunCmp.cooldownBetweenShots)

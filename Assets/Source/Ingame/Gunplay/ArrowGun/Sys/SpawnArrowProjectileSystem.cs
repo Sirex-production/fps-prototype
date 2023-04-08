@@ -42,7 +42,7 @@ namespace Ingame.Gunplay.ArrowGun
 
 				arrowSpawnerCmp.timePassedSinceLastShot += Time.deltaTime;
 
-				if(!inputCmp.shootInput)
+				if(!inputCmp.shootHoldInput)
 					return;
 				
 				if(arrowSpawnerCmp.timePassedSinceLastShot < arrowSpawnerCmp.pauseBetweenShots)

@@ -30,6 +30,7 @@ namespace Ingame.Input
 					false,
 					false,
 					false,
+					false,
 					false
 				);
 		}
@@ -62,11 +63,13 @@ namespace Ingame.Input
 		{
 			bool nextWeaponInput = _inputActions.Combat.NextWeapon.WasPerformedThisFrame();
 			bool prevWeaponInput = _inputActions.Combat.PrevWeapon.WasPerformedThisFrame();
-			bool shootInput = _inputActions.Combat.Shoot.IsPressed();
+			bool shootHoldInput = _inputActions.Combat.Shoot.IsPressed();
+			bool shootTapInput = _inputActions.Combat.Shoot.WasPerformedThisFrame();
 
 			inputCmp.nextWeaponInput = nextWeaponInput;
 			inputCmp.prevWeaponInput = prevWeaponInput;
-			inputCmp.shootInput = shootInput;
+			inputCmp.shootHoldInput = shootHoldInput;
+			inputCmp.shootTapInput = shootTapInput;
 		}
 	}
 }
