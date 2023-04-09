@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: a72e6fd8b89e49047bd1cae99caaf00d, type: 2}
+  cameraworkConfig: {fileID: 11400000, guid: ef359c2e13ca7434e97f84e5d402c65b, type: 2}
 --- !u!1 &8755278281419122425
 GameObject:
   m_ObjectHideFlags: 0

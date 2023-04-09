@@ -12,22 +12,22 @@ public partial class GameplayContext {
     public Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq awaitingWeaponSwitchReq { get { return awaitingWeaponSwitchReqEntity.awaitingWeaponSwitchReq; } }
     public bool hasAwaitingWeaponSwitchReq { get { return awaitingWeaponSwitchReqEntity != null; } }
 
-    public GameplayEntity SetAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType) {
+    public GameplayEntity SetAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType, int newWeaponIndex) {
         if (hasAwaitingWeaponSwitchReq) {
             throw new Entitas.EntitasException("Could not set AwaitingWeaponSwitchReq!\n" + this + " already has an entity with Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq!",
                 "You should check if the context already has a awaitingWeaponSwitchReqEntity before setting it or use context.ReplaceAwaitingWeaponSwitchReq().");
         }
         var entity = CreateEntity();
-        entity.AddAwaitingWeaponSwitchReq(newSwitchType);
+        entity.AddAwaitingWeaponSwitchReq(newSwitchType, newWeaponIndex);
         return entity;
     }
 
-    public void ReplaceAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType) {
+    public void ReplaceAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType, int newWeaponIndex) {
         var entity = awaitingWeaponSwitchReqEntity;
         if (entity == null) {
-            entity = SetAwaitingWeaponSwitchReq(newSwitchType);
+            entity = SetAwaitingWeaponSwitchReq(newSwitchType, newWeaponIndex);
         } else {
-            entity.ReplaceAwaitingWeaponSwitchReq(newSwitchType);
+            entity.ReplaceAwaitingWeaponSwitchReq(newSwitchType, newWeaponIndex);
         }
     }
 
@@ -49,17 +49,19 @@ public partial class GameplayEntity {
     public Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq awaitingWeaponSwitchReq { get { return (Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq)GetComponent(GameplayComponentsLookup.AwaitingWeaponSwitchReq); } }
     public bool hasAwaitingWeaponSwitchReq { get { return HasComponent(GameplayComponentsLookup.AwaitingWeaponSwitchReq); } }
 
-    public void AddAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType) {
+    public void AddAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType, int newWeaponIndex) {
         var index = GameplayComponentsLookup.AwaitingWeaponSwitchReq;
         var component = (Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq)CreateComponent(index, typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq));
         component.switchType = newSwitchType;
+        component.weaponIndex = newWeaponIndex;
         AddComponent(index, component);
     }
 
-    public void ReplaceAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType) {
+    public void ReplaceAwaitingWeaponSwitchReq(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq.SwitchType newSwitchType, int newWeaponIndex) {
         var index = GameplayComponentsLookup.AwaitingWeaponSwitchReq;
         var component = (Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq)CreateComponent(index, typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq));
         component.switchType = newSwitchType;
+        component.weaponIndex = newWeaponIndex;
         ReplaceComponent(index, component);
     }
 

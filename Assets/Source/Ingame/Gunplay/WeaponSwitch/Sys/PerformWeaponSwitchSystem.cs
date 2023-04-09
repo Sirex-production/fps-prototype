@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Entitas;
 using Ingame.Gunplay.WeaponSwitch.Cmp;
+using UnityEngine;
 
 namespace Ingame.Gunplay.Sway.WeaponSwitch
 {
@@ -32,7 +34,17 @@ namespace Ingame.Gunplay.Sway.WeaponSwitch
 				return;
 
 			HideWeapon(weaponHolderCmp.CurrentWeaponEntity);
-			
+
+			if(awaitingWeaponSwitchReq.switchType == AwaitingWeaponSwitchReq.SwitchType.ByIndex)
+			{
+				weaponHolderCmp.currentWeaponIndex = Mathf.Clamp(awaitingWeaponSwitchReq.weaponIndex - 1, 0, weaponHolderCmp.weapons.Length - 1);
+				ShowWeapon(weaponHolderCmp.CurrentWeaponEntity);
+				
+				gameplayContext.RemoveAwaitingWeaponSwitchReq();
+				
+				return;
+			}
+
 			if(awaitingWeaponSwitchReq.switchType == AwaitingWeaponSwitchReq.SwitchType.Next)
 			{
 				weaponHolderCmp.currentWeaponIndex = ++weaponHolderCmp.currentWeaponIndex % weaponHolderCmp.weapons.Length;

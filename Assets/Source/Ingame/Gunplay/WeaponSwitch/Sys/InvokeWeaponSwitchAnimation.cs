@@ -25,7 +25,7 @@ namespace Ingame.Gunplay.Sway.WeaponSwitch
 			var eventEntity = gameplayContext.CreateEntity();
 
 			weaponHolderCmp.currentWeaponIndex = weaponHolderCmp.weapons.Length - 1;
-			eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Next);
+			eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Next, -1);
 				
 			PlayWeaponSwitchAnimation(weaponHolderAnimator);
 		}
@@ -44,11 +44,20 @@ namespace Ingame.Gunplay.Sway.WeaponSwitch
 				return;
 
 			var weaponHolderAnimator = weaponHolderEntity.animatorMdl.aninmator;
-			
+
+			if(inputCmp.selectWeaponInput > -1)
+			{
+				var eventEntity = gameplayContext.CreateEntity();
+				eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.ByIndex, inputCmp.selectWeaponInput);
+				PlayWeaponSwitchAnimation(weaponHolderAnimator);
+				
+				return;
+			}
+
 			if(inputCmp.nextWeaponInput)
 			{
 				var eventEntity = gameplayContext.CreateEntity();
-				eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Next);
+				eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Next, -1);
 				
 				PlayWeaponSwitchAnimation(weaponHolderAnimator);
 				
@@ -58,7 +67,7 @@ namespace Ingame.Gunplay.Sway.WeaponSwitch
 			if(inputCmp.prevWeaponInput)
 			{
 				var eventEntity = gameplayContext.CreateEntity();
-				eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Prev);
+				eventEntity.AddAwaitingWeaponSwitchReq(AwaitingWeaponSwitchReq.SwitchType.Prev, -1);
 				PlayWeaponSwitchAnimation(weaponHolderAnimator);
 			}
 		}

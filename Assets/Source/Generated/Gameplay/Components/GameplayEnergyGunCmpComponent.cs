@@ -12,22 +12,22 @@ public partial class GameplayContext {
     public Ingame.Gunplay.EnergyGun.EnergyGunCmp energyGunCmp { get { return energyGunCmpEntity.energyGunCmp; } }
     public bool hasEnergyGunCmp { get { return energyGunCmpEntity != null; } }
 
-    public GameplayEntity SetEnergyGunCmp(float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
+    public GameplayEntity SetEnergyGunCmp(float newAimDumping, float newCameraAimFov, float newHudCameraAimFov, float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
         if (hasEnergyGunCmp) {
             throw new Entitas.EntitasException("Could not set EnergyGunCmp!\n" + this + " already has an entity with Ingame.Gunplay.EnergyGun.EnergyGunCmp!",
                 "You should check if the context already has a energyGunCmpEntity before setting it or use context.ReplaceEnergyGunCmp().");
         }
         var entity = CreateEntity();
-        entity.AddEnergyGunCmp(newCooldownBetweenShots, newTimePassedSinceLastShot);
+        entity.AddEnergyGunCmp(newAimDumping, newCameraAimFov, newHudCameraAimFov, newCooldownBetweenShots, newTimePassedSinceLastShot);
         return entity;
     }
 
-    public void ReplaceEnergyGunCmp(float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
+    public void ReplaceEnergyGunCmp(float newAimDumping, float newCameraAimFov, float newHudCameraAimFov, float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
         var entity = energyGunCmpEntity;
         if (entity == null) {
-            entity = SetEnergyGunCmp(newCooldownBetweenShots, newTimePassedSinceLastShot);
+            entity = SetEnergyGunCmp(newAimDumping, newCameraAimFov, newHudCameraAimFov, newCooldownBetweenShots, newTimePassedSinceLastShot);
         } else {
-            entity.ReplaceEnergyGunCmp(newCooldownBetweenShots, newTimePassedSinceLastShot);
+            entity.ReplaceEnergyGunCmp(newAimDumping, newCameraAimFov, newHudCameraAimFov, newCooldownBetweenShots, newTimePassedSinceLastShot);
         }
     }
 
@@ -49,17 +49,23 @@ public partial class GameplayEntity {
     public Ingame.Gunplay.EnergyGun.EnergyGunCmp energyGunCmp { get { return (Ingame.Gunplay.EnergyGun.EnergyGunCmp)GetComponent(GameplayComponentsLookup.EnergyGunCmp); } }
     public bool hasEnergyGunCmp { get { return HasComponent(GameplayComponentsLookup.EnergyGunCmp); } }
 
-    public void AddEnergyGunCmp(float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
+    public void AddEnergyGunCmp(float newAimDumping, float newCameraAimFov, float newHudCameraAimFov, float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
         var index = GameplayComponentsLookup.EnergyGunCmp;
         var component = (Ingame.Gunplay.EnergyGun.EnergyGunCmp)CreateComponent(index, typeof(Ingame.Gunplay.EnergyGun.EnergyGunCmp));
+        component.aimDumping = newAimDumping;
+        component.cameraAimFov = newCameraAimFov;
+        component.hudCameraAimFov = newHudCameraAimFov;
         component.cooldownBetweenShots = newCooldownBetweenShots;
         component.timePassedSinceLastShot = newTimePassedSinceLastShot;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnergyGunCmp(float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
+    public void ReplaceEnergyGunCmp(float newAimDumping, float newCameraAimFov, float newHudCameraAimFov, float newCooldownBetweenShots, float newTimePassedSinceLastShot) {
         var index = GameplayComponentsLookup.EnergyGunCmp;
         var component = (Ingame.Gunplay.EnergyGun.EnergyGunCmp)CreateComponent(index, typeof(Ingame.Gunplay.EnergyGun.EnergyGunCmp));
+        component.aimDumping = newAimDumping;
+        component.cameraAimFov = newCameraAimFov;
+        component.hudCameraAimFov = newHudCameraAimFov;
         component.cooldownBetweenShots = newCooldownBetweenShots;
         component.timePassedSinceLastShot = newTimePassedSinceLastShot;
         ReplaceComponent(index, component);

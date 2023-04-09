@@ -16,7 +16,10 @@ namespace Ingame.Input
 		//Combat
 		public bool nextWeaponInput;
 		public bool prevWeaponInput;
+		public int selectWeaponInput;
 		public bool shootHoldInput;
 		public bool shootTapInput;
+		public bool aimHoldInput;
+		public bool aimTapInput;
 	}
 }

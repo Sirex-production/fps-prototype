@@ -9,9 +9,11 @@ namespace Ingame.Gunplay.WeaponSwitch.Cmp
 		public enum SwitchType
 		{
 			Next,
-			Prev
+			Prev,
+			ByIndex
 		};
 
 		public SwitchType switchType;
+		public int weaponIndex;
 	}
 }

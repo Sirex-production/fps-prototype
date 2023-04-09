@@ -9,6 +9,12 @@ namespace Ingame.Gunplay.EnergyGun
 	{
 		[BoxGroup("EnergyGunCmp")]
 		[SerializeField] [Min(0f)] private float cooldownBetweenShots;
+		[BoxGroup("EnergyGunCmp")]
+		[SerializeField] [Range(0f, 100f)] private float aimCameraFov;
+		[BoxGroup("EnergyGunCmp")]
+		[SerializeField] [Range(0f, 100f)] private float aimHudCameraFov;
+		[BoxGroup("EnergyGunCmp")]
+		[SerializeField] [Range(0f, 1f)] private float aimDumping;
 		
 		[BoxGroup("LineRendererMdl")]
 		[Required, SerializeField] [Min(0f)] private LineRenderer lineRenderer;
@@ -20,7 +26,7 @@ namespace Ingame.Gunplay.EnergyGun
 			
 			BakeWeapon(entity);
 			
-			entity.AddEnergyGunCmp(cooldownBetweenShots, cooldownBetweenShots);
+			entity.AddEnergyGunCmp(aimDumping, aimCameraFov, aimHudCameraFov, cooldownBetweenShots, cooldownBetweenShots);
 			entity.AddLineRendererMdl(lineRenderer);
 		}
 	}

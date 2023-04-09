@@ -31,7 +31,7 @@ namespace Ingame.Setup
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new ArrowGunFeature(diContainer));
-			_updateSystems.Add(new EnergyGunFeature());
+			_updateSystems.Add(new EnergyGunFeature(configProvider));
 			_updateSystems.Add(new AxeFeature());
 			_updateSystems.Add(new ProjectileFeature());
 			_updateSystems.Add(new MeleeAttackFeature());

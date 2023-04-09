@@ -187,6 +187,42 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""8289cfc3-9929-42d8-b7a8-7fa8eba22656"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""80898134-29fc-426e-8f68-197042766ed9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f78b603-f457-4465-a63f-58d9bae0c997"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5c72147-c687-47e3-97ba-5bd66b30880e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -222,6 +258,50 @@ namespace Ingame.Input
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""371318e5-89b1-4355-b826-8a3ff2754bc3"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""358e31bf-45d7-44a1-8336-f7963db33338"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce7dc308-84d1-43d7-812f-89a8e2d5d4b4"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bc4a3b7-6a84-4ba9-8d44-01ea0249f54c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -239,6 +319,10 @@ namespace Ingame.Input
             m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
             m_Combat_PrevWeapon = m_Combat.FindAction("PrevWeapon", throwIfNotFound: true);
             m_Combat_Shoot = m_Combat.FindAction("Shoot", throwIfNotFound: true);
+            m_Combat_Aim = m_Combat.FindAction("Aim", throwIfNotFound: true);
+            m_Combat_SelectWeaponOne = m_Combat.FindAction("SelectWeaponOne", throwIfNotFound: true);
+            m_Combat_SelectWeaponTwo = m_Combat.FindAction("SelectWeaponTwo", throwIfNotFound: true);
+            m_Combat_SelectWeaponThree = m_Combat.FindAction("SelectWeaponThree", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -373,6 +457,10 @@ namespace Ingame.Input
         private readonly InputAction m_Combat_NextWeapon;
         private readonly InputAction m_Combat_PrevWeapon;
         private readonly InputAction m_Combat_Shoot;
+        private readonly InputAction m_Combat_Aim;
+        private readonly InputAction m_Combat_SelectWeaponOne;
+        private readonly InputAction m_Combat_SelectWeaponTwo;
+        private readonly InputAction m_Combat_SelectWeaponThree;
         public struct CombatActions
         {
             private @InputActions m_Wrapper;
@@ -380,6 +468,10 @@ namespace Ingame.Input
             public InputAction @NextWeapon => m_Wrapper.m_Combat_NextWeapon;
             public InputAction @PrevWeapon => m_Wrapper.m_Combat_PrevWeapon;
             public InputAction @Shoot => m_Wrapper.m_Combat_Shoot;
+            public InputAction @Aim => m_Wrapper.m_Combat_Aim;
+            public InputAction @SelectWeaponOne => m_Wrapper.m_Combat_SelectWeaponOne;
+            public InputAction @SelectWeaponTwo => m_Wrapper.m_Combat_SelectWeaponTwo;
+            public InputAction @SelectWeaponThree => m_Wrapper.m_Combat_SelectWeaponThree;
             public InputActionMap Get() { return m_Wrapper.m_Combat; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -398,6 +490,18 @@ namespace Ingame.Input
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @SelectWeaponOne.started += instance.OnSelectWeaponOne;
+                @SelectWeaponOne.performed += instance.OnSelectWeaponOne;
+                @SelectWeaponOne.canceled += instance.OnSelectWeaponOne;
+                @SelectWeaponTwo.started += instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.performed += instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.canceled += instance.OnSelectWeaponTwo;
+                @SelectWeaponThree.started += instance.OnSelectWeaponThree;
+                @SelectWeaponThree.performed += instance.OnSelectWeaponThree;
+                @SelectWeaponThree.canceled += instance.OnSelectWeaponThree;
             }
 
             private void UnregisterCallbacks(ICombatActions instance)
@@ -411,6 +515,18 @@ namespace Ingame.Input
                 @Shoot.started -= instance.OnShoot;
                 @Shoot.performed -= instance.OnShoot;
                 @Shoot.canceled -= instance.OnShoot;
+                @Aim.started -= instance.OnAim;
+                @Aim.performed -= instance.OnAim;
+                @Aim.canceled -= instance.OnAim;
+                @SelectWeaponOne.started -= instance.OnSelectWeaponOne;
+                @SelectWeaponOne.performed -= instance.OnSelectWeaponOne;
+                @SelectWeaponOne.canceled -= instance.OnSelectWeaponOne;
+                @SelectWeaponTwo.started -= instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.performed -= instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.canceled -= instance.OnSelectWeaponTwo;
+                @SelectWeaponThree.started -= instance.OnSelectWeaponThree;
+                @SelectWeaponThree.performed -= instance.OnSelectWeaponThree;
+                @SelectWeaponThree.canceled -= instance.OnSelectWeaponThree;
             }
 
             public void RemoveCallbacks(ICombatActions instance)
@@ -440,6 +556,10 @@ namespace Ingame.Input
             void OnNextWeapon(InputAction.CallbackContext context);
             void OnPrevWeapon(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
+            void OnSelectWeaponOne(InputAction.CallbackContext context);
+            void OnSelectWeaponTwo(InputAction.CallbackContext context);
+            void OnSelectWeaponThree(InputAction.CallbackContext context);
         }
     }
 }

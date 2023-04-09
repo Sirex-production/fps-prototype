@@ -9,9 +9,9 @@
 public sealed class GameplayCleanupSystems : Feature {
 
     public GameplayCleanupSystems(Contexts contexts) {
+        Add(new DestroyPerformMeleeAttackReqGameplaySystem(contexts));
         Add(new DestroyWeaponSwitchEventGameplaySystem(contexts));
         Add(new DestroyShotPerformedEventGameplaySystem(contexts));
-        Add(new DestroyPerformMeleeAttackReqGameplaySystem(contexts));
         Add(new DestroyOnTriggerStayEventGameplaySystem(contexts));
         Add(new DestroyOnCollisionStayEventGameplaySystem(contexts));
         Add(new DestroyOnTriggerEnterEventGameplaySystem(contexts));
