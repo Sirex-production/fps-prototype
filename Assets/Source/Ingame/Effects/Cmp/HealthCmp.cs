@@ -5,7 +5,7 @@ namespace Ingame.Effects
 	[Gameplay]
 	public sealed class HealthCmp : IComponent
 	{
-		public float initialHealth;
+		public float maximumHealth;
 		public float currentHealth;
 	}
 }

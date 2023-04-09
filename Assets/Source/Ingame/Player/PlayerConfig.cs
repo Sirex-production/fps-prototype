@@ -38,7 +38,7 @@ namespace Ingame.Player
 		[SerializeField] [Min(0f)] private float slidingSpeed = 10f;
 		[BoxGroup("Sliding")]
 		[SerializeField] [Min(0f)] private float slidingCooldown = 1f;
-		
+
 
 		public float DefaultPlayerHeight => defaultPlayerHeight;
 		public float PlayerHighChangeDumping => playerHighChangeDumping;

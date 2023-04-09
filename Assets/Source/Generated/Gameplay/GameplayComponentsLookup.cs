@@ -25,46 +25,48 @@ public static class GameplayComponentsLookup {
     public const int MainCameraTag = 14;
     public const int MainVirtualCameraTag = 15;
     public const int ApplyDamageCmp = 16;
-    public const int HealthCmp = 17;
-    public const int ArrowCmp = 18;
-    public const int ArrowSpawnerCmp = 19;
-    public const int AxeCmp = 20;
-    public const int InHangsTag = 21;
-    public const int ShotPerformedEvent = 22;
-    public const int EnergyGunCmp = 23;
-    public const int MeleeAttackOriginTag = 24;
-    public const int PerformMeleeAttackReq = 25;
-    public const int ProjectileCmp = 26;
-    public const int RecoilCmp = 27;
-    public const int SwayCmp = 28;
-    public const int WeaponHolderCmp = 29;
-    public const int AwaitingWeaponSwitchReq = 30;
-    public const int WeaponSwitchEvent = 31;
-    public const int FreeToReuseTag = 32;
-    public const int CurrentHookTargetTag = 33;
-    public const int HookCmp = 34;
-    public const int HookTargetCmp = 35;
-    public const int PlayerCmp = 36;
-    public const int CanPerformDoubleJumpTag = 37;
-    public const int DashingCmp = 38;
-    public const int GroundCheckCmp = 39;
-    public const int HudOriginCmp = 40;
-    public const int IsDashingTag = 41;
-    public const int IsSlidingTag = 42;
-    public const int SlidingCmp = 43;
-    public const int VelocityCmp = 44;
-    public const int DashPostProcessingVolumeTag = 45;
-    public const int ShotTrailCmp = 46;
-    public const int OnCollisionEnterEventListener = 47;
-    public const int OnCollisionExitEventListener = 48;
-    public const int OnCollisionStayEventListener = 49;
-    public const int OnTriggerEnterEventListener = 50;
-    public const int OnTriggerExitEventListener = 51;
-    public const int OnTriggerStayEventListener = 52;
-    public const int PerformMeleeAttackReqListener = 53;
-    public const int WeaponSwitchEventListener = 54;
+    public const int ArmorCmp = 17;
+    public const int HealthCmp = 18;
+    public const int IsDeadTag = 19;
+    public const int ArrowCmp = 20;
+    public const int ArrowSpawnerCmp = 21;
+    public const int AxeCmp = 22;
+    public const int InHangsTag = 23;
+    public const int ShotPerformedEvent = 24;
+    public const int EnergyGunCmp = 25;
+    public const int MeleeAttackOriginTag = 26;
+    public const int PerformMeleeAttackReq = 27;
+    public const int ProjectileCmp = 28;
+    public const int RecoilCmp = 29;
+    public const int SwayCmp = 30;
+    public const int WeaponHolderCmp = 31;
+    public const int AwaitingWeaponSwitchReq = 32;
+    public const int WeaponSwitchEvent = 33;
+    public const int FreeToReuseTag = 34;
+    public const int CurrentHookTargetTag = 35;
+    public const int HookCmp = 36;
+    public const int HookTargetCmp = 37;
+    public const int PlayerCmp = 38;
+    public const int CanPerformDoubleJumpTag = 39;
+    public const int DashingCmp = 40;
+    public const int GroundCheckCmp = 41;
+    public const int HudOriginCmp = 42;
+    public const int IsDashingTag = 43;
+    public const int IsSlidingTag = 44;
+    public const int SlidingCmp = 45;
+    public const int VelocityCmp = 46;
+    public const int DashPostProcessingVolumeTag = 47;
+    public const int ShotTrailCmp = 48;
+    public const int OnCollisionEnterEventListener = 49;
+    public const int OnCollisionExitEventListener = 50;
+    public const int OnCollisionStayEventListener = 51;
+    public const int OnTriggerEnterEventListener = 52;
+    public const int OnTriggerExitEventListener = 53;
+    public const int OnTriggerStayEventListener = 54;
+    public const int PerformMeleeAttackReqListener = 55;
+    public const int WeaponSwitchEventListener = 56;
 
-    public const int TotalComponents = 55;
+    public const int TotalComponents = 57;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -84,7 +86,9 @@ public static class GameplayComponentsLookup {
         "MainCameraTag",
         "MainVirtualCameraTag",
         "ApplyDamageCmp",
+        "ArmorCmp",
         "HealthCmp",
+        "IsDeadTag",
         "ArrowCmp",
         "ArrowSpawnerCmp",
         "AxeCmp",
@@ -142,7 +146,9 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Camerawork.MainCameraTag),
         typeof(Ingame.Camerawork.MainVirtualCameraTag),
         typeof(Ingame.Effects.ApplyDamageCmp),
+        typeof(Ingame.Effects.ArmorCmp),
         typeof(Ingame.Effects.HealthCmp),
+        typeof(Ingame.Effects.IsDeadTag),
         typeof(Ingame.Gunplay.ArrowGun.ArrowCmp),
         typeof(Ingame.Gunplay.ArrowGun.ArrowSpawnerCmp),
         typeof(Ingame.Gunplay.Axe.AxeCmp),

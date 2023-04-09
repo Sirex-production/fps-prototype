@@ -1,6 +1,7 @@
 using Entitas;
 using Ingame.Camerawork;
 using Ingame.ConfigProvision;
+using Ingame.Effects;
 using Ingame.Gunplay.ArrowGun;
 using Ingame.Gunplay.Axe;
 using Ingame.Gunplay.EnergyGun;
@@ -36,6 +37,7 @@ namespace Ingame.Setup
 			_updateSystems.Add(new AxeFeature());
 			_updateSystems.Add(new ProjectileFeature());
 			_updateSystems.Add(new MeleeAttackFeature());
+			_updateSystems.Add(new EffectsFeature());
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
 			_updateSystems.Add(new VfxFeature());

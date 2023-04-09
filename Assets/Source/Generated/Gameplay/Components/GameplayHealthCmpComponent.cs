@@ -11,18 +11,18 @@ public partial class GameplayEntity {
     public Ingame.Effects.HealthCmp healthCmp { get { return (Ingame.Effects.HealthCmp)GetComponent(GameplayComponentsLookup.HealthCmp); } }
     public bool hasHealthCmp { get { return HasComponent(GameplayComponentsLookup.HealthCmp); } }
 
-    public void AddHealthCmp(float newInitialHealth, float newCurrentHealth) {
+    public void AddHealthCmp(float newMaximumHealth, float newCurrentHealth) {
         var index = GameplayComponentsLookup.HealthCmp;
         var component = (Ingame.Effects.HealthCmp)CreateComponent(index, typeof(Ingame.Effects.HealthCmp));
-        component.initialHealth = newInitialHealth;
+        component.maximumHealth = newMaximumHealth;
         component.currentHealth = newCurrentHealth;
         AddComponent(index, component);
     }
 
-    public void ReplaceHealthCmp(float newInitialHealth, float newCurrentHealth) {
+    public void ReplaceHealthCmp(float newMaximumHealth, float newCurrentHealth) {
         var index = GameplayComponentsLookup.HealthCmp;
         var component = (Ingame.Effects.HealthCmp)CreateComponent(index, typeof(Ingame.Effects.HealthCmp));
-        component.initialHealth = newInitialHealth;
+        component.maximumHealth = newMaximumHealth;
         component.currentHealth = newCurrentHealth;
         ReplaceComponent(index, component);
     }
