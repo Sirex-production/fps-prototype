@@ -64,6 +64,15 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sliding"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf0508fb-1ba0-40fc-b67a-f74c674fd254"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed246bdb-e59d-4607-9e79-c40eafd2db3c"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sliding"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -314,6 +334,7 @@ namespace Ingame.Input
             m_Movement_Rotate = m_Movement.FindAction("Rotate", throwIfNotFound: true);
             m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
             m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
+            m_Movement_Sliding = m_Movement.FindAction("Sliding", throwIfNotFound: true);
             // Combat
             m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
             m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
@@ -388,6 +409,7 @@ namespace Ingame.Input
         private readonly InputAction m_Movement_Rotate;
         private readonly InputAction m_Movement_Jump;
         private readonly InputAction m_Movement_Dash;
+        private readonly InputAction m_Movement_Sliding;
         public struct MovementActions
         {
             private @InputActions m_Wrapper;
@@ -396,6 +418,7 @@ namespace Ingame.Input
             public InputAction @Rotate => m_Wrapper.m_Movement_Rotate;
             public InputAction @Jump => m_Wrapper.m_Movement_Jump;
             public InputAction @Dash => m_Wrapper.m_Movement_Dash;
+            public InputAction @Sliding => m_Wrapper.m_Movement_Sliding;
             public InputActionMap Get() { return m_Wrapper.m_Movement; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -417,6 +440,9 @@ namespace Ingame.Input
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @Sliding.started += instance.OnSliding;
+                @Sliding.performed += instance.OnSliding;
+                @Sliding.canceled += instance.OnSliding;
             }
 
             private void UnregisterCallbacks(IMovementActions instance)
@@ -433,6 +459,9 @@ namespace Ingame.Input
                 @Dash.started -= instance.OnDash;
                 @Dash.performed -= instance.OnDash;
                 @Dash.canceled -= instance.OnDash;
+                @Sliding.started -= instance.OnSliding;
+                @Sliding.performed -= instance.OnSliding;
+                @Sliding.canceled -= instance.OnSliding;
             }
 
             public void RemoveCallbacks(IMovementActions instance)
@@ -550,6 +579,7 @@ namespace Ingame.Input
             void OnRotate(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnSliding(InputAction.CallbackContext context);
         }
         public interface ICombatActions
         {

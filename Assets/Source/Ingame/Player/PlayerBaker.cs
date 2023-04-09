@@ -23,6 +23,7 @@ namespace Ingame.Player
 			
 			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
 			entity.AddDashingCmp(Vector3.zero, 0f, 0f);
+			entity.AddSlidingCmp(Vector3.zero, 999f, 0f);
 			entity.AddCharacterControllerMdl(characterController);
 			entity.AddVelocityCmp(Vector3.zero, 0f);
 			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius, false);

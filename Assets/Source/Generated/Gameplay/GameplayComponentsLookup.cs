@@ -41,25 +41,30 @@ public static class GameplayComponentsLookup {
     public const int AwaitingWeaponSwitchReq = 30;
     public const int WeaponSwitchEvent = 31;
     public const int FreeToReuseTag = 32;
-    public const int PlayerCmp = 33;
-    public const int CanPerformDoubleJumpTag = 34;
-    public const int DashingCmp = 35;
-    public const int GroundCheckCmp = 36;
-    public const int HudOriginCmp = 37;
-    public const int IsDashingTag = 38;
-    public const int VelocityCmp = 39;
-    public const int DashPostProcessingVolumeTag = 40;
-    public const int ShotTrailCmp = 41;
-    public const int OnCollisionEnterEventListener = 42;
-    public const int OnCollisionExitEventListener = 43;
-    public const int OnCollisionStayEventListener = 44;
-    public const int OnTriggerEnterEventListener = 45;
-    public const int OnTriggerExitEventListener = 46;
-    public const int OnTriggerStayEventListener = 47;
-    public const int PerformMeleeAttackReqListener = 48;
-    public const int WeaponSwitchEventListener = 49;
+    public const int CurrentHookTargetTag = 33;
+    public const int HookCmp = 34;
+    public const int HookTargetCmp = 35;
+    public const int PlayerCmp = 36;
+    public const int CanPerformDoubleJumpTag = 37;
+    public const int DashingCmp = 38;
+    public const int GroundCheckCmp = 39;
+    public const int HudOriginCmp = 40;
+    public const int IsDashingTag = 41;
+    public const int IsSlidingTag = 42;
+    public const int SlidingCmp = 43;
+    public const int VelocityCmp = 44;
+    public const int DashPostProcessingVolumeTag = 45;
+    public const int ShotTrailCmp = 46;
+    public const int OnCollisionEnterEventListener = 47;
+    public const int OnCollisionExitEventListener = 48;
+    public const int OnCollisionStayEventListener = 49;
+    public const int OnTriggerEnterEventListener = 50;
+    public const int OnTriggerExitEventListener = 51;
+    public const int OnTriggerStayEventListener = 52;
+    public const int PerformMeleeAttackReqListener = 53;
+    public const int WeaponSwitchEventListener = 54;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 55;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -95,12 +100,17 @@ public static class GameplayComponentsLookup {
         "AwaitingWeaponSwitchReq",
         "WeaponSwitchEvent",
         "FreeToReuseTag",
+        "CurrentHookTargetTag",
+        "HookCmp",
+        "HookTargetCmp",
         "PlayerCmp",
         "CanPerformDoubleJumpTag",
         "DashingCmp",
         "GroundCheckCmp",
         "HudOriginCmp",
         "IsDashingTag",
+        "IsSlidingTag",
+        "SlidingCmp",
         "VelocityCmp",
         "DashPostProcessingVolumeTag",
         "ShotTrailCmp",
@@ -148,12 +158,17 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq),
         typeof(Ingame.Gunplay.WeaponSwitch.WeaponSwitchEvent),
         typeof(Ingame.ObjectPooling.FreeToReuseTag),
+        typeof(Ingame.Player.Abilities.Hook.CurrentHookTargetTag),
+        typeof(Ingame.Player.Abilities.Hook.HookCmp),
+        typeof(Ingame.Player.Abilities.Hook.HookTargetCmp),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.CanPerformDoubleJumpTag),
         typeof(Ingame.Player.Movement.DashingCmp),
         typeof(Ingame.Player.Movement.GroundCheckCmp),
         typeof(Ingame.Player.Movement.HudOriginCmp),
         typeof(Ingame.Player.Movement.IsDashingTag),
+        typeof(Ingame.Player.Movement.IsSlidingTag),
+        typeof(Ingame.Player.Movement.SlidingCmp),
         typeof(Ingame.Player.Movement.VelocityCmp),
         typeof(Ingame.Vfx.Dash.DashPostProcessingVolumeTag),
         typeof(Ingame.Vfx.ShotTrail.ShotTrailCmp),

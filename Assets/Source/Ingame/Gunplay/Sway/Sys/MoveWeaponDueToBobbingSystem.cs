@@ -29,7 +29,7 @@ namespace Ingame.Gunplay.Sway
 			var playerTravelTime = playerEntity.velocityCmp.timeSpentTraveling;
 			bool isGrounded = playerEntity.groundCheckCmp.IsGrounded();
 			
-			if(!isGrounded)
+			if(!isGrounded || playerEntity.hasIsSlidingTag || playerEntity.hasDashingCmp)
 				return;
 
 			foreach(var entity in _swayObjectGroup)

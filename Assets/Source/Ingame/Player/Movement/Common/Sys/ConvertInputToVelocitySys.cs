@@ -46,8 +46,11 @@ namespace Ingame.Player.Movement
 			if(!groundCheckCmp.IsGrounded() && !playerEntity.hasCanPerformDoubleJumpTag)
 				return;
 
+			var targetVelocity = playerEntity.velocityCmp.currentVelocity;
+			targetVelocity.y = _playerConfig.JumpForce;
+
+			playerEntity.velocityCmp.currentVelocity = targetVelocity;
 			playerEntity.hasCanPerformDoubleJumpTag = false;
-			playerEntity.velocityCmp.currentVelocity = Vector3.up * _playerConfig.JumpForce;
 		}
 	}
 }

@@ -30,6 +30,7 @@ namespace Ingame.Input
 					false,
 					false,
 					false,
+					false,
 					-1,
 					false,
 					false,
@@ -55,11 +56,13 @@ namespace Ingame.Input
 			var rotateInput = _inputActions.Movement.Rotate.ReadValue<Vector2>();
 			bool jumpInput = _inputActions.Movement.Jump.WasPerformedThisFrame();
 			bool dashInput = _inputActions.Movement.Dash.WasPerformedThisFrame();
+			bool slideInput = _inputActions.Movement.Sliding.WasPerformedThisFrame();
 
 			inputCmp.moveInput = moveInput;
 			inputCmp.rotateInput = rotateInput;
 			inputCmp.jumpInput = jumpInput;
 			inputCmp.dashInput = dashInput;
+			inputCmp.slideInput = slideInput;
 		}
 
 		private void ReceiveCombatInput(InputCmp inputCmp)

@@ -7,15 +7,17 @@ namespace Ingame.Camerawork.Sys
 	{
 		public void Execute()
 		{
+			var playerEntity = Contexts.sharedInstance.gameplay.playerCmpEntity;
 			var mainVirtualCameraEntity = Contexts.sharedInstance.gameplay.mainVirtualCameraTagEntity;
 			var moveInput = Contexts.sharedInstance.app.inputCmp.moveInput;
-
+			
 			if(!mainVirtualCameraEntity.hasCinemachineVirtualCameraMdl || !mainVirtualCameraEntity.hasTransformMdl)
 				return;
 
 			var transformMdl = mainVirtualCameraEntity.transformMdl;
-			var destinationLocalRotation = transformMdl.initialLocalRotation * GetCameraRotationOffsetDueToMovement(moveInput);
-
+			var targetRotation = playerEntity.hasIsSlidingTag ? GetCameraRotationDueToSliding() : GetCameraRotationOffsetDueToMovement(moveInput);
+			var destinationLocalRotation = transformMdl.initialLocalRotation * targetRotation;
+			
 			transformMdl.transform.localRotation = Quaternion.Slerp
 			(
 				transformMdl.transform.localRotation,
@@ -26,9 +28,14 @@ namespace Ingame.Camerawork.Sys
 
 		private Quaternion GetCameraRotationOffsetDueToMovement(in Vector2 movementInput)
 		{
-			float zRotationOffset = -movementInput.x * 1.5f;
+			float zRotationOffset = -movementInput.x * 2f;
 
 			return Quaternion.AngleAxis(zRotationOffset, Vector3.forward);
+		}
+
+		private Quaternion GetCameraRotationDueToSliding()
+		{
+			return Quaternion.AngleAxis(15f, Vector3.forward);
 		}
 	}
 }

@@ -8,6 +8,7 @@ using Ingame.Gunplay.MeleeAttack;
 using Ingame.Gunplay.Projectile;
 using Ingame.Gunplay.Sway;
 using Ingame.Gunplay.Sway.WeaponSwitch;
+using Ingame.Player.Abilities.Hook;
 using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
 using UnityEngine;

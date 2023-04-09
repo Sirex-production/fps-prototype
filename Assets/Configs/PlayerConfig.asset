@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520c2c197d1c4aef954749498e8e4f8f, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
+  defaultPlayerHeight: 2
+  playerHighChangeDumping: 0.00001
   accelerationSpeed: 100
   frictionDumping: 0.000001
   accelerationDumping: 0.3
@@ -19,4 +21,8 @@ MonoBehaviour:
   gravityForce: 30
   dashDuration: 0.12
   dashSpeed: 50
-  dashCooldown: 1
+  dashCooldown: 0.5
+  playerHeightWhileSliding: 0.5
+  slidingDuration: 0.5
+  slidingSpeed: 15
+  slidingCooldown: 0.1

@@ -28,7 +28,7 @@ namespace Ingame.Player.Movement
 			var playerEntity = _playerGroup.GetSingleEntity();
 			var velocityCmp = playerEntity.velocityCmp;
 			var targetVelocity = Vector3.up * velocityCmp.currentVelocity.y;
-
+			
 			velocityCmp.currentVelocity = Vector3.Lerp
 			(
 				velocityCmp.currentVelocity,
