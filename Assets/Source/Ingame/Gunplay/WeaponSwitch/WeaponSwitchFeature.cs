@@ -1,3 +1,5 @@
+using Ingame.Gunplay.UI;
+
 namespace Ingame.Gunplay.Sway.WeaponSwitch
 {
 	public sealed class WeaponSwitchFeature : Feature
@@ -6,6 +8,7 @@ namespace Ingame.Gunplay.Sway.WeaponSwitch
 		{
 			Add(new InvokeWeaponSwitchAnimation());
 			Add(new PerformWeaponSwitchSystem(Contexts.sharedInstance.gameplay));
+			Add(new UpdatePlayerGunsUiSystem());
 		}
 	}
 }

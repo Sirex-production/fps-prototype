@@ -9,6 +9,7 @@ using Ingame.Gunplay.MeleeAttack;
 using Ingame.Gunplay.Projectile;
 using Ingame.Gunplay.Sway;
 using Ingame.Gunplay.Sway.WeaponSwitch;
+using Ingame.Player.Abilities;
 using Ingame.Player.Abilities.Hook;
 using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
@@ -38,6 +39,7 @@ namespace Ingame.Setup
 			_updateSystems.Add(new ProjectileFeature());
 			_updateSystems.Add(new MeleeAttackFeature());
 			_updateSystems.Add(new EffectsFeature());
+			_updateSystems.Add(new AbilitiesFeature(configProvider));
 			_updateSystems.Add(new SwayFeature());
 			_updateSystems.Add(new CameraworkFeature());
 			_updateSystems.Add(new VfxFeature());

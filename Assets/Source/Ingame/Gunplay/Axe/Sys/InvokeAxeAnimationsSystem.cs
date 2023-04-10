@@ -17,7 +17,7 @@ namespace Ingame.Gunplay.Axe
 			var inputCmp = Contexts.sharedInstance.app.inputCmp;
 			var axeEntity = gameplayContext.axeCmpEntity;
 
-			if(!inputCmp.shootTapInput || !axeEntity.hasAnimatorMdl)
+			if(!inputCmp.shootTapInput || !axeEntity.hasAnimatorMdl || !axeEntity.hasInHangsTag)
 				return;
 
 			var axeAnimator = axeEntity.animatorMdl.aninmator;

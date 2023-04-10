@@ -46,7 +46,7 @@ namespace Ingame.Gunplay.EnergyGun
 			
 			hudCamera.fieldOfView = Mathf.Lerp
 			(
-				mainVCamera.m_Lens.FieldOfView,
+				hudCamera.fieldOfView,
 				targetHudCameraFov,
 				1f - Mathf.Pow(energyRifleCmp.aimDumping, Time.deltaTime)
 			);

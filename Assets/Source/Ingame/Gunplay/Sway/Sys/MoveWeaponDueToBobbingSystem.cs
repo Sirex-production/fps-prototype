@@ -29,7 +29,7 @@ namespace Ingame.Gunplay.Sway
 			var playerTravelTime = playerEntity.velocityCmp.timeSpentTraveling;
 			bool isGrounded = playerEntity.groundCheckCmp.IsGrounded();
 			
-			if(!isGrounded || playerEntity.hasIsSlidingTag || playerEntity.hasDashingCmp)
+			if(!isGrounded || playerEntity.hasIsSlidingTag || playerEntity.hasIsDashingTag)
 				return;
 
 			foreach(var entity in _swayObjectGroup)
@@ -37,7 +37,7 @@ namespace Ingame.Gunplay.Sway
 				var transformMdl = entity.transformMdl;
 				var swayCmp = entity.swayCmp;
 				var targetLocalPosition = transformMdl.initialLocalPosition + GetBobbingOffset(playerTravelTime, swayCmp);
-				
+
 				transformMdl.transform.localPosition = Vector3.Lerp
 				(
 					transformMdl.transform.localPosition,

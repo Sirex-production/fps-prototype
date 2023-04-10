@@ -920,6 +920,12 @@ MonoBehaviour:
   raycastOrigin: {fileID: 445731686539869151}
   distance: 0.65
   sphereCastRadius: 0.45
+  currentHealth: 100
+  maxHealth: 100
+  percentageOfDamageBlockedByArmor: 0.25
+  percentageOfArmorTaken: 0.25
+  maximumArmor: 100
+  currentArmor: 100
 --- !u!143 &445731685828706717
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1286,7 +1292,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotationDumping: 0.0001
   movementDumping: 0.0001
-  rotationSwayForce: 1
+  rotationSwayForce: 3
   movementSwayForce: 0.5
   recoilCurveX:
     serializedVersion: 2
