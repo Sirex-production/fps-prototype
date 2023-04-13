@@ -1,3 +1,5 @@
+using System;
+using Entitas.Unity;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -39,11 +41,14 @@ namespace Ingame.Player
 			entity.AddDashingCmp(Vector3.zero, 0f, 0f);
 			entity.AddSlidingCmp(Vector3.zero, 999f, 0f);
 			entity.AddCharacterControllerMdl(characterController);
+
 			entity.AddVelocityCmp(Vector3.zero, 0f);
 			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius, false);
 			entity.AddHealthCmp(maxHealth, currentHealth);
 			entity.AddArmorCmp(percentageOfDamageBlockedByArmor, percentageOfArmorTaken, maximumArmor, currentArmor);
 			entity.hasPlayerCmp = true;
+			
+			gameObject.Link(entity);
 		}
 
 		private void OnDrawGizmos()
@@ -58,6 +63,11 @@ namespace Ingame.Player
 
 			Gizmos.DrawLine(originPos, spherePos);
 			Gizmos.DrawWireSphere(spherePos, sphereCastRadius);
+		}
+
+		private void OnDestroy()
+		{
+			gameObject.Unlink();
 		}
 	}
 }

@@ -10,9 +10,11 @@ using Ingame.Gunplay.Projectile;
 using Ingame.Gunplay.Sway;
 using Ingame.Gunplay.Sway.WeaponSwitch;
 using Ingame.Player.Abilities;
-using Ingame.Player.Abilities.Hook;
 using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
+using Ingame.Ai;
+using Ingame.Interactive.Environment;
+using Source.Ingame.Health;
 using UnityEngine;
 using Zenject;
 
@@ -30,7 +32,7 @@ namespace Ingame.Setup
 			_gameplayContext = Contexts.sharedInstance.gameplay;
 			_updateSystems = new Systems();
 			_fixedUpdateSystems = new Systems();
-
+			
 			_updateSystems.Add(new PlayerMovementFeature(configProvider));
 			_updateSystems.Add(new WeaponSwitchFeature());
 			_updateSystems.Add(new ArrowGunFeature(diContainer));
@@ -44,6 +46,10 @@ namespace Ingame.Setup
 			_updateSystems.Add(new CameraworkFeature());
 			_updateSystems.Add(new VfxFeature());
 			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));
+			_updateSystems.Add(new AiFeature(_gameplayContext));
+			_updateSystems.Add(new AiFeature(_gameplayContext));
+			_updateSystems.Add(new EnvironmentFeature(_gameplayContext));
+			_updateSystems.Add(new HealthFeature(_gameplayContext));
 		}
 
 		private void Awake()
@@ -71,7 +77,13 @@ namespace Ingame.Setup
 		{
 			_updateSystems.TearDown();
 			_fixedUpdateSystems.TearDown();
-
+			
+			_updateSystems.ClearReactiveSystems();
+			_fixedUpdateSystems.ClearReactiveSystems();
+			
+			_updateSystems.DeactivateReactiveSystems();
+			_fixedUpdateSystems.DeactivateReactiveSystems();
+			
 			_gameplayContext.DestroyAllEntities();
 		}
 	}

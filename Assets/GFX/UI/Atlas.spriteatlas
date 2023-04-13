@@ -202,6 +202,7 @@ SpriteAtlas:
   - {fileID: 387644394, guid: 11b6a2c9022a683438ce7575f0772705, type: 3}
   - {fileID: 1537037239, guid: 11b6a2c9022a683438ce7575f0772705, type: 3}
   - {fileID: 35468604, guid: 11b6a2c9022a683438ce7575f0772705, type: 3}
+  - {fileID: 21300000, guid: 1cb383cc6d1c33d4381726a8f52d489d, type: 3}
   m_PackedSpriteNamesToIndex:
   - Keyboard Extras_17
   - Keyboard Extras_16
@@ -367,6 +368,7 @@ SpriteAtlas:
   - UI books & more_5
   - UI books & more_4
   - UI books & more_6
+  - colored-smoke-png-43277
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

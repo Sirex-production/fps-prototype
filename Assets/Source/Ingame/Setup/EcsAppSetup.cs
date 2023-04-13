@@ -16,7 +16,8 @@ namespace Ingame.Setup
 			_appContext = Contexts.sharedInstance.app;
 			_systems = new Systems();
 
-			_systems.Add(new InputFeature(inputActions));
+			_systems
+				.Add(new InputFeature(inputActions));
 		}
 
 		private void Awake()
@@ -33,6 +34,11 @@ namespace Ingame.Setup
 		private void OnDestroy()
 		{
 			_systems.TearDown();
+			
+			_systems.DeactivateReactiveSystems();
+			
+			_systems.ClearReactiveSystems();
+			
 			_appContext.DestroyAllEntities();
 		}
 	}
