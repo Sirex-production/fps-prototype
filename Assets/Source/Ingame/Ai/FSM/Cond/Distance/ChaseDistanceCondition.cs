@@ -6,9 +6,10 @@ namespace Ingame.Ai.FSM.Cond
     [CreateAssetMenu(fileName = "ChaseDistanceCondition", menuName = "Ai/Cond/Distance/ChaseDistanceCondition")]
     public sealed class ChaseDistanceCondition : DistanceCondition
     {
-        protected override void InitDistance(AiContextMdl aiContextMdl)
+
+        protected override float GetDistance(AiContextMdl aiContextMdl)
         {
-            distance = aiContextMdl.aiConfig.ChasingDistance;
+            return aiContextMdl.aiConfig.ChasingDistance;
         }
     }
 }

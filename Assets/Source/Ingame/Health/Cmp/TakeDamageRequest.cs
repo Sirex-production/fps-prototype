@@ -7,6 +7,6 @@ namespace Source.Ingame.Health.Cmp
     public sealed class TakeDamageRequest : IComponent
     {
         public float damageDealt;
-        public IEntity target;
+        public GameplayEntity target;
     }
 }

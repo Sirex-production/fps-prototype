@@ -13,7 +13,7 @@ namespace Ingame.Ai.FSM.AiAttackConfig
         {
             var cashedEnemyTransform = aiBaker.transform;
             var cashedEnemyPosition = cashedEnemyTransform.position;
-            var cashedPlayerPosition = aiBaker.PlayerTransform.position;
+            var cashedPlayerPosition = aiBaker.Entity.aiContextMdl.player.position;
             var cashedAiConfig = aiBaker.AIConfig;
             
             float distance = Vector3.Distance(cashedPlayerPosition, cashedEnemyPosition);
@@ -39,7 +39,7 @@ namespace Ingame.Ai.FSM.AiAttackConfig
                 if (!_cashedHits[i].transform.root.TryGetComponent<PlayerBaker>(out var player))
                     continue;
 
-                Contexts.sharedInstance.gameplay.CreateEntity().AddTakeDamageRequest(cashedAiConfig.AttackDamage, player.gameObject.GetEntityLink().entity);
+                Contexts.sharedInstance.gameplay.CreateEntity().AddTakeDamageRequest(cashedAiConfig.AttackDamage, player.gameObject.GetEntityLink().entity as GameplayEntity);
                 return;
             }
         }

@@ -22,11 +22,11 @@ namespace Ingame.Setup
 			_gameplayContext = Contexts.sharedInstance.gameplay;
 			_updateSystems = new Systems();
 			_fixedUpdateSystems = new Systems();
-			
+
 			_updateSystems
 				.Add(new PlayerMovementFeature(configProvider))
 				.Add(new AiFeature(_gameplayContext))
-		 	    .Add(new EnvironmentFeature(_gameplayContext))
+				.Add(new EnvironmentFeature(_gameplayContext))
 				.Add(new HealthFeature(_gameplayContext));
 			
 			_fixedUpdateSystems.Add(new MoveObjectDueToVelocitySystem());
@@ -52,15 +52,15 @@ namespace Ingame.Setup
 
 		private void OnDestroy()
 		{
-			_updateSystems.DeactivateReactiveSystems();
-			_fixedUpdateSystems.DeactivateReactiveSystems();
+			_updateSystems.TearDown();
+			_fixedUpdateSystems.TearDown();
 			
 			_updateSystems.ClearReactiveSystems();
 			_fixedUpdateSystems.ClearReactiveSystems();
 			
-			_updateSystems.TearDown();
-			_fixedUpdateSystems.TearDown();
-		 
+			_updateSystems.DeactivateReactiveSystems();
+			_fixedUpdateSystems.DeactivateReactiveSystems();
+			
 			_gameplayContext.DestroyAllEntities();
 		}
 	}

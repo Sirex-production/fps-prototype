@@ -34,6 +34,11 @@ namespace Ingame.Setup
 		private void OnDestroy()
 		{
 			_systems.TearDown();
+			
+			_systems.DeactivateReactiveSystems();
+			
+			_systems.ClearReactiveSystems();
+			
 			_appContext.DestroyAllEntities();
 		}
 	}

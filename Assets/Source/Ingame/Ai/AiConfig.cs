@@ -1,5 +1,6 @@
 ﻿using Ingame.Ai.FSM.State;
 using NaughtyAttributes;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 namespace Ingame.Ai
@@ -7,11 +8,16 @@ namespace Ingame.Ai
     [CreateAssetMenu(fileName = "AiConfig", menuName = "Ai/AiConfig")]
     public sealed class AiConfig : ScriptableObject
     {
+        
         [Header("Health")] 
         [SerializeField]
         [Min(0)]
         private float maxHealth;
 
+        [SerializeField] 
+        [Min(0)] 
+        private float maxShield;
+        
         [Header("FSM")] 
         [Required]
         [SerializeField]
@@ -58,8 +64,16 @@ namespace Ingame.Ai
         [SerializeField]
         [Range(0,360)]
         private float attackAngle;
-        
+
+        [SerializeField]
+        private bool isRange;
+
+        [Required] [SerializeField] 
+        [ShowIf("IsRange")]
+        private Bullet.Bullet bullet;
         public float MaxHealth => maxHealth;
+
+        public float MaxShield => maxShield;
 
         public StateBase InitState => initState;
 
@@ -80,5 +94,10 @@ namespace Ingame.Ai
         public float DetectionAngle => detectionAngle;
 
         public LayerMask VisibilityMask => visibilityMask;
+
+
+        public bool IsRange => isRange;
+
+        public Bullet.Bullet Bullet => bullet;
     }
 }

@@ -20,11 +20,13 @@ public static class GameplayComponentsLookup {
     public const int PerformInteractionTag = 9;
     public const int PlayerCmp = 10;
     public const int VelocityCmp = 11;
-    public const int DeceasedTag = 12;
-    public const int HealthCmp = 13;
-    public const int TakeDamageRequest = 14;
+    public const int AiTeleportPadTag = 12;
+    public const int DeceasedTag = 13;
+    public const int HealthCmp = 14;
+    public const int ShieldCmp = 15;
+    public const int TakeDamageRequest = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "CameraMdl",
@@ -39,8 +41,10 @@ public static class GameplayComponentsLookup {
         "PerformInteractionTag",
         "PlayerCmp",
         "VelocityCmp",
+        "AiTeleportPadTag",
         "DeceasedTag",
         "HealthCmp",
+        "ShieldCmp",
         "TakeDamageRequest"
     };
 
@@ -57,8 +61,10 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Interactive.Environment.Cmp.PerformInteractionTag),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(Source.Ingame.AiSupport.Cmp.AiTeleportPadTag),
         typeof(Source.Ingame.Health.Cmp.DeceasedTag),
         typeof(Source.Ingame.Health.Cmp.HealthCmp),
+        typeof(Source.Ingame.Health.Cmp.ShieldCmp),
         typeof(Source.Ingame.Health.Cmp.TakeDamageRequest)
     };
 }

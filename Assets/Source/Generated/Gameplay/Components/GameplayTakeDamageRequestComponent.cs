@@ -11,7 +11,7 @@ public partial class GameplayEntity {
     public Source.Ingame.Health.Cmp.TakeDamageRequest takeDamageRequest { get { return (Source.Ingame.Health.Cmp.TakeDamageRequest)GetComponent(GameplayComponentsLookup.TakeDamageRequest); } }
     public bool hasTakeDamageRequest { get { return HasComponent(GameplayComponentsLookup.TakeDamageRequest); } }
 
-    public void AddTakeDamageRequest(float newDamageDealt, Entitas.IEntity newTarget) {
+    public void AddTakeDamageRequest(float newDamageDealt, GameplayEntity newTarget) {
         var index = GameplayComponentsLookup.TakeDamageRequest;
         var component = (Source.Ingame.Health.Cmp.TakeDamageRequest)CreateComponent(index, typeof(Source.Ingame.Health.Cmp.TakeDamageRequest));
         component.damageDealt = newDamageDealt;
@@ -19,7 +19,7 @@ public partial class GameplayEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceTakeDamageRequest(float newDamageDealt, Entitas.IEntity newTarget) {
+    public void ReplaceTakeDamageRequest(float newDamageDealt, GameplayEntity newTarget) {
         var index = GameplayComponentsLookup.TakeDamageRequest;
         var component = (Source.Ingame.Health.Cmp.TakeDamageRequest)CreateComponent(index, typeof(Source.Ingame.Health.Cmp.TakeDamageRequest));
         component.damageDealt = newDamageDealt;

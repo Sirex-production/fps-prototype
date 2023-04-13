@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: AiConfigC
   m_EditorClassIdentifier: 
   maxHealth: 1.52
-  initState: {fileID: 11400000, guid: 3ecdd854dbee22148b71214ec8e0c0eb, type: 2}
-  chasingDistance: 9
+  maxShield: 0
+  initState: {fileID: 11400000, guid: e1c9a6b1489646c46bc85bc31ae2e394, type: 2}
+  chasingDistance: 27
   movementSpeed: 3
   stoppingDistance: 2.5
-  detectionRange: 18
-  detectionAngle: 128.9
+  detectionRange: 32
+  detectionAngle: 167.7
+  visibilityMask:
+    serializedVersion: 2
+    m_Bits: 0
   attackDamage: 1.17
-  attackRange: 1.76
-  attackVisionRange: 3
-  attackAngle: 81
+  attackRange: 22
+  attackVisionRange: 13.04
+  attackAngle: 125.8
+  isRange: 1
+  bullet: {fileID: 5414942128568544713, guid: 172c0fba6d6e9504889d372f8fd1443f, type: 3}

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Entitas;
+using UnityEngine;
 
 namespace Source.Ingame.Health.Sys
 {
-    public sealed class DecreaseHealthPointsSys : ReactiveSystem<GameplayEntity>
+    public sealed class DecreaseHealthPointsSys : ReactiveSystem<GameplayEntity> 
     {
         public DecreaseHealthPointsSys(IContext<GameplayEntity> context) : base(context)
         {
@@ -30,18 +32,44 @@ namespace Source.Ingame.Health.Sys
             {
                 var damageReq = entity.takeDamageRequest;
                 var target = damageReq.target;
-                var targetEntity = target as GameplayEntity;
                 
-                if(targetEntity is not { hasHealthCmp : true })
+                if (target is not { hasHealthCmp : true })
+                {
+                    entity.Destroy();
                     continue;
-
-                float newHealth = targetEntity.healthCmp.healthPoints - damageReq.damageDealt;
-
-                if (newHealth <= 0)
-                    targetEntity.hasDeceasedTag = true;
+                }
                 
-                targetEntity.ReplaceHealthCmp(newHealth);
+                float damageToDeal = damageReq.damageDealt;
+                
+                if (target.hasShieldCmp)
+                    ApplyDamageToShield(target, ref damageToDeal);
+
+                ApplyDamageToHealth(target, damageToDeal);
+                entity.Destroy();
             }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void ApplyDamageToShield(GameplayEntity target, ref float damageToDeal)
+        {
+            float shieldAmount = target.shieldCmp.shieldPoints;
+                    
+            if(shieldAmount <= 0)
+                return;
+            
+            target.ReplaceShieldCmp(Mathf.Clamp(shieldAmount, 0, shieldAmount - damageToDeal));
+            damageToDeal = Mathf.Clamp(damageToDeal, 0, damageToDeal - shieldAmount);
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void ApplyDamageToHealth(GameplayEntity target, float damageToDeal)
+        {
+            float newHealth = target.healthCmp.healthPoints - damageToDeal;
+
+            if (newHealth <= 0)
+                target.hasDeceasedTag = true;
+                
+            target.ReplaceHealthCmp(newHealth);
         }
     }
 }

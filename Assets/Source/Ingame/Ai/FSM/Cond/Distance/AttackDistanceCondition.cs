@@ -6,9 +6,10 @@ namespace Ingame.Ai.FSM.Cond
     [CreateAssetMenu(fileName = "AttackDistanceCondition", menuName = "Ai/Cond/Distance/AttackDistanceCondition")]
     public sealed class AttackDistanceCondition : DistanceCondition
     {
-        protected override void InitDistance(AiContextMdl aiContextMdl)
+     
+        protected override float GetDistance(AiContextMdl aiContextMdl)
         {
-            distance = aiContextMdl.aiConfig.AttackVisionRange;
+            return aiContextMdl.aiConfig.AttackVisionRange;
         }
     }
 }

@@ -11,24 +11,28 @@ public partial class GameplayEntity {
     public Ingame.Ai.Cmp.AiContextMdl aiContextMdl { get { return (Ingame.Ai.Cmp.AiContextMdl)GetComponent(GameplayComponentsLookup.AiContextMdl); } }
     public bool hasAiContextMdl { get { return HasComponent(GameplayComponentsLookup.AiContextMdl); } }
 
-    public void AddAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Animator newAnimator, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
+    public void AddAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Collider newPlayerCollider, UnityEngine.Animator newAnimator, UnityEngine.Transform newWeapon, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
         var index = GameplayComponentsLookup.AiContextMdl;
         var component = (Ingame.Ai.Cmp.AiContextMdl)CreateComponent(index, typeof(Ingame.Ai.Cmp.AiContextMdl));
         component.navMeshAgent = newNavMeshAgent;
         component.aiConfig = newAiConfig;
         component.player = newPlayer;
+        component.playerCollider = newPlayerCollider;
         component.animator = newAnimator;
+        component.weapon = newWeapon;
         component.aiStateWrapper = newAiStateWrapper;
         AddComponent(index, component);
     }
 
-    public void ReplaceAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Animator newAnimator, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
+    public void ReplaceAiContextMdl(UnityEngine.AI.NavMeshAgent newNavMeshAgent, Ingame.Ai.AiConfig newAiConfig, UnityEngine.Transform newPlayer, UnityEngine.Collider newPlayerCollider, UnityEngine.Animator newAnimator, UnityEngine.Transform newWeapon, Ingame.Ai.Cmp.AiStateWrapper newAiStateWrapper) {
         var index = GameplayComponentsLookup.AiContextMdl;
         var component = (Ingame.Ai.Cmp.AiContextMdl)CreateComponent(index, typeof(Ingame.Ai.Cmp.AiContextMdl));
         component.navMeshAgent = newNavMeshAgent;
         component.aiConfig = newAiConfig;
         component.player = newPlayer;
+        component.playerCollider = newPlayerCollider;
         component.animator = newAnimator;
+        component.weapon = newWeapon;
         component.aiStateWrapper = newAiStateWrapper;
         ReplaceComponent(index, component);
     }

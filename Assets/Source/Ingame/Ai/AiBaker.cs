@@ -1,10 +1,12 @@
 ﻿
 
 using System;
+using Entitas;
 using Entitas.Unity;
 using Ingame.Ai.Cmp;
 using Ingame.Ai.FSM;
 using NaughtyAttributes;
+using Source.Ingame.Health;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -30,9 +32,9 @@ namespace Ingame.Ai
         [SerializeField] 
         [Required] 
         private Transform weapon;
-
-        [Inject(Id = "Player")]
-        private Transform _playerTransform;
+        
+        
+        private GameplayEntity _entity;
         
         public NavMeshAgent NavMeshAgent => navMeshAgent;
 
@@ -42,23 +44,36 @@ namespace Ingame.Ai
 
         public Transform Weapon => weapon;
 
-        public Transform PlayerTransform => _playerTransform;
+        public GameplayEntity Entity => _entity;
 
         [Inject]
         private void Construct()
         {
             var entity = Contexts.sharedInstance.gameplay.CreateEntity();
             
-            entity.AddAiContextMdl(navMeshAgent, aiConfig, null, animator , new AiStateWrapper());
+            entity.AddAiContextMdl(navMeshAgent, aiConfig, null,null, animator , weapon,new AiStateWrapper());
             entity.AddHealthCmp(aiConfig.MaxHealth);
+            entity.AddShieldCmp(aiConfig.MaxShield);
             entity.hasEnemyTag = true;
-
+            
+            _entity = entity;
+            
             gameObject.Link(entity);
+            InjectEntity(); 
         }
 
         private void OnDestroy()
         {
             gameObject.Unlink();
+        }
+
+        private void InjectEntity()
+        {
+            var damageMultipliers = transform.GetComponentsInChildren<DamageMultiplier>();
+            foreach (var damageMultiplier in damageMultipliers)
+            {
+                damageMultiplier.CashedParentBody = _entity;
+            }
         }
     }
 }

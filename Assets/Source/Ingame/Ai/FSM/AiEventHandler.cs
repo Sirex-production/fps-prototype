@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Ingame.Ai.FSM.AiAttackConfig;
 using NaughtyAttributes;
 using UnityEngine;
@@ -36,6 +35,16 @@ namespace Ingame.Ai.FSM
         private void Attack()
         {
             attackPattern.Attack(aiBaker);
+        }
+
+        private void Die()
+        {
+            Destroy(this);
+        }
+
+        private void LookAt()
+        {
+            aiBaker.NavMeshAgent.transform.LookAt(aiBaker.Entity.aiContextMdl.player);
         }
     }
 }

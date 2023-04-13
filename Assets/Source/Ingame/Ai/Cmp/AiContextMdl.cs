@@ -13,7 +13,9 @@ namespace Ingame.Ai.Cmp
         public NavMeshAgent navMeshAgent;
         public AiConfig aiConfig;
         public Transform player;
+        public Collider playerCollider;
         public Animator animator;
+        public Transform weapon;
         //FSM
         public AiStateWrapper aiStateWrapper;
         

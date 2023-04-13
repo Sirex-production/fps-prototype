@@ -20,12 +20,13 @@ namespace Ingame.Player
 			entity.AddVelocityCmp(Vector3.zero);
 			entity.isPlayerCmp = true;
 
-			gameObject.Link(entity);
+			//gameObject.Link(entity);
 		}
 
 		private void OnDestroy()
 		{
-			gameObject.Unlink();
+			//gameObject.Unlink();
+			
 		}
 	}
 }

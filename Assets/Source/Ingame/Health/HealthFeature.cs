@@ -7,6 +7,8 @@ namespace Source.Ingame.Health
         public HealthFeature(GameplayContext contexts)
         {
             Add(new DecreaseHealthPointsSys(contexts));
+            Add(new EnemyDieSys(contexts));
         }
+        
     }
 }
