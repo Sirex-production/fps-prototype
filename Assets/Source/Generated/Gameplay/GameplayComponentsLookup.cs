@@ -57,32 +57,34 @@ public static class GameplayComponentsLookup {
     public const int HookCmp = 46;
     public const int HookTargetCmp = 47;
     public const int UiPlayerAbilitiesViewMdl = 48;
-    public const int PlayerCmp = 49;
-    public const int CanPerformDoubleJumpTag = 50;
-    public const int DashingCmp = 51;
-    public const int GroundCheckCmp = 52;
-    public const int HudOriginCmp = 53;
-    public const int IsDashingTag = 54;
-    public const int IsSlidingTag = 55;
-    public const int SlidingCmp = 56;
-    public const int VelocityCmp = 57;
-    public const int DashPostProcessingVolumeTag = 58;
-    public const int ShotTrailCmp = 59;
-    public const int OnCollisionEnterEventListener = 60;
-    public const int OnCollisionExitEventListener = 61;
-    public const int OnCollisionStayEventListener = 62;
-    public const int OnTriggerEnterEventListener = 63;
-    public const int OnTriggerExitEventListener = 64;
-    public const int OnTriggerStayEventListener = 65;
-    public const int PerformMeleeAttackReqListener = 66;
-    public const int AiTeleportPadTag = 67;
-    public const int AiHealthCmp = 68;
-    public const int DeceasedTag = 69;
-    public const int ShieldCmp = 70;
-    public const int TakeDamageRequest = 71;
-    public const int WeaponSwitchEventListener = 72;
+    public const int CollectableResourceTag = 49;
+    public const int PlayerCmp = 50;
+    public const int CanPerformDoubleJumpTag = 51;
+    public const int DashingCmp = 52;
+    public const int GroundCheckCmp = 53;
+    public const int HudOriginCmp = 54;
+    public const int IsDashingTag = 55;
+    public const int IsSlidingTag = 56;
+    public const int SlidingCmp = 57;
+    public const int VelocityCmp = 58;
+    public const int DashPostProcessingVolumeTag = 59;
+    public const int FloatingItemEffectCmp = 60;
+    public const int ShotTrailCmp = 61;
+    public const int OnCollisionEnterEventListener = 62;
+    public const int OnCollisionExitEventListener = 63;
+    public const int OnCollisionStayEventListener = 64;
+    public const int OnTriggerEnterEventListener = 65;
+    public const int OnTriggerExitEventListener = 66;
+    public const int OnTriggerStayEventListener = 67;
+    public const int PerformMeleeAttackReqListener = 68;
+    public const int AiTeleportPadTag = 69;
+    public const int AiHealthCmp = 70;
+    public const int DeceasedTag = 71;
+    public const int ShieldCmp = 72;
+    public const int TakeDamageRequest = 73;
+    public const int WeaponSwitchEventListener = 74;
 
-    public const int TotalComponents = 73;
+    public const int TotalComponents = 75;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -134,6 +136,7 @@ public static class GameplayComponentsLookup {
         "HookCmp",
         "HookTargetCmp",
         "UiPlayerAbilitiesViewMdl",
+        "CollectableResourceTag",
         "PlayerCmp",
         "CanPerformDoubleJumpTag",
         "DashingCmp",
@@ -144,6 +147,7 @@ public static class GameplayComponentsLookup {
         "SlidingCmp",
         "VelocityCmp",
         "DashPostProcessingVolumeTag",
+        "FloatingItemEffectCmp",
         "ShotTrailCmp",
         "OnCollisionEnterEventListener",
         "OnCollisionExitEventListener",
@@ -210,6 +214,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Player.Abilities.Hook.HookCmp),
         typeof(Ingame.Player.Abilities.Hook.HookTargetCmp),
         typeof(Ingame.Player.Abilities.UI.UiPlayerAbilitiesViewMdl),
+        typeof(Ingame.Player.CollectableResources.CollectableResourceTag),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.CanPerformDoubleJumpTag),
         typeof(Ingame.Player.Movement.DashingCmp),
@@ -220,6 +225,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Player.Movement.SlidingCmp),
         typeof(Ingame.Player.Movement.VelocityCmp),
         typeof(Ingame.Vfx.Dash.DashPostProcessingVolumeTag),
+        typeof(Ingame.Vfx.ShotTrail.FloatingEffect.FloatingItemEffectCmp),
         typeof(Ingame.Vfx.ShotTrail.ShotTrailCmp),
         typeof(OnCollisionEnterEventListenerComponent),
         typeof(OnCollisionExitEventListenerComponent),

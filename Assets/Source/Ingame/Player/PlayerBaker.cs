@@ -48,7 +48,7 @@ namespace Ingame.Player
 			entity.AddArmorCmp(percentageOfDamageBlockedByArmor, percentageOfArmorTaken, maximumArmor, currentArmor);
 			entity.hasPlayerCmp = true;
 			
-			gameObject.Link(entity);
+			// gameObject.Link(entity);
 		}
 
 		private void OnDrawGizmos()
@@ -67,7 +67,7 @@ namespace Ingame.Player
 
 		private void OnDestroy()
 		{
-			gameObject.Unlink();
+			// gameObject.Unlink();
 		}
 	}
 }
