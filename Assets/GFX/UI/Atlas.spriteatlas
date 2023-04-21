@@ -70,6 +70,7 @@ SpriteAtlas:
   - {fileID: 1311826646, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
   - {fileID: 679246889, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
   - {fileID: 653016181, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
+  - {fileID: 21300000, guid: 34642ad0091c8ec4cb54cfb4823cc11f, type: 3}
   - {fileID: -310085189, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
   - {fileID: -1123105662, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
   - {fileID: 793357927, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
@@ -237,6 +238,7 @@ SpriteAtlas:
   - Keyboard Extras_1
   - Keyboard Extras_2
   - Keyboard Extras_3
+  - main-menu-background
   - Pxiel Art UI borders_3
   - Pxiel Art UI borders_0
   - Pxiel Art UI borders_4
