@@ -1,5 +1,3 @@
-using System;
-using Entitas.Unity;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -31,11 +29,18 @@ namespace Ingame.Player
 		[SerializeField] [Min(0f)] private float maximumArmor = 100f;
 		[BoxGroup("ArmorCmp")]
 		[SerializeField] [Min(0f)] private float currentArmor = 100f;
+		
+		[BoxGroup("MagnetCmp")]
+		[SerializeField] [Min(0f)] private float affectDistance = 10f;
+		[BoxGroup("MagnetCmp")]
+		[SerializeField] [Min(0f)] private float strength = 5f;
 
 		[Inject]
 		private void Construct()
 		{
 			var entity = Contexts.sharedInstance.gameplay.CreateEntity();
+			
+			entity.hasPlayerCmp = true;
 			
 			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
 			entity.AddDashingCmp(Vector3.zero, 0f, 0f);
@@ -46,9 +51,8 @@ namespace Ingame.Player
 			entity.AddGroundCheckCmp(raycastOrigin, distance, sphereCastRadius, false);
 			entity.AddHealthCmp(maxHealth, currentHealth);
 			entity.AddArmorCmp(percentageOfDamageBlockedByArmor, percentageOfArmorTaken, maximumArmor, currentArmor);
-			entity.hasPlayerCmp = true;
 			
-			// gameObject.Link(entity);
+			entity.AddMagnetCmp(affectDistance, strength);
 		}
 
 		private void OnDrawGizmos()
@@ -63,11 +67,9 @@ namespace Ingame.Player
 
 			Gizmos.DrawLine(originPos, spherePos);
 			Gizmos.DrawWireSphere(spherePos, sphereCastRadius);
-		}
-
-		private void OnDestroy()
-		{
-			// gameObject.Unlink();
+			
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere(transform.position, affectDistance);
 		}
 	}
 }

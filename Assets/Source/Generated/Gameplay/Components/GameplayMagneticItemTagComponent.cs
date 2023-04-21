@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameplayEntity {
 
-    static readonly Ingame.Player.CollectableResources.CollectableResourceTag collectableResourceTagComponent = new Ingame.Player.CollectableResources.CollectableResourceTag();
+    static readonly Ingame.Player.Abilities.Magnet.MagneticItemTag magneticItemTagComponent = new Ingame.Player.Abilities.Magnet.MagneticItemTag();
 
-    public bool hasCollectableResourceTag {
-        get { return HasComponent(GameplayComponentsLookup.CollectableResourceTag); }
+    public bool hasMagneticItemTag {
+        get { return HasComponent(GameplayComponentsLookup.MagneticItemTag); }
         set {
-            if (value != hasCollectableResourceTag) {
-                var index = GameplayComponentsLookup.CollectableResourceTag;
+            if (value != hasMagneticItemTag) {
+                var index = GameplayComponentsLookup.MagneticItemTag;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : collectableResourceTagComponent;
+                            : magneticItemTagComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameplayEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameplayMatcher {
 
-    static Entitas.IMatcher<GameplayEntity> _matcherCollectableResourceTag;
+    static Entitas.IMatcher<GameplayEntity> _matcherMagneticItemTag;
 
-    public static Entitas.IMatcher<GameplayEntity> CollectableResourceTag {
+    public static Entitas.IMatcher<GameplayEntity> MagneticItemTag {
         get {
-            if (_matcherCollectableResourceTag == null) {
-                var matcher = (Entitas.Matcher<GameplayEntity>)Entitas.Matcher<GameplayEntity>.AllOf(GameplayComponentsLookup.CollectableResourceTag);
+            if (_matcherMagneticItemTag == null) {
+                var matcher = (Entitas.Matcher<GameplayEntity>)Entitas.Matcher<GameplayEntity>.AllOf(GameplayComponentsLookup.MagneticItemTag);
                 matcher.componentNames = GameplayComponentsLookup.componentNames;
-                _matcherCollectableResourceTag = matcher;
+                _matcherMagneticItemTag = matcher;
             }
 
-            return _matcherCollectableResourceTag;
+            return _matcherMagneticItemTag;
         }
     }
 }

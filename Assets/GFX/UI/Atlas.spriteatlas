@@ -87,6 +87,7 @@ SpriteAtlas:
   - {fileID: 551453207, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -1662783454, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -262506881, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
+  - {fileID: 66878009, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -895286979, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
   - {fileID: 2012134911, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
   - {fileID: -317069825, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
@@ -253,6 +254,7 @@ SpriteAtlas:
   - voiz-icons_2
   - voiz-icons_1
   - voiz-icons_0
+  - voiz-icons_8
   - Keyboard Letters and Symbols_93
   - Keyboard Letters and Symbols_92
   - Keyboard Letters and Symbols_59

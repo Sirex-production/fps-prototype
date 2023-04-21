@@ -13,6 +13,7 @@ using Ingame.Player.Abilities;
 using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
 using Ingame.Ai;
+using Ingame.CollectableResources;
 using Ingame.Interactive.Environment;
 using Ingame.Vfx.ShotTrail.FloatingEffect;
 using Source.Ingame.Health;
@@ -41,6 +42,7 @@ namespace Ingame.Setup
 				.Add(new AxeFeature())
 				.Add(new ProjectileFeature())
 				.Add(new MeleeAttackFeature())
+				.Add(new CollectableResourceFeature(configProvider))
 				.Add(new EffectsFeature())
 				.Add(new AbilitiesFeature(configProvider))
 				.Add(new SwayFeature())
@@ -48,7 +50,6 @@ namespace Ingame.Setup
 				.Add(new VfxFeature())
 				.Add(new FloatingEffectFeature())
 				.Add(new GameplayCleanupSystems(Contexts.sharedInstance))
-				.Add(new AiFeature(_gameplayContext))
 				.Add(new AiFeature(_gameplayContext))
 				.Add(new EnvironmentFeature(_gameplayContext))
 				.Add(new HealthFeature(_gameplayContext));

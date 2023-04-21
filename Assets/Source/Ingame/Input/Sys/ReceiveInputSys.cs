@@ -35,7 +35,8 @@ namespace Ingame.Input
 					false,
 					false,
 					false,
-					false
+					false,
+					 false
 				);
 		}
 
@@ -73,6 +74,7 @@ namespace Ingame.Input
 			bool shootTapInput = _inputActions.Combat.Shoot.WasPerformedThisFrame();
 			bool aimHoldInput = _inputActions.Combat.Aim.IsPressed();
 			bool aimTapInput = _inputActions.Combat.Aim.WasPerformedThisFrame();
+			bool magnetAbilityInput = _inputActions.Combat.MagnetAbility.IsPressed();
 
 			inputCmp.nextWeaponInput = nextWeaponInput;
 			inputCmp.prevWeaponInput = prevWeaponInput;
@@ -80,6 +82,7 @@ namespace Ingame.Input
 			inputCmp.shootTapInput = shootTapInput;
 			inputCmp.aimHoldInput = aimHoldInput;
 			inputCmp.aimTapInput = aimTapInput;
+			inputCmp.magnetAbilityInput = magnetAbilityInput;
 
 			if(_inputActions.Combat.SelectWeaponOne.WasPerformedThisFrame())
 				inputCmp.selectWeaponInput = 1;

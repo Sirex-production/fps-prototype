@@ -926,6 +926,8 @@ MonoBehaviour:
   percentageOfArmorTaken: 0.25
   maximumArmor: 100
   currentArmor: 100
+  affectDistance: 15
+  strength: 1000
 --- !u!143 &445731685828706717
 CharacterController:
   m_ObjectHideFlags: 0

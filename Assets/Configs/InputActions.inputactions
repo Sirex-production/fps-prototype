@@ -219,6 +219,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MagnetAbility",
+                    "type": "Button",
+                    "id": "cfd03daf-3630-4004-b52a-b7f11dc3ccdc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -296,6 +305,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectWeaponThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e68eb940-212c-41cf-8eb4-a6e1db7dd29b",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MagnetAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,7 +9,7 @@ namespace Ingame.Effects
 
 		public AddArmorSystem()
 		{
-			var healingMatcher = GameplayMatcher.AllOf
+			var armorMatcher = GameplayMatcher.AllOf
 			(
 				GameplayMatcher.ArmorCmp,
 				GameplayMatcher.AddArmorCmp
@@ -19,18 +19,18 @@ namespace Ingame.Effects
 				GameplayMatcher.IsDeadTag
 			);
 
-			_armorGroup = Contexts.sharedInstance.gameplay.GetGroup(healingMatcher);
+			_armorGroup = Contexts.sharedInstance.gameplay.GetGroup(armorMatcher);
 		}
 
 		public void Execute()
 		{
-			foreach(var entity in _armorGroup)
+			foreach(var entity in _armorGroup.GetEntities())
 			{
 				var armorCmp = entity.armorCmp;
 				var addArmorCmp = entity.addArmorCmp;
 
-				armorCmp.currentArmor = Mathf.Max(addArmorCmp.amountOfArmor + armorCmp.currentArmor, armorCmp.maximumArmor);
-
+				armorCmp.currentArmor = Mathf.Min(addArmorCmp.amountOfArmor + armorCmp.currentArmor, armorCmp.maximumArmor);
+			
 				entity.RemoveAddArmorCmp();
 			}
 		}

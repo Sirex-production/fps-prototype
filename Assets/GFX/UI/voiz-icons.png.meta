@@ -284,7 +284,7 @@ TextureImporter:
         width: 73
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,6 +292,27 @@ TextureImporter:
       bones: []
       spriteID: 92cf547ded894924991c6a0d847cadd5
       internalID: 1515989654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: voiz-icons_8
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 61
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1ee44d88db92d448eb1f2199792b2d
+      internalID: 66878009
       vertices: []
       indices: 
       edges: []
@@ -315,6 +336,7 @@ TextureImporter:
       voiz-icons_5: -785123166
       voiz-icons_6: 473223460
       voiz-icons_7: 1515989654
+      voiz-icons_8: 66878009
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

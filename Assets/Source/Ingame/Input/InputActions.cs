@@ -243,6 +243,15 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MagnetAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfd03daf-3630-4004-b52a-b7f11dc3ccdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +331,17 @@ namespace Ingame.Input
                     ""action"": ""SelectWeaponThree"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e68eb940-212c-41cf-8eb4-a6e1db7dd29b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MagnetAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -344,6 +364,7 @@ namespace Ingame.Input
             m_Combat_SelectWeaponOne = m_Combat.FindAction("SelectWeaponOne", throwIfNotFound: true);
             m_Combat_SelectWeaponTwo = m_Combat.FindAction("SelectWeaponTwo", throwIfNotFound: true);
             m_Combat_SelectWeaponThree = m_Combat.FindAction("SelectWeaponThree", throwIfNotFound: true);
+            m_Combat_MagnetAbility = m_Combat.FindAction("MagnetAbility", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -490,6 +511,7 @@ namespace Ingame.Input
         private readonly InputAction m_Combat_SelectWeaponOne;
         private readonly InputAction m_Combat_SelectWeaponTwo;
         private readonly InputAction m_Combat_SelectWeaponThree;
+        private readonly InputAction m_Combat_MagnetAbility;
         public struct CombatActions
         {
             private @InputActions m_Wrapper;
@@ -501,6 +523,7 @@ namespace Ingame.Input
             public InputAction @SelectWeaponOne => m_Wrapper.m_Combat_SelectWeaponOne;
             public InputAction @SelectWeaponTwo => m_Wrapper.m_Combat_SelectWeaponTwo;
             public InputAction @SelectWeaponThree => m_Wrapper.m_Combat_SelectWeaponThree;
+            public InputAction @MagnetAbility => m_Wrapper.m_Combat_MagnetAbility;
             public InputActionMap Get() { return m_Wrapper.m_Combat; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -531,6 +554,9 @@ namespace Ingame.Input
                 @SelectWeaponThree.started += instance.OnSelectWeaponThree;
                 @SelectWeaponThree.performed += instance.OnSelectWeaponThree;
                 @SelectWeaponThree.canceled += instance.OnSelectWeaponThree;
+                @MagnetAbility.started += instance.OnMagnetAbility;
+                @MagnetAbility.performed += instance.OnMagnetAbility;
+                @MagnetAbility.canceled += instance.OnMagnetAbility;
             }
 
             private void UnregisterCallbacks(ICombatActions instance)
@@ -556,6 +582,9 @@ namespace Ingame.Input
                 @SelectWeaponThree.started -= instance.OnSelectWeaponThree;
                 @SelectWeaponThree.performed -= instance.OnSelectWeaponThree;
                 @SelectWeaponThree.canceled -= instance.OnSelectWeaponThree;
+                @MagnetAbility.started -= instance.OnMagnetAbility;
+                @MagnetAbility.performed -= instance.OnMagnetAbility;
+                @MagnetAbility.canceled -= instance.OnMagnetAbility;
             }
 
             public void RemoveCallbacks(ICombatActions instance)
@@ -590,6 +619,7 @@ namespace Ingame.Input
             void OnSelectWeaponOne(InputAction.CallbackContext context);
             void OnSelectWeaponTwo(InputAction.CallbackContext context);
             void OnSelectWeaponThree(InputAction.CallbackContext context);
+            void OnMagnetAbility(InputAction.CallbackContext context);
         }
     }
 }
