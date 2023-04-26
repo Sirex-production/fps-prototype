@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cf63cfec58ee11459be7d755f97e3c1
+guid: 72498d17a8971f14cad8701a37e4277c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: axe
-    second: {fileID: 2100000, guid: f2abe1b4f60c0b8469f0162b40b74875, type: 2}
+      name: Armor
+    second: {fileID: 2100000, guid: bfb619950540e364ca8284420642adee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -93,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.001
+    globalScale: 0.2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

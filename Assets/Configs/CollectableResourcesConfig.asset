@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5a3ae20094a88b9c0d4cc2f8afade, type: 3}
   m_Name: CollectableResourcesConfig
   m_EditorClassIdentifier: 
-  <InteractionDistance>k__BackingField: 2
+  <InteractionDistance>k__BackingField: 3
   <ResourceConsumptionAnimationDuration>k__BackingField: 0.5

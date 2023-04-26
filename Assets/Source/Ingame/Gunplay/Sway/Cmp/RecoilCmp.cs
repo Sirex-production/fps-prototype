@@ -15,7 +15,10 @@ namespace Ingame.Gunplay.Sway
 		public float recoilGain;
 		public float recoilStrength;
 
+		public Vector2 cameraRecoilStrength;
+
 		public float currentRecoil;
+		
 
 		public Vector3 CurrentDeltaRotation => new()
 		{

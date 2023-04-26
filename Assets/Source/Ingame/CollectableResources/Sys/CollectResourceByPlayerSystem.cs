@@ -50,28 +50,42 @@ namespace Ingame.CollectableResources
 				if(Vector3.Distance(resourceTransform.position, playerTransform.position) > _resourcesConfig.InteractionDistance)
 					continue;
 
-				AddResource(resourceEntity, playerEntity);
-				DestroyResourceEntity(resourceEntity);
+				if(TryAddResource(resourceEntity, playerEntity))
+					DestroyResourceEntity(resourceEntity);
 			}
 		}
 
-		private void AddResource(GameplayEntity resourceEntity, GameplayEntity playerEntity)
+		private bool TryAddResource(GameplayEntity resourceEntity, GameplayEntity playerEntity)
 		{
+			bool isResourceCollected = false;
+			
 			if(resourceEntity.hasCollectableArmorCmp)
 			{
 				var collectableArmorCmp = resourceEntity.collectableArmorCmp;
-				playerEntity.AddAddArmorCmp(collectableArmorCmp.amountOfCollectableArmor);
-				
-				resourceEntity.RemoveCollectableArmorCmp();
+
+				if(!playerEntity.hasAddArmorCmp)
+				{
+					playerEntity.AddAddArmorCmp(collectableArmorCmp.amountOfCollectableArmor);
+					resourceEntity.RemoveCollectableArmorCmp();
+
+					isResourceCollected = true;
+				}
 			}
 			
 			if(resourceEntity.hasCollectableHealthCmp)
 			{
 				var collectableHealthCmp = resourceEntity.collectableHealthCmp;
-				playerEntity.AddAddHealthCmp(collectableHealthCmp.amountOfCollectableHealth);
 				
-				resourceEntity.RemoveCollectableHealthCmp();
+				if(!playerEntity.hasAddHealthCmp)
+				{
+					playerEntity.AddAddHealthCmp(collectableHealthCmp.amountOfCollectableHealth);
+					resourceEntity.RemoveCollectableHealthCmp();
+
+					isResourceCollected = true;
+				}
 			}
+
+			return isResourceCollected;
 		}
 
 		private void DestroyResourceEntity(GameplayEntity resourceEntity)

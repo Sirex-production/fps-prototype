@@ -46,7 +46,7 @@ namespace Ingame.Setup
 				.Add(new EffectsFeature())
 				.Add(new AbilitiesFeature(configProvider))
 				.Add(new SwayFeature())
-				.Add(new CameraworkFeature())
+				.Add(new CameraworkFeature(configProvider))
 				.Add(new VfxFeature())
 				.Add(new FloatingEffectFeature())
 				.Add(new GameplayCleanupSystems(Contexts.sharedInstance))
