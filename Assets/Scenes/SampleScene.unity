@@ -10295,6 +10295,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 445731685781075394, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 445731685828706718, guid: 2d3b8582129639345a0c3db0de698518,
         type: 3}
       propertyPath: m_Name
@@ -10353,6 +10358,36 @@ PrefabInstance:
     - target: {fileID: 445731685828706722, guid: 2d3b8582129639345a0c3db0de698518,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686162037531, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686162037535, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: movementDumping
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686162037535, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: positionDumping
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686162037535, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: rotationDumping
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686162037535, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: rotationSwayForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 445731686222109340, guid: 2d3b8582129639345a0c3db0de698518,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
