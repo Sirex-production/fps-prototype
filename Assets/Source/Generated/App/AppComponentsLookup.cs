@@ -9,14 +9,23 @@
 public static class AppComponentsLookup {
 
     public const int InputCmp = 0;
+    public const int SettingsCmp = 1;
+    public const int UpdateSettingsEvent = 2;
+    public const int UpdateSettingsEventListener = 3;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-        "InputCmp"
+        "InputCmp",
+        "SettingsCmp",
+        "UpdateSettingsEvent",
+        "UpdateSettingsEventListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Ingame.Input.InputCmp)
+        typeof(Ingame.Input.InputCmp),
+        typeof(Source.Ingame.Settings.Core.SettingsCmp),
+        typeof(Source.Ingame.Settings.Core.UpdateSettingsEvent),
+        typeof(UpdateSettingsEventListenerComponent)
     };
 }

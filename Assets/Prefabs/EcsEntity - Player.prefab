@@ -678,7 +678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &445731685781075393
 Transform:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -947,7 +947,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.21666683
+        value: 0.05469823
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -959,8 +959,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+      key0: {r: 0, g: 0.58341575, b: 0.9811321, a: 0}
+      key1: {r: 0, g: 0.58431375, b: 0.98039216, a: 0.44705883}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -975,7 +975,7 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 578
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1144,7 +1144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &445731686162037530
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,9 +1209,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotationDumping: 0.0001
-  movementDumping: 0.0001
-  rotationSwayForce: 3
+  rotationDumping: 0.01
+  movementDumping: 0.01
+  rotationSwayForce: 20
   movementSwayForce: 0.5
   recoilCurveX:
     serializedVersion: 2
@@ -1321,7 +1321,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  positionDumping: 0.00000001
+  positionDumping: 0.01
   recoilStabilizationDumping: 0.05
   recoilGain: 0.15
   recoilStrength: 30
