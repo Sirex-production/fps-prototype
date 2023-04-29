@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: example
   m_EditorClassIdentifier: 
   Source: {fileID: 2800000, guid: e4a8598b4a7f9de41bf934bafbc2ddce, type: 3}
-  Method: 0
-  Weights: {x: 1, y: 2, z: 1}
-  UseDitherPattern: 1
+  Method: 2
+  Weights: {x: 6, y: 1, z: 4}
+  VConversionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UseDitherPattern: 0
   DitherPattern: {fileID: 11400000, guid: 218fec54e28fcca42abd36f468ac506a, type: 2}
-  GeneratedFileName: 
-  AutoGenerateFileName: 1
+  GeneratedFileName: test1
+  AutoGenerateFileName: 0
