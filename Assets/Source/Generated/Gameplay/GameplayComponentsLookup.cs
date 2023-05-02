@@ -22,67 +22,77 @@ public static class GameplayComponentsLookup {
     public const int OnTriggerEnterEvent = 11;
     public const int OnTriggerExitEvent = 12;
     public const int OnTriggerStayEvent = 13;
-    public const int AiContextMdl = 14;
-    public const int EnemyTag = 15;
-    public const int HudCameraTag = 16;
-    public const int MainCameraTag = 17;
-    public const int MainVirtualCameraTag = 18;
-    public const int AddArmorCmp = 19;
-    public const int AddHealthCmp = 20;
-    public const int ApplyDamageCmp = 21;
-    public const int ArmorCmp = 22;
-    public const int HealthCmp = 23;
-    public const int IsDeadTag = 24;
-    public const int UiPlayerStatsViewMdl = 25;
-    public const int ArrowCmp = 26;
-    public const int ArrowSpawnerCmp = 27;
-    public const int AxeCmp = 28;
-    public const int InHangsTag = 29;
-    public const int ShotPerformedEvent = 30;
-    public const int EnergyGunCmp = 31;
-    public const int MeleeAttackOriginTag = 32;
-    public const int PerformMeleeAttackReq = 33;
-    public const int ProjectileCmp = 34;
-    public const int RecoilCmp = 35;
-    public const int SwayCmp = 36;
-    public const int WeaponHolderCmp = 37;
-    public const int UiPlayerGunsViewMdl = 38;
-    public const int AwaitingWeaponSwitchReq = 39;
-    public const int WeaponSwitchEvent = 40;
-    public const int GasPipeTag = 41;
-    public const int InteractiveObjectTag = 42;
-    public const int PerformInteractionTag = 43;
-    public const int FreeToReuseTag = 44;
-    public const int CurrentHookTargetTag = 45;
-    public const int HookCmp = 46;
-    public const int HookTargetCmp = 47;
-    public const int UiPlayerAbilitiesViewMdl = 48;
-    public const int PlayerCmp = 49;
-    public const int CanPerformDoubleJumpTag = 50;
-    public const int DashingCmp = 51;
-    public const int GroundCheckCmp = 52;
-    public const int HudOriginCmp = 53;
-    public const int IsDashingTag = 54;
-    public const int IsSlidingTag = 55;
-    public const int SlidingCmp = 56;
-    public const int VelocityCmp = 57;
-    public const int DashPostProcessingVolumeTag = 58;
-    public const int ShotTrailCmp = 59;
-    public const int OnCollisionEnterEventListener = 60;
-    public const int OnCollisionExitEventListener = 61;
-    public const int OnCollisionStayEventListener = 62;
-    public const int OnTriggerEnterEventListener = 63;
-    public const int OnTriggerExitEventListener = 64;
-    public const int OnTriggerStayEventListener = 65;
-    public const int PerformMeleeAttackReqListener = 66;
-    public const int AiTeleportPadTag = 67;
-    public const int AiHealthCmp = 68;
-    public const int DeceasedTag = 69;
-    public const int ShieldCmp = 70;
-    public const int TakeDamageRequest = 71;
-    public const int WeaponSwitchEventListener = 72;
+    public const int BulletMdl = 14;
+    public const int BulletPoolCmp = 15;
+    public const int BulletTypesMdl = 16;
+    public const int DirectionCmp = 17;
+    public const int ForcePowerCmp = 18;
+    public const int SpawnBulletReq = 19;
+    public const int AiContextMdl = 20;
+    public const int EnemyTag = 21;
+    public const int FlyingAiCmp = 22;
+    public const int MovementByAnimationsTag = 23;
+    public const int ReleaseBulletReq = 24;
+    public const int HudCameraTag = 25;
+    public const int MainCameraTag = 26;
+    public const int MainVirtualCameraTag = 27;
+    public const int AddArmorCmp = 28;
+    public const int AddHealthCmp = 29;
+    public const int ApplyDamageCmp = 30;
+    public const int ArmorCmp = 31;
+    public const int HealthCmp = 32;
+    public const int IsDeadTag = 33;
+    public const int UiPlayerStatsViewMdl = 34;
+    public const int ArrowCmp = 35;
+    public const int ArrowSpawnerCmp = 36;
+    public const int AxeCmp = 37;
+    public const int InHangsTag = 38;
+    public const int ShotPerformedEvent = 39;
+    public const int EnergyGunCmp = 40;
+    public const int MeleeAttackOriginTag = 41;
+    public const int PerformMeleeAttackReq = 42;
+    public const int ProjectileCmp = 43;
+    public const int RecoilCmp = 44;
+    public const int SwayCmp = 45;
+    public const int WeaponHolderCmp = 46;
+    public const int UiPlayerGunsViewMdl = 47;
+    public const int AwaitingWeaponSwitchReq = 48;
+    public const int WeaponSwitchEvent = 49;
+    public const int GasPipeTag = 50;
+    public const int InteractiveObjectTag = 51;
+    public const int PerformInteractionTag = 52;
+    public const int FreeToReuseTag = 53;
+    public const int CurrentHookTargetTag = 54;
+    public const int HookCmp = 55;
+    public const int HookTargetCmp = 56;
+    public const int UiPlayerAbilitiesViewMdl = 57;
+    public const int PlayerCmp = 58;
+    public const int CanPerformDoubleJumpTag = 59;
+    public const int DashingCmp = 60;
+    public const int GroundCheckCmp = 61;
+    public const int HudOriginCmp = 62;
+    public const int IsDashingTag = 63;
+    public const int IsSlidingTag = 64;
+    public const int SlidingCmp = 65;
+    public const int VelocityCmp = 66;
+    public const int DashPostProcessingVolumeTag = 67;
+    public const int ShotTrailCmp = 68;
+    public const int OnCollisionEnterEventListener = 69;
+    public const int OnCollisionExitEventListener = 70;
+    public const int OnCollisionStayEventListener = 71;
+    public const int OnTriggerEnterEventListener = 72;
+    public const int OnTriggerExitEventListener = 73;
+    public const int OnTriggerStayEventListener = 74;
+    public const int PerformMeleeAttackReqListener = 75;
+    public const int ClearLinkOnDestroyMdl = 76;
+    public const int AiTeleportPadTag = 77;
+    public const int AiHealthCmp = 78;
+    public const int DeceasedTag = 79;
+    public const int ShieldCmp = 80;
+    public const int TakeDamageReq = 81;
+    public const int WeaponSwitchEventListener = 82;
 
-    public const int TotalComponents = 73;
+    public const int TotalComponents = 83;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -99,8 +109,17 @@ public static class GameplayComponentsLookup {
         "OnTriggerEnterEvent",
         "OnTriggerExitEvent",
         "OnTriggerStayEvent",
+        "BulletMdl",
+        "BulletPoolCmp",
+        "BulletTypesMdl",
+        "DirectionCmp",
+        "ForcePowerCmp",
+        "SpawnBulletReq",
         "AiContextMdl",
         "EnemyTag",
+        "FlyingAiCmp",
+        "MovementByAnimationsTag",
+        "ReleaseBulletReq",
         "HudCameraTag",
         "MainCameraTag",
         "MainVirtualCameraTag",
@@ -152,11 +171,12 @@ public static class GameplayComponentsLookup {
         "OnTriggerExitEventListener",
         "OnTriggerStayEventListener",
         "PerformMeleeAttackReqListener",
+        "ClearLinkOnDestroyMdl",
         "AiTeleportPadTag",
         "AiHealthCmp",
         "DeceasedTag",
         "ShieldCmp",
-        "TakeDamageRequest",
+        "TakeDamageReq",
         "WeaponSwitchEventListener"
     };
 
@@ -175,8 +195,17 @@ public static class GameplayComponentsLookup {
         typeof(EcsSupport.UnityIntegration.Physics.OnTriggerEnterEvent),
         typeof(EcsSupport.UnityIntegration.Physics.OnTriggerExitEvent),
         typeof(EcsSupport.UnityIntegration.Physics.OnTriggerStayEvent),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletMdl),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletPoolCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletTypesMdl),
+        typeof(Ingame.Ai.Bullet.Cmp.DirectionCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.ForcePowerCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.SpawnBulletReq),
         typeof(Ingame.Ai.Cmp.AiContextMdl),
         typeof(Ingame.Ai.Cmp.EnemyTag),
+        typeof(Ingame.Ai.Cmp.FlyingAiCmp),
+        typeof(Ingame.Animation.Cmp.MovementByAnimationsTag),
+        typeof(Ingame.Bullet.Sys.ReleaseBulletReq),
         typeof(Ingame.Camerawork.HudCameraTag),
         typeof(Ingame.Camerawork.MainCameraTag),
         typeof(Ingame.Camerawork.MainVirtualCameraTag),
@@ -228,11 +257,12 @@ public static class GameplayComponentsLookup {
         typeof(OnTriggerExitEventListenerComponent),
         typeof(OnTriggerStayEventListenerComponent),
         typeof(PerformMeleeAttackReqListenerComponent),
+        typeof(Source.EcsSupport.Support.ClearLinkOnDestroyMdl),
         typeof(Source.Ingame.AiSupport.Cmp.AiTeleportPadTag),
         typeof(Source.Ingame.Health.Cmp.AiHealthCmp),
         typeof(Source.Ingame.Health.Cmp.DeceasedTag),
         typeof(Source.Ingame.Health.Cmp.ShieldCmp),
-        typeof(Source.Ingame.Health.Cmp.TakeDamageRequest),
+        typeof(Source.Ingame.Health.Cmp.TakeDamageReq),
         typeof(WeaponSwitchEventListenerComponent)
     };
 }

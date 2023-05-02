@@ -9,14 +9,17 @@
 public static class AppComponentsLookup {
 
     public const int InputCmp = 0;
+    public const int SpawnerMdl = 1;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-        "InputCmp"
+        "InputCmp",
+        "SpawnerMdl"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Ingame.Input.InputCmp)
+        typeof(Ingame.Input.InputCmp),
+        typeof(Source.Ingame.Spawner.Cmp.SpawnerMdl)
     };
 }

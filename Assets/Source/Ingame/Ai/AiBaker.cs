@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using EcsSupport.UnityIntegration;
 using Entitas;
 using Entitas.Unity;
 using Ingame.Ai.Cmp;
@@ -13,9 +14,13 @@ using Zenject;
 
 namespace Ingame.Ai
 {
-    [RequireComponent(typeof(AiEventHandler))]
+    [RequireComponent( typeof(GameplayEntityReference))]
     public sealed class AiBaker : MonoBehaviour
     {
+        [Required]
+        [SerializeField] 
+        private GameplayEntityReference gameplayEntityReference;
+        
         [Required]
         [SerializeField] 
         private NavMeshAgent navMeshAgent;
@@ -32,7 +37,12 @@ namespace Ingame.Ai
         [SerializeField] 
         [Required] 
         private Transform weapon;
+
+        [SerializeField] 
+        private bool isMovementByAnimation = false;
         
+        [SerializeField] 
+        private bool isFlying = false;
         
         private GameplayEntity _entity;
         
@@ -51,21 +61,32 @@ namespace Ingame.Ai
         {
             var entity = Contexts.sharedInstance.gameplay.CreateEntity();
             
-            entity.AddAiContextMdl(navMeshAgent, aiConfig, null,null, animator , weapon,new AiStateWrapper());
+            entity.AddAiContextMdl(navMeshAgent, aiConfig, null,null, animator , weapon,new AiStateWrapper(),new AiAnimationWrapper());
             entity.AddAiHealthCmp(aiConfig.MaxHealth);
             entity.AddShieldCmp(aiConfig.MaxShield);
             entity.hasEnemyTag = true;
+            entity.AddClearLinkOnDestroyMdl(gameObject);
+
+            if (isMovementByAnimation)
+                entity.hasMovementByAnimationsTag = true;
+            
+            if(isFlying)
+                entity.AddFlyingAiCmp(Vector3.zero);
             
             _entity = entity;
-            
-            gameObject.Link(entity);
-            InjectEntity(); 
+
+            gameplayEntityReference.attachedEntity = entity;
+            InjectEntity();
+
+            var rbs = GetComponentsInChildren<Rigidbody>();
+            foreach (var rb in rbs)
+            {
+                rb.isKinematic = true;
+                rb.useGravity = false;
+            }
         }
 
-        private void OnDestroy()
-        {
-            gameObject.Unlink();
-        }
+        
 
         private void InjectEntity()
         {

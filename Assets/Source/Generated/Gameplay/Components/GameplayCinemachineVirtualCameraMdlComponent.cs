@@ -6,19 +6,22 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Cinemachine;
+
 public partial class GameplayEntity {
 
     public EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl cinemachineVirtualCameraMdl { get { return (EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl)GetComponent(GameplayComponentsLookup.CinemachineVirtualCameraMdl); } }
     public bool hasCinemachineVirtualCameraMdl { get { return HasComponent(GameplayComponentsLookup.CinemachineVirtualCameraMdl); } }
 
-    public void AddCinemachineVirtualCameraMdl(Cinemachine.CinemachineVirtualCamera newVirtualCamera) {
+    public void AddCinemachineVirtualCameraMdl(CinemachineVirtualCamera newVirtualCamera) {
         var index = GameplayComponentsLookup.CinemachineVirtualCameraMdl;
         var component = (EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl)CreateComponent(index, typeof(EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl));
         component.virtualCamera = newVirtualCamera;
         AddComponent(index, component);
     }
 
-    public void ReplaceCinemachineVirtualCameraMdl(Cinemachine.CinemachineVirtualCamera newVirtualCamera) {
+    public void ReplaceCinemachineVirtualCameraMdl(CinemachineVirtualCamera newVirtualCamera) {
         var index = GameplayComponentsLookup.CinemachineVirtualCameraMdl;
         var component = (EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl)CreateComponent(index, typeof(EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl));
         component.virtualCamera = newVirtualCamera;

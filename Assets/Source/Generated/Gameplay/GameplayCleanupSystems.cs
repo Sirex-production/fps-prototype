@@ -13,12 +13,12 @@ public sealed class GameplayCleanupSystems : Feature {
         Add(new DestroyWeaponSwitchEventGameplaySystem(contexts));
         Add(new DestroyShotPerformedEventGameplaySystem(contexts));
         Add(new RemovePerformInteractionTagGameplaySystem(contexts));
+        Add(new DestroyTakeDamageReqGameplaySystem(contexts));
         Add(new DestroyOnTriggerStayEventGameplaySystem(contexts));
         Add(new DestroyOnCollisionStayEventGameplaySystem(contexts));
         Add(new DestroyOnTriggerEnterEventGameplaySystem(contexts));
         Add(new DestroyOnTriggerExitEventGameplaySystem(contexts));
         Add(new DestroyOnCollisionExitEventGameplaySystem(contexts));
         Add(new DestroyOnCollisionEnterEventGameplaySystem(contexts));
-        Add(new DestroyTakeDamageRequestGameplaySystem(contexts));
     }
 }

@@ -17,6 +17,10 @@ MonoBehaviour:
     conditions:
     - {fileID: 11400000, guid: fb107efc75182fb4596ddc174a527f68, type: 2}
     logicalOperator: 0
+  - state: {fileID: 11400000, guid: 3ecdd854dbee22148b71214ec8e0c0eb, type: 2}
+    conditions:
+    - {fileID: 11400000, guid: 10c4b75a68f38034cb6b08e99857e104, type: 2}
+    logicalOperator: 0
   actions:
-  - {fileID: 11400000, guid: 90e96df04c38e3d4aaab40ed4682ff84, type: 2}
+  - {fileID: 11400000, guid: 82c0525bce6270842abf3f6948f42aa5, type: 2}
   isRepeatable: 1

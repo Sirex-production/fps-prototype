@@ -8,25 +8,33 @@ namespace Source.Ingame.Health.Sys
 {
     public sealed class DecreaseAiHealthPointsSys : ReactiveSystem<GameplayEntity> 
     {
+        public DecreaseAiHealthPointsSys() : base(Contexts.sharedInstance.gameplay)
+        {
+            
+        }
         public DecreaseAiHealthPointsSys(IContext<GameplayEntity> context) : base(context)
         {
         }
 
         protected override ICollector<GameplayEntity> GetTrigger(IContext<GameplayEntity> context)
         {
-            return context.CreateCollector(GameplayMatcher.TakeDamageRequest);
+            return context.CreateCollector(
+                GameplayMatcher.AllOf(
+                    GameplayMatcher.TakeDamageReq
+                )
+                );
         }
 
         protected override bool Filter(GameplayEntity entity)
         {
-            return entity.hasTakeDamageRequest;
+            return entity.hasTakeDamageReq;
         }
 
         protected override void Execute(List<GameplayEntity> entities)
         {
             foreach (var entity in entities)
             {
-                var damageReq = entity.takeDamageRequest;
+                var damageReq = entity.takeDamageReq;
                 var target = damageReq.target;
                 
                 if (target is not { hasHealthCmp : true })

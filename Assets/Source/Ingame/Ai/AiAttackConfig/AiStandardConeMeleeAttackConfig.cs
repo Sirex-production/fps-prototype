@@ -1,4 +1,5 @@
-﻿using Entitas.Unity;
+﻿using EcsSupport.UnityIntegration;
+using Entitas.Unity;
 using Ingame.Player;
 using UnityEngine;
 
@@ -36,10 +37,10 @@ namespace Ingame.Ai.FSM.AiAttackConfig
 
             for (int i = 0; i < size; i++)
             {
-                if (!_cashedHits[i].transform.root.TryGetComponent<PlayerBaker>(out var player))
+                if (!_cashedHits[i].transform.root.TryGetComponent<GameplayEntityReference>(out var reference) || !_cashedHits[i].transform.CompareTag("Player"))
                     continue;
-
-                Contexts.sharedInstance.gameplay.CreateEntity().AddTakeDamageRequest(cashedAiConfig.AttackDamage, player.gameObject.GetEntityLink().entity as GameplayEntity);
+                
+                reference.attachedEntity.AddApplyDamageCmp(cashedAiConfig.AttackDamage);
                 return;
             }
         }

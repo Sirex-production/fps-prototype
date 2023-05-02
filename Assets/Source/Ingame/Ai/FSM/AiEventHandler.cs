@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Ingame.Ai.FSM
 {
-    [RequireComponent(typeof(AiBaker))]
-    public sealed class AiEventHandler : MonoBehaviour
+
+    public class AiEventHandler : MonoBehaviour
     {
         [Required] 
         [SerializeField]
@@ -37,7 +37,7 @@ namespace Ingame.Ai.FSM
             attackPattern.Attack(aiBaker);
         }
 
-        private void Die()
+        protected void Die()
         {
             Destroy(this);
         }
@@ -45,6 +45,16 @@ namespace Ingame.Ai.FSM
         private void LookAt()
         {
             aiBaker.NavMeshAgent.transform.LookAt(aiBaker.Entity.aiContextMdl.player);
+        }
+        
+        
+        private void ReleaseAnimationIfOutOfRange(string animationName)
+        {
+            var distance = Vector3.Distance(aiBaker.NavMeshAgent.transform.position, aiBaker.Entity.aiContextMdl.player.position);
+            if (distance < aiBaker.AIConfig.AttackVisionRange)
+                return;
+
+            ReleaseAnimation(animationName);
         }
     }
 }

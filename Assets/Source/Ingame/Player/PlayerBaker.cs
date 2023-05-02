@@ -1,4 +1,5 @@
 using System;
+using EcsSupport.UnityIntegration;
 using Entitas.Unity;
 using NaughtyAttributes;
 using UnityEngine;
@@ -6,8 +7,12 @@ using Zenject;
 
 namespace Ingame.Player
 {
+	[RequireComponent(typeof(GameplayEntityReference))]
 	public sealed class PlayerBaker : MonoBehaviour
 	{
+		[BoxGroup("Entity")]
+		[Required, SerializeField] private GameplayEntityReference gameplayEntityReference;
+		
 		[BoxGroup("CharacterControllerMdl")]
 		[Required, SerializeField] private CharacterController characterController;
 		
@@ -47,8 +52,9 @@ namespace Ingame.Player
 			entity.AddHealthCmp(maxHealth, currentHealth);
 			entity.AddArmorCmp(percentageOfDamageBlockedByArmor, percentageOfArmorTaken, maximumArmor, currentArmor);
 			entity.hasPlayerCmp = true;
-			
-			gameObject.Link(entity);
+			entity.AddClearLinkOnDestroyMdl(gameObject);
+			gameplayEntityReference.attachedEntity = entity;
+		 
 		}
 
 		private void OnDrawGizmos()
@@ -64,10 +70,6 @@ namespace Ingame.Player
 			Gizmos.DrawLine(originPos, spherePos);
 			Gizmos.DrawWireSphere(spherePos, sphereCastRadius);
 		}
-
-		private void OnDestroy()
-		{
-			gameObject.Unlink();
-		}
+ 
 	}
 }

@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 445731685828706722}
   - component: {fileID: 445731685828706716}
   - component: {fileID: 445731685828706717}
+  - component: {fileID: 8857351304661521386}
   m_Layer: 6
   m_Name: EcsEntity - Player
   m_TagString: Untagged
@@ -916,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539a46694bd34b88a4e47e831926e56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayEntityReference: {fileID: 8857351304661521386}
   characterController: {fileID: 445731685828706717}
   raycastOrigin: {fileID: 445731686539869151}
   distance: 0.65
@@ -944,6 +946,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8857351304661521386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445731685828706718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d1a175f847485ca09bcf72e62e1cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &445731685898385470
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +1010,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
