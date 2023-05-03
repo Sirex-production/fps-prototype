@@ -19931,6 +19931,7 @@ MonoBehaviour:
   aiConfig: {fileID: 11400000, guid: 6405e196b16a29e4c8d3df300c143922, type: 2}
   animator: {fileID: 6272098031492697931}
   weapon: {fileID: 6614554459088894464}
+  modelWrapper: {fileID: 6614554459356053603}
   isMovementByAnimation: 0
   isFlying: 1
 --- !u!114 &2423542375913409497

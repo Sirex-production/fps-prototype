@@ -23,9 +23,10 @@ MonoBehaviour:
   visibilityMask:
     serializedVersion: 2
     m_Bits: 0
-  attackDamage: 1.17
+  attackDamage: 6
   attackRange: 22
   attackVisionRange: 13.04
   attackAngle: 125.8
   isRange: 1
-  bullet: {fileID: 5414942128568544713, guid: 172c0fba6d6e9504889d372f8fd1443f, type: 3}
+  bulletBasic: {fileID: 5414942128568544713, guid: 172c0fba6d6e9504889d372f8fd1443f,
+    type: 3}

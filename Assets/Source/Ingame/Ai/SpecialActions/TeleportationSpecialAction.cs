@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Ingame.Ai.SpecialActions
 {
-    [RequireComponent(typeof(AiBaker))]
+    
     public sealed class TeleportationSpecialAction : SpecialActionBase
     {
 

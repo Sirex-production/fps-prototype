@@ -35,9 +35,14 @@ namespace Ingame.Ai.FSM
             if (distance < aiBaker.AIConfig.AttackVisionRange)
                 return;
 
-            fire.gameObject.SetActive(false);
+            StopFire();
         }
 
+        private void StopFire( )
+        {
+            fire.gameObject.SetActive(false);
+        }
+        
         private void StartFire()
         {
             fire.gameObject.SetActive(true);

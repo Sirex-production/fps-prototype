@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EcsSupport.UnityIntegration;
 using Ingame.Ai.FSM.AiAttackConfig;
 using NaughtyAttributes;
 using UnityEngine;
@@ -39,7 +40,7 @@ namespace Ingame.Ai.FSM
 
         protected void Die()
         {
-            Destroy(this);
+           
         }
 
         private void LookAt()

@@ -1038,7 +1038,9 @@ MonoBehaviour:
   aiConfig: {fileID: 11400000, guid: 22f8d65577fc03744a3e86ce1f9f8a0f, type: 2}
   animator: {fileID: 3707495522547973492}
   weapon: {fileID: 7068749403645347963}
+  modelWrapper: {fileID: 7068749401607823860}
   isMovementByAnimation: 0
+  isFlying: 0
 --- !u!114 &8449687210728733851
 MonoBehaviour:
   m_ObjectHideFlags: 0

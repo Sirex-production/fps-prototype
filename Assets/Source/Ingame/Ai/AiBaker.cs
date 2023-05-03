@@ -39,6 +39,10 @@ namespace Ingame.Ai
         private Transform weapon;
 
         [SerializeField] 
+        [Required] 
+        private Transform modelWrapper;
+        
+        [SerializeField] 
         private bool isMovementByAnimation = false;
         
         [SerializeField] 
@@ -64,6 +68,7 @@ namespace Ingame.Ai
             entity.AddAiContextMdl(navMeshAgent, aiConfig, null,null, animator , weapon,new AiStateWrapper(),new AiAnimationWrapper());
             entity.AddAiHealthCmp(aiConfig.MaxHealth);
             entity.AddShieldCmp(aiConfig.MaxShield);
+            entity.AddAiModelWrapperContainerMdl(modelWrapper);
             entity.hasEnemyTag = true;
             entity.AddClearLinkOnDestroyMdl(gameObject);
 
