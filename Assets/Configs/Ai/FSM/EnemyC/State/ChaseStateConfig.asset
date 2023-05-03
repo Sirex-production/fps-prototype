@@ -18,5 +18,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9b8f59815bc42504d8a6cd2cf223fd6c, type: 2}
     logicalOperator: 0
   actions:
-  - {fileID: 11400000, guid: 90e96df04c38e3d4aaab40ed4682ff84, type: 2}
+  - {fileID: 11400000, guid: e5ddaa679874bad498697f5b90ca4cf5, type: 2}
   isRepeatable: 1

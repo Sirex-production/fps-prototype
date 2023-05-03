@@ -15,16 +15,16 @@ MonoBehaviour:
   maxHealth: 1.52
   maxShield: 0
   initState: {fileID: 11400000, guid: e1c9a6b1489646c46bc85bc31ae2e394, type: 2}
-  chasingDistance: 27
+  chasingDistance: 20
   movementSpeed: 3
   stoppingDistance: 2.5
-  detectionRange: 32
+  detectionRange: 28
   detectionAngle: 167.7
   visibilityMask:
     serializedVersion: 2
     m_Bits: 0
   attackDamage: 6
-  attackRange: 22
+  attackRange: 15
   attackVisionRange: 13.04
   attackAngle: 125.8
   isRange: 1
