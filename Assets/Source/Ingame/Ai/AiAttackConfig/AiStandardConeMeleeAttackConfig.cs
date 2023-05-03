@@ -40,7 +40,8 @@ namespace Ingame.Ai.FSM.AiAttackConfig
                 if (!_cashedHits[i].transform.root.TryGetComponent<GameplayEntityReference>(out var reference) || !_cashedHits[i].transform.CompareTag("Player"))
                     continue;
                 
-                reference.attachedEntity.AddApplyDamageCmp(cashedAiConfig.AttackDamage);
+                if(!reference.attachedEntity.hasApplyDamageCmp)
+                    reference.attachedEntity.AddApplyDamageCmp(cashedAiConfig.AttackDamage);
                 return;
             }
         }

@@ -17,11 +17,6 @@ MonoBehaviour:
     conditions:
     - {fileID: 11400000, guid: fb107efc75182fb4596ddc174a527f68, type: 2}
     logicalOperator: 0
-  - state: {fileID: 11400000, guid: cfbf10722a98bab4f8be7a9b11a76896, type: 2}
-    conditions:
-    - {fileID: 11400000, guid: d3a03b2bd9446144d9393ccd76c44c76, type: 2}
-    - {fileID: 11400000, guid: 6c2cfb5526e8902469227d4ee583638b, type: 2}
-    logicalOperator: 1
   actions:
-  - {fileID: 11400000, guid: e5ddaa679874bad498697f5b90ca4cf5, type: 2}
+  - {fileID: 11400000, guid: 90e96df04c38e3d4aaab40ed4682ff84, type: 2}
   isRepeatable: 1

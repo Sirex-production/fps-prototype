@@ -17,11 +17,11 @@ namespace Ingame.Ai.FSM.Action
             if (!isMovedByAnimation)
             {
                 aiContextMdl.navMeshAgent.updatePosition = true;
+                aiContextMdl.navMeshAgent.isStopped = false;
             }
             
             var status = base.Run(aiContextMdl);
             aiContextMdl.animator.SetBool(IsWalking, status == ActionStatus.Running);
-          /*Debug.Log();*/
             return status;
         }
     }
