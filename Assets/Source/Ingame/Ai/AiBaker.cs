@@ -70,7 +70,6 @@ namespace Ingame.Ai
             entity.AddShieldCmp(aiConfig.MaxShield);
             entity.AddAiModelWrapperContainerMdl(modelWrapper);
             entity.hasEnemyTag = true;
-            entity.AddClearLinkOnDestroyMdl(gameObject);
 
             if (isMovementByAnimation)
                 entity.hasMovementByAnimationsTag = true;

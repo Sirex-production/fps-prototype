@@ -16,8 +16,8 @@ using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
 using Ingame.Ai;
 using Ingame.Interactive.Environment;
-using Source.EcsSupport.Support;
 using Source.Ingame.Bullet;
+using Ingame.Vfx.ShotTrail.FloatingEffect;
 using Source.Ingame.Health;
 using UnityEngine;
 using Zenject;
@@ -36,25 +36,24 @@ namespace Ingame.Setup
 			_gameplayContext = Contexts.sharedInstance.gameplay;
 			_updateSystems = new Systems();
 			_fixedUpdateSystems = new Systems();
-			
-			_updateSystems.Add(new PlayerMovementFeature(configProvider));
-			_updateSystems.Add(new WeaponSwitchFeature());
-			_updateSystems.Add(new ArrowGunFeature(diContainer));
-			_updateSystems.Add(new EnergyGunFeature(configProvider));
-			_updateSystems.Add(new AxeFeature());
-			_updateSystems.Add(new ProjectileFeature());
-			_updateSystems.Add(new MeleeAttackFeature());
-			_updateSystems.Add(new EffectsFeature());
-			_updateSystems.Add(new AbilitiesFeature(configProvider));
-			_updateSystems.Add(new SwayFeature());
-			_updateSystems.Add(new CameraworkFeature());
-			_updateSystems.Add(new VfxFeature());
-			_updateSystems.Add(new GameplayCleanupSystems(Contexts.sharedInstance));
-			_updateSystems.Add(new AiFeature(_gameplayContext));
-			_updateSystems.Add(new BulletFeature());
-			_updateSystems.Add(new EnvironmentFeature(_gameplayContext));
-			_updateSystems.Add(new HealthFeature(_gameplayContext));
-			_updateSystems.Add(new UnlinkEntityFromGameObjectSys());
+
+			_updateSystems.Add(new PlayerMovementFeature(configProvider))
+				.Add(new WeaponSwitchFeature())
+				.Add(new ArrowGunFeature(diContainer))
+				.Add(new EnergyGunFeature(configProvider))
+				.Add(new AxeFeature())
+				.Add(new ProjectileFeature())
+				.Add(new MeleeAttackFeature())
+				.Add(new EffectsFeature())
+				.Add(new AbilitiesFeature(configProvider))
+				.Add(new SwayFeature())
+				.Add(new CameraworkFeature())
+				.Add(new VfxFeature())
+				.Add(new FloatingEffectFeature())
+				.Add(new BulletFeature())
+				.Add(new AiFeature(_gameplayContext))
+				.Add(new EnvironmentFeature(_gameplayContext))
+				.Add(new HealthFeature(_gameplayContext));
 		}
 
 		private void Awake()
@@ -64,14 +63,7 @@ namespace Ingame.Setup
 			
 			_updateSystems.Initialize();
 			_fixedUpdateSystems.Initialize();
-
-			/*_gameplayContext.OnEntityDestroyed += (context, entity) =>
-			{
-				if (entity is GameplayEntity { hasClearLinkOnDestroyMdl: true } ent)
-				{
-					ent.clearLinkOnDestroyMdl.linkedGameObject.Unlink();
-				}
-			};*/
+			
 		}
 
 		private void Update()

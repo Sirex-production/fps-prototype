@@ -52,9 +52,8 @@ namespace Ingame.Player
 			entity.AddHealthCmp(maxHealth, currentHealth);
 			entity.AddArmorCmp(percentageOfDamageBlockedByArmor, percentageOfArmorTaken, maximumArmor, currentArmor);
 			entity.hasPlayerCmp = true;
-			entity.AddClearLinkOnDestroyMdl(gameObject);
 			gameplayEntityReference.attachedEntity = entity;
-		 
+			
 		}
 
 		private void OnDrawGizmos()
@@ -70,6 +69,5 @@ namespace Ingame.Player
 			Gizmos.DrawLine(originPos, spherePos);
 			Gizmos.DrawWireSphere(spherePos, sphereCastRadius);
 		}
- 
 	}
 }

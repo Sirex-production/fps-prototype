@@ -67,33 +67,34 @@ public static class GameplayComponentsLookup {
     public const int HookCmp = 56;
     public const int HookTargetCmp = 57;
     public const int UiPlayerAbilitiesViewMdl = 58;
-    public const int PlayerCmp = 59;
-    public const int CanPerformDoubleJumpTag = 60;
-    public const int DashingCmp = 61;
-    public const int GroundCheckCmp = 62;
-    public const int HudOriginCmp = 63;
-    public const int IsDashingTag = 64;
-    public const int IsSlidingTag = 65;
-    public const int SlidingCmp = 66;
-    public const int VelocityCmp = 67;
-    public const int DashPostProcessingVolumeTag = 68;
-    public const int ShotTrailCmp = 69;
-    public const int OnCollisionEnterEventListener = 70;
-    public const int OnCollisionExitEventListener = 71;
-    public const int OnCollisionStayEventListener = 72;
-    public const int OnTriggerEnterEventListener = 73;
-    public const int OnTriggerExitEventListener = 74;
-    public const int OnTriggerStayEventListener = 75;
-    public const int PerformMeleeAttackReqListener = 76;
-    public const int ClearLinkOnDestroyMdl = 77;
-    public const int AiTeleportPadTag = 78;
-    public const int AiHealthCmp = 79;
-    public const int DeceasedTag = 80;
-    public const int ShieldCmp = 81;
-    public const int TakeDamageReq = 82;
-    public const int WeaponSwitchEventListener = 83;
+    public const int CollectableResourceTag = 59;
+    public const int PlayerCmp = 60;
+    public const int CanPerformDoubleJumpTag = 61;
+    public const int DashingCmp = 62;
+    public const int GroundCheckCmp = 63;
+    public const int HudOriginCmp = 64;
+    public const int IsDashingTag = 65;
+    public const int IsSlidingTag = 66;
+    public const int SlidingCmp = 67;
+    public const int VelocityCmp = 68;
+    public const int DashPostProcessingVolumeTag = 69;
+    public const int FloatingItemEffectCmp = 70;
+    public const int ShotTrailCmp = 71;
+    public const int OnCollisionEnterEventListener = 72;
+    public const int OnCollisionExitEventListener = 73;
+    public const int OnCollisionStayEventListener = 74;
+    public const int OnTriggerEnterEventListener = 75;
+    public const int OnTriggerExitEventListener = 76;
+    public const int OnTriggerStayEventListener = 77;
+    public const int PerformMeleeAttackReqListener = 78;
+    public const int AiTeleportPadTag = 79;
+    public const int AiHealthCmp = 80;
+    public const int DeceasedTag = 81;
+    public const int ShieldCmp = 82;
+    public const int TakeDamageReq = 83;
+    public const int WeaponSwitchEventListener = 84;
 
-    public const int TotalComponents = 84;
+    public const int TotalComponents = 85;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -155,6 +156,7 @@ public static class GameplayComponentsLookup {
         "HookCmp",
         "HookTargetCmp",
         "UiPlayerAbilitiesViewMdl",
+        "CollectableResourceTag",
         "PlayerCmp",
         "CanPerformDoubleJumpTag",
         "DashingCmp",
@@ -165,6 +167,7 @@ public static class GameplayComponentsLookup {
         "SlidingCmp",
         "VelocityCmp",
         "DashPostProcessingVolumeTag",
+        "FloatingItemEffectCmp",
         "ShotTrailCmp",
         "OnCollisionEnterEventListener",
         "OnCollisionExitEventListener",
@@ -173,7 +176,6 @@ public static class GameplayComponentsLookup {
         "OnTriggerExitEventListener",
         "OnTriggerStayEventListener",
         "PerformMeleeAttackReqListener",
-        "ClearLinkOnDestroyMdl",
         "AiTeleportPadTag",
         "AiHealthCmp",
         "DeceasedTag",
@@ -242,6 +244,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Player.Abilities.Hook.HookCmp),
         typeof(Ingame.Player.Abilities.Hook.HookTargetCmp),
         typeof(Ingame.Player.Abilities.UI.UiPlayerAbilitiesViewMdl),
+        typeof(Ingame.Player.CollectableResources.CollectableResourceTag),
         typeof(Ingame.Player.Common.PlayerCmp),
         typeof(Ingame.Player.Movement.CanPerformDoubleJumpTag),
         typeof(Ingame.Player.Movement.DashingCmp),
@@ -252,6 +255,7 @@ public static class GameplayComponentsLookup {
         typeof(Ingame.Player.Movement.SlidingCmp),
         typeof(Ingame.Player.Movement.VelocityCmp),
         typeof(Ingame.Vfx.Dash.DashPostProcessingVolumeTag),
+        typeof(Ingame.Vfx.ShotTrail.FloatingEffect.FloatingItemEffectCmp),
         typeof(Ingame.Vfx.ShotTrail.ShotTrailCmp),
         typeof(OnCollisionEnterEventListenerComponent),
         typeof(OnCollisionExitEventListenerComponent),
@@ -260,7 +264,6 @@ public static class GameplayComponentsLookup {
         typeof(OnTriggerExitEventListenerComponent),
         typeof(OnTriggerStayEventListenerComponent),
         typeof(PerformMeleeAttackReqListenerComponent),
-        typeof(Source.EcsSupport.Support.ClearLinkOnDestroyMdl),
         typeof(Source.Ingame.AiSupport.Cmp.AiTeleportPadTag),
         typeof(Source.Ingame.Health.Cmp.AiHealthCmp),
         typeof(Source.Ingame.Health.Cmp.DeceasedTag),
