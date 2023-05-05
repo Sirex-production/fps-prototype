@@ -36,6 +36,9 @@ namespace Ingame.Player.Movement
 			var playerEntity = _playerGroup.GetSingleEntity();
 			var hudOriginEntity = _hudOriginGroup.GetSingleEntity();
 
+			if(playerEntity.hasIsRotationLockedTag)
+				return;
+			
 			var playerTransform = playerEntity.transformMdl.transform;
 			var hudOriginCmp = hudOriginEntity.hudOriginCmp;
 			var hudOriginTransform = hudOriginEntity.transformMdl.transform;

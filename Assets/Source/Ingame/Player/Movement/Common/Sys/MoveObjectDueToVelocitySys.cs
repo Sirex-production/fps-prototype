@@ -22,6 +22,9 @@ namespace Ingame.Player.Movement
 		{
 			foreach (var entity in _velocityGroup)
 			{
+				if(entity.hasIsMovementLockedTag)
+					continue;
+
 				var characterController = entity.characterControllerMdl.characterController;
 
 				if(entity.hasIsSlidingTag && entity.hasSlidingCmp)

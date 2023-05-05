@@ -1,5 +1,6 @@
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace Ingame.Input
 {
@@ -36,7 +37,8 @@ namespace Ingame.Input
 					false,
 					false,
 					false,
-					 false
+					 false,
+					false
 				);
 		}
 
@@ -48,6 +50,7 @@ namespace Ingame.Input
 				
 				ReceiveMovementInput(inputCmp);
 				ReceiveCombatInput(inputCmp);
+				ReceiveUiInput(inputCmp);
 			}
 		}
 
@@ -92,6 +95,13 @@ namespace Ingame.Input
 				inputCmp.selectWeaponInput = 3;
 			else
 				inputCmp.selectWeaponInput = -1;
+		}
+
+		private void ReceiveUiInput(InputCmp inputCmp)
+		{
+			bool goBackInput = _inputActions.UI.GoBack.WasPerformedThisFrame();
+
+			inputCmp.goBackInput = goBackInput;
 		}
 	}
 }

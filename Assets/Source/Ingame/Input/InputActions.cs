@@ -344,6 +344,34 @@ namespace Ingame.Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""f344498a-3722-4559-a187-79569020a0e7"",
+            ""actions"": [
+                {
+                    ""name"": ""GoBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebd4b472-f349-4caf-9b6b-62b6ba59000d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a6e97748-f8f5-4c04-b6f1-fbdbbe841023"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -365,6 +393,9 @@ namespace Ingame.Input
             m_Combat_SelectWeaponTwo = m_Combat.FindAction("SelectWeaponTwo", throwIfNotFound: true);
             m_Combat_SelectWeaponThree = m_Combat.FindAction("SelectWeaponThree", throwIfNotFound: true);
             m_Combat_MagnetAbility = m_Combat.FindAction("MagnetAbility", throwIfNotFound: true);
+            // UI
+            m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+            m_UI_GoBack = m_UI.FindAction("GoBack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -602,6 +633,52 @@ namespace Ingame.Input
             }
         }
         public CombatActions @Combat => new CombatActions(this);
+
+        // UI
+        private readonly InputActionMap m_UI;
+        private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+        private readonly InputAction m_UI_GoBack;
+        public struct UIActions
+        {
+            private @InputActions m_Wrapper;
+            public UIActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @GoBack => m_Wrapper.m_UI_GoBack;
+            public InputActionMap Get() { return m_Wrapper.m_UI; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+            public void AddCallbacks(IUIActions instance)
+            {
+                if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+                @GoBack.started += instance.OnGoBack;
+                @GoBack.performed += instance.OnGoBack;
+                @GoBack.canceled += instance.OnGoBack;
+            }
+
+            private void UnregisterCallbacks(IUIActions instance)
+            {
+                @GoBack.started -= instance.OnGoBack;
+                @GoBack.performed -= instance.OnGoBack;
+                @GoBack.canceled -= instance.OnGoBack;
+            }
+
+            public void RemoveCallbacks(IUIActions instance)
+            {
+                if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IUIActions instance)
+            {
+                foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public UIActions @UI => new UIActions(this);
         public interface IMovementActions
         {
             void OnMove(InputAction.CallbackContext context);
@@ -620,6 +697,10 @@ namespace Ingame.Input
             void OnSelectWeaponTwo(InputAction.CallbackContext context);
             void OnSelectWeaponThree(InputAction.CallbackContext context);
             void OnMagnetAbility(InputAction.CallbackContext context);
+        }
+        public interface IUIActions
+        {
+            void OnGoBack(InputAction.CallbackContext context);
         }
     }
 }

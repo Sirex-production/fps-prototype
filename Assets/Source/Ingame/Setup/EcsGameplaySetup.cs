@@ -14,7 +14,9 @@ using Ingame.Player.Movement;
 using Ingame.Vfx.ShotTrail;
 using Ingame.Ai;
 using Ingame.CollectableResources;
+using Ingame.DeadScreen;
 using Ingame.Interactive.Environment;
+using Ingame.PauseMenu;
 using Ingame.Vfx.ShotTrail.FloatingEffect;
 using Source.Ingame.Health;
 using UnityEngine;
@@ -52,7 +54,9 @@ namespace Ingame.Setup
 				.Add(new GameplayCleanupSystems(Contexts.sharedInstance))
 				.Add(new AiFeature(_gameplayContext))
 				.Add(new EnvironmentFeature(_gameplayContext))
-				.Add(new HealthFeature(_gameplayContext));
+				.Add(new HealthFeature(_gameplayContext))
+				.Add(new PauseMenuFeature())
+				.Add(new DeadScreenFeature());
 		}
 
 		private void Awake()
