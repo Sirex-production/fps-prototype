@@ -11,14 +11,16 @@ public static class AppComponentsLookup {
     public const int InputCmp = 0;
     public const int SettingsCmp = 1;
     public const int UpdateSettingsEvent = 2;
-    public const int UpdateSettingsEventListener = 3;
+    public const int SpawnerMdl = 3;
+    public const int UpdateSettingsEventListener = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
         "InputCmp",
         "SettingsCmp",
         "UpdateSettingsEvent",
+        "SpawnerMdl",
         "UpdateSettingsEventListener"
     };
 
@@ -26,6 +28,7 @@ public static class AppComponentsLookup {
         typeof(Ingame.Input.InputCmp),
         typeof(Source.Ingame.Settings.Core.SettingsCmp),
         typeof(Source.Ingame.Settings.Core.UpdateSettingsEvent),
+        typeof(Source.Ingame.Spawner.Cmp.SpawnerMdl),
         typeof(UpdateSettingsEventListenerComponent)
     };
 }

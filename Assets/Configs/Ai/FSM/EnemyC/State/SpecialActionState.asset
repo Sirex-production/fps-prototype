@@ -20,7 +20,7 @@ MonoBehaviour:
     logicalOperator: 0
   actions:
   - {fileID: 11400000, guid: 6101639aa02592e4daad444fc7ee7693, type: 2}
-  - {fileID: 11400000, guid: 45ecb464b3b11b141a060b4c22ff043a, type: 2}
-  - {fileID: 11400000, guid: 71e18f4420be754479407ed868daa306, type: 2}
+  - {fileID: 11400000, guid: a5c9fa8241bd5294ba52b42e457d4c04, type: 2}
+  - {fileID: 11400000, guid: a5c9fa8241bd5294ba52b42e457d4c04, type: 2}
   - {fileID: 11400000, guid: dc3ca1c4c31c6cd4f809a38cf181391a, type: 2}
   isRepeatable: 1

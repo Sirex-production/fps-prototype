@@ -23,7 +23,7 @@ namespace Source.Ingame.Health
         public void ApplyDamage(float damage)
         {
             var entity = Contexts.sharedInstance.gameplay.CreateEntity();
-            entity.AddTakeDamageRequest(damage*damageRate, _cashedParentBody);
+            entity.AddTakeDamageReq(damage*damageRate, _cashedParentBody);
         }
     }
 }

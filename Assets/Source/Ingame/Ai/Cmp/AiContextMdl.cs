@@ -16,10 +16,15 @@ namespace Ingame.Ai.Cmp
         public Collider playerCollider;
         public Animator animator;
         public Transform weapon;
-        //FSM
+    
         public AiStateWrapper aiStateWrapper;
-        
+        public AiAnimationWrapper aiAnimationWrapper;
+
     }
-    
-    
+
+    public struct AiAnimationWrapper
+    {
+        public Vector2 smoothDeltaPosition;
+        public Vector2 smoothVelocity;
+    }
 }

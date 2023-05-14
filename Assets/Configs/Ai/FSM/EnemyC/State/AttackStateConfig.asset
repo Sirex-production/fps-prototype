@@ -16,11 +16,13 @@ MonoBehaviour:
   - state: {fileID: 11400000, guid: 56aa59b9029fcf84c98f5076dc3c7469, type: 2}
     conditions:
     - {fileID: 11400000, guid: fb107efc75182fb4596ddc174a527f68, type: 2}
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
     logicalOperator: 0
   - state: {fileID: 11400000, guid: 1d2cde3ee6d64ab4d8ea7fb530efbf41, type: 2}
     conditions:
     - {fileID: 11400000, guid: 10c4b75a68f38034cb6b08e99857e104, type: 2}
-    logicalOperator: 1
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
+    logicalOperator: 0
   actions:
   - {fileID: 11400000, guid: c6df79f642ca0db4d97653425e1eda35, type: 2}
   - {fileID: 11400000, guid: 8979cdddd691a49429c03575b294a15f, type: 2}
