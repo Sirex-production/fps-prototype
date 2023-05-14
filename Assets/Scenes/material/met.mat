@@ -90,7 +90,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PaletteLUT:
-        m_Texture: {fileID: 2800000, guid: fae69ed63745b2e40b5000ac6c94a084, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d1da7f24b9f0ee43a5e787d63d6ddb0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -140,7 +140,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PixelSize: 3
+    - _PixelSize: 2
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -151,7 +151,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientLight: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    - _AmbientLight: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeHighlightColor: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}

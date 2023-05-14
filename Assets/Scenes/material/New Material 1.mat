@@ -90,7 +90,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PaletteLUT:
-        m_Texture: {fileID: 2800000, guid: fae69ed63745b2e40b5000ac6c94a084, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d1da7f24b9f0ee43a5e787d63d6ddb0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
