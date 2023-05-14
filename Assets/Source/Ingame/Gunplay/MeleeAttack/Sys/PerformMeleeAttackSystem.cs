@@ -53,6 +53,9 @@ namespace Ingame.Gunplay.MeleeAttack
 			if(!entityReference.attachedEntity.hasHealthCmp)
 				return;
 			
+			if(entityReference.attachedEntity.hasPlayerCmp)
+				return;
+			
 			entityReference.attachedEntity.AddApplyDamageCmp(Math.Max(0f, damage));
 		}
 	}

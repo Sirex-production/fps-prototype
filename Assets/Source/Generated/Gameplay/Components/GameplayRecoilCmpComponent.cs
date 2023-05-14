@@ -11,7 +11,7 @@ public partial class GameplayEntity {
     public Ingame.Gunplay.Sway.RecoilCmp recoilCmp { get { return (Ingame.Gunplay.Sway.RecoilCmp)GetComponent(GameplayComponentsLookup.RecoilCmp); } }
     public bool hasRecoilCmp { get { return HasComponent(GameplayComponentsLookup.RecoilCmp); } }
 
-    public void AddRecoilCmp(UnityEngine.AnimationCurve newRecoilCurveX, UnityEngine.AnimationCurve newRecoilCurveY, UnityEngine.AnimationCurve newRecoilCurveZ, float newPositionDumping, float newRecoilStabilizationDumping, float newRecoilGain, float newRecoilStrength, float newCurrentRecoil) {
+    public void AddRecoilCmp(UnityEngine.AnimationCurve newRecoilCurveX, UnityEngine.AnimationCurve newRecoilCurveY, UnityEngine.AnimationCurve newRecoilCurveZ, float newPositionDumping, float newRecoilStabilizationDumping, float newRecoilGain, float newRecoilStrength, UnityEngine.Vector2 newCameraRecoilStrength, float newCurrentRecoil) {
         var index = GameplayComponentsLookup.RecoilCmp;
         var component = (Ingame.Gunplay.Sway.RecoilCmp)CreateComponent(index, typeof(Ingame.Gunplay.Sway.RecoilCmp));
         component.recoilCurveX = newRecoilCurveX;
@@ -21,11 +21,12 @@ public partial class GameplayEntity {
         component.recoilStabilizationDumping = newRecoilStabilizationDumping;
         component.recoilGain = newRecoilGain;
         component.recoilStrength = newRecoilStrength;
+        component.cameraRecoilStrength = newCameraRecoilStrength;
         component.currentRecoil = newCurrentRecoil;
         AddComponent(index, component);
     }
 
-    public void ReplaceRecoilCmp(UnityEngine.AnimationCurve newRecoilCurveX, UnityEngine.AnimationCurve newRecoilCurveY, UnityEngine.AnimationCurve newRecoilCurveZ, float newPositionDumping, float newRecoilStabilizationDumping, float newRecoilGain, float newRecoilStrength, float newCurrentRecoil) {
+    public void ReplaceRecoilCmp(UnityEngine.AnimationCurve newRecoilCurveX, UnityEngine.AnimationCurve newRecoilCurveY, UnityEngine.AnimationCurve newRecoilCurveZ, float newPositionDumping, float newRecoilStabilizationDumping, float newRecoilGain, float newRecoilStrength, UnityEngine.Vector2 newCameraRecoilStrength, float newCurrentRecoil) {
         var index = GameplayComponentsLookup.RecoilCmp;
         var component = (Ingame.Gunplay.Sway.RecoilCmp)CreateComponent(index, typeof(Ingame.Gunplay.Sway.RecoilCmp));
         component.recoilCurveX = newRecoilCurveX;
@@ -35,6 +36,7 @@ public partial class GameplayEntity {
         component.recoilStabilizationDumping = newRecoilStabilizationDumping;
         component.recoilGain = newRecoilGain;
         component.recoilStrength = newRecoilStrength;
+        component.cameraRecoilStrength = newCameraRecoilStrength;
         component.currentRecoil = newCurrentRecoil;
         ReplaceComponent(index, component);
     }

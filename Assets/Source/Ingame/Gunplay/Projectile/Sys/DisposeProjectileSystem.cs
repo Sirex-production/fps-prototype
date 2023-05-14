@@ -1,3 +1,4 @@
+using EcsSupport.UnityIntegration;
 using EcsSupport.UnityIntegration.Physics;
 using Entitas;
 using UnityEngine;
@@ -55,6 +56,12 @@ namespace Ingame.Gunplay.Projectile
 
 				projectileGameObject.SetActive(false);
 				projectileEntity.hasFreeToReuseTag = true;
+				
+				if (!otherCollisionEventGameObject.TryGetComponent<GameplayEntityReference>(out var entityReference))
+					continue;
+				
+				if(entityReference.attachedEntity.hasHealthCmp)
+					Contexts.sharedInstance.gameplay.CreateEntity().AddTakeDamageReq(12,entityReference.attachedEntity);
 			}
 		}
 

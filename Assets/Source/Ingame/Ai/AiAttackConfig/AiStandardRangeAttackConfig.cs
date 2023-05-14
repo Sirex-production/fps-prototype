@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.Ingame.Bullet.Service;
+using UnityEngine;
 
 namespace Ingame.Ai.FSM.AiAttackConfig
 {
@@ -9,21 +10,12 @@ namespace Ingame.Ai.FSM.AiAttackConfig
         {
             if(!aiBaker.AIConfig.IsRange)
                 return;
-
-            var enemy = aiBaker.NavMeshAgent.transform;
+            
             var player = aiBaker.Entity.aiContextMdl.player;
-            
-            var bullet = Instantiate(aiBaker.AIConfig.Bullet);
-            var bulletTransform = bullet.transform;
             var weaponPosition = aiBaker.Weapon.position;
-            
-            bullet.Init(aiBaker.AIConfig);
-            
-            bulletTransform.position = weaponPosition;
-            bulletTransform.rotation = enemy.rotation;
-            
             var direction = (player.position -  weaponPosition).normalized;
-            bullet.AttachedRigidbody.AddForce(direction*20, ForceMode.Impulse);
+         
+            BulletService.Instance.SpawnBullet(aiBaker.AIConfig.BulletBasic.GetType(),aiBaker.Weapon.transform,direction,20f, aiBaker.AIConfig.AttackDamage);
         }
     }
 }

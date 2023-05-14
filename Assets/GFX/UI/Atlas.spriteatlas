@@ -70,6 +70,7 @@ SpriteAtlas:
   - {fileID: 1311826646, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
   - {fileID: 679246889, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
   - {fileID: 653016181, guid: 070a6d6065bd9c341bdce4e77d07a1ae, type: 3}
+  - {fileID: 21300000, guid: 34642ad0091c8ec4cb54cfb4823cc11f, type: 3}
   - {fileID: -310085189, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
   - {fileID: -1123105662, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
   - {fileID: 793357927, guid: 2d886b15ed54f4d4cb89a117decd0755, type: 3}
@@ -87,6 +88,7 @@ SpriteAtlas:
   - {fileID: 551453207, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -1662783454, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -262506881, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
+  - {fileID: 66878009, guid: ca6d4aa7b4daf264fab197dc53c28784, type: 3}
   - {fileID: -895286979, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
   - {fileID: 2012134911, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
   - {fileID: -317069825, guid: aa2159e7c0e9eaf4998c93b3b25b7982, type: 3}
@@ -236,6 +238,7 @@ SpriteAtlas:
   - Keyboard Extras_1
   - Keyboard Extras_2
   - Keyboard Extras_3
+  - main-menu-background
   - Pxiel Art UI borders_3
   - Pxiel Art UI borders_0
   - Pxiel Art UI borders_4
@@ -253,6 +256,7 @@ SpriteAtlas:
   - voiz-icons_2
   - voiz-icons_1
   - voiz-icons_0
+  - voiz-icons_8
   - Keyboard Letters and Symbols_93
   - Keyboard Letters and Symbols_92
   - Keyboard Letters and Symbols_59

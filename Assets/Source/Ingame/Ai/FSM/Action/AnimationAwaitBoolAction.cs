@@ -12,13 +12,24 @@ namespace Ingame.Ai.FSM.Action
         [SerializeField] private bool lockOnTarget = false;
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {
-            if (lockOnTarget)
-            {
-                aiContextMdl.navMeshAgent.transform.LookAt((aiContextMdl.player.position));
-            }
-
             var resp = aiContextMdl.animator.GetBool(VariableAnimationHash);
-            return resp ? ActionStatus.Running : ActionStatus.Done;
+            
+            if (!lockOnTarget) 
+                return resp ? ActionStatus.Running : ActionStatus.Done;
+            
+            if (resp)
+            {
+                aiContextMdl.navMeshAgent.updateRotation = false;
+                var transform = aiContextMdl.navMeshAgent.transform;
+                
+                transform.LookAt(aiContextMdl.player.position);
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                
+                return ActionStatus.Running;
+            }
+         
+            aiContextMdl.navMeshAgent.updateRotation = true;
+            return ActionStatus.Done;
         }
     }
 }

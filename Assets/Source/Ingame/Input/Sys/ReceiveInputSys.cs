@@ -1,5 +1,6 @@
 using Entitas;
 using UnityEngine;
+using Zenject;
 
 namespace Ingame.Input
 {
@@ -35,6 +36,8 @@ namespace Ingame.Input
 					false,
 					false,
 					false,
+					false,
+					 false,
 					false
 				);
 		}
@@ -47,6 +50,7 @@ namespace Ingame.Input
 				
 				ReceiveMovementInput(inputCmp);
 				ReceiveCombatInput(inputCmp);
+				ReceiveUiInput(inputCmp);
 			}
 		}
 
@@ -73,6 +77,7 @@ namespace Ingame.Input
 			bool shootTapInput = _inputActions.Combat.Shoot.WasPerformedThisFrame();
 			bool aimHoldInput = _inputActions.Combat.Aim.IsPressed();
 			bool aimTapInput = _inputActions.Combat.Aim.WasPerformedThisFrame();
+			bool magnetAbilityInput = _inputActions.Combat.MagnetAbility.IsPressed();
 
 			inputCmp.nextWeaponInput = nextWeaponInput;
 			inputCmp.prevWeaponInput = prevWeaponInput;
@@ -80,6 +85,7 @@ namespace Ingame.Input
 			inputCmp.shootTapInput = shootTapInput;
 			inputCmp.aimHoldInput = aimHoldInput;
 			inputCmp.aimTapInput = aimTapInput;
+			inputCmp.magnetAbilityInput = magnetAbilityInput;
 
 			if(_inputActions.Combat.SelectWeaponOne.WasPerformedThisFrame())
 				inputCmp.selectWeaponInput = 1;
@@ -89,6 +95,13 @@ namespace Ingame.Input
 				inputCmp.selectWeaponInput = 3;
 			else
 				inputCmp.selectWeaponInput = -1;
+		}
+
+		private void ReceiveUiInput(InputCmp inputCmp)
+		{
+			bool goBackInput = _inputActions.UI.GoBack.WasPerformedThisFrame();
+
+			inputCmp.goBackInput = goBackInput;
 		}
 	}
 }

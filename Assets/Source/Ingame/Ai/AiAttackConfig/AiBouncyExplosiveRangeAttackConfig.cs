@@ -14,11 +14,11 @@ namespace Ingame.Ai.FSM.AiAttackConfig
             var enemy = aiBaker.NavMeshAgent.transform;
             var player = aiBaker.Entity.aiContextMdl.player;
             
-            var bullet = Instantiate(aiBaker.AIConfig.Bullet);
+            var bullet = Instantiate(aiBaker.AIConfig.BulletBasic);
             var bulletTransform = bullet.transform;
             var weaponPosition = aiBaker.Weapon.position;
             
-            bullet.Init(aiBaker.AIConfig);
+            /*bullet.Init(aiBaker.AIConfig);*/
             
             bulletTransform.position = weaponPosition;
             bulletTransform.rotation = enemy.rotation;
@@ -26,8 +26,9 @@ namespace Ingame.Ai.FSM.AiAttackConfig
             var directionXZ = (player.position -  weaponPosition).normalized;
             var directionY = enemy.up * 1.5f;
             
-            bullet.AttachedRigidbody.AddForce(directionXZ*2 + directionY, ForceMode.Impulse); 
-           
+            bullet.AttachedRigidbody.AddForce(directionXZ*2 + directionY, ForceMode.Impulse);
         }
+        
+        
     }
 }

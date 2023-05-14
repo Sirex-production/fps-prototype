@@ -35,6 +35,8 @@ namespace Ingame.Gunplay
 		[SerializeField] [Range(0, 1f)] private float recoilGain;
 		[BoxGroup("RecoilCmp")]
 		[SerializeField] [Min(0f)] private float recoilStrength;
+		[BoxGroup("RecoilCmp")]
+		[SerializeField] private Vector2 cameraRecoilStrength;
 
 		[BoxGroup("ArrowSpawnerCmp")]
 		[Required, SerializeField] private Transform spawnOriginTransform;
@@ -67,6 +69,7 @@ namespace Ingame.Gunplay
 					recoilStabilizationDumping,
 					recoilGain,
 					recoilStrength,
+					cameraRecoilStrength,
 					0f
 				);
 			entity.AddArrowSpawnerCmp(spawnOriginTransform, arrowProjectilePrefab, 0f, pauseBetweenShots);

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IdleState
   m_EditorClassIdentifier: 
   stateTransformerCheckers:
-  - state: {fileID: 11400000, guid: fe24ef51816f96545b3c5b69c9d57476, type: 2}
+  - state: {fileID: 11400000, guid: 76b5b7e78e55adc4a86a6e768e5f9f5c, type: 2}
     conditions:
-    - {fileID: 11400000, guid: 9b8f59815bc42504d8a6cd2cf223fd6c, type: 2}
+    - {fileID: 11400000, guid: fb107efc75182fb4596ddc174a527f68, type: 2}
     logicalOperator: 0
   actions: []
   isRepeatable: 1

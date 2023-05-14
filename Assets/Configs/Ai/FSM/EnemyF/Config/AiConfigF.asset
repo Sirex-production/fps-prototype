@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   maxShield: 0
-  initState: {fileID: 11400000, guid: 7bba914a61b7c0f498416eadb0535d12, type: 2}
+  initState: {fileID: 11400000, guid: 65b3cf751a9656146aba8406856cf37d, type: 2}
   chasingDistance: 12
   movementSpeed: 5
   stoppingDistance: 1
@@ -28,4 +28,5 @@ MonoBehaviour:
   attackVisionRange: 9
   attackAngle: 101.8
   isRange: 1
-  bullet: {fileID: 6876410188161254026, guid: 7eee4fbba919bbe4d86c420002daac9f, type: 3}
+  bulletBasic: {fileID: 5414942128568544713, guid: 172c0fba6d6e9504889d372f8fd1443f,
+    type: 3}

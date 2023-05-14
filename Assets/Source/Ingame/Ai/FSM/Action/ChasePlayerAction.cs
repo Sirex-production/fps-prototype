@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Ingame.Ai.FSM.Action
 {
     [CreateAssetMenu(fileName = "ChaseAction", menuName = "Ai/Action/Chase")]
-    public sealed class ChasePlayerAction : RepositionAction
+    public class ChasePlayerAction : RepositionAction
     {
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {

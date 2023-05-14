@@ -1,4 +1,5 @@
 using Ingame.Camerawork;
+using Ingame.CollectableResources;
 using Ingame.Player;
 using NaughtyAttributes;
 using UnityEngine;
@@ -10,12 +11,13 @@ namespace Ingame.ConfigProvision
 	{
 		[Required, SerializeField] private PlayerConfig playerConfig;
 		[Required, SerializeField] private CameraworkConfig cameraworkConfig;
+		[Required, SerializeField] private CollectableResourcesConfig collectableResourcesConfig;
 
 		private ConfigProvider _configProvider;
 		
 		public override void InstallBindings()
 		{
-			_configProvider = new ConfigProvider(playerConfig, cameraworkConfig);
+			_configProvider = new ConfigProvider(playerConfig, cameraworkConfig, collectableResourcesConfig);
 
 			Container.Bind<ConfigProvider>()
 				.FromInstance(_configProvider)

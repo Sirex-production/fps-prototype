@@ -11,6 +11,7 @@ namespace Ingame.Player.Movement
 			var entity = Contexts.sharedInstance.gameplay.CreateEntity();
 
 			entity.AddHudOriginCmp(0f);
+			entity.AddHudRecoilCmp(Vector2.zero);
 			entity.AddTransformMdl(transform, transform.localRotation, transform.position);
 		}
 	}

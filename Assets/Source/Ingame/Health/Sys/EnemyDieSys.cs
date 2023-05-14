@@ -25,7 +25,7 @@ namespace Source.Ingame.Health.Sys
 
         protected override bool Filter(GameplayEntity entity)
         {
-            return entity.hasEnemyTag;
+            return entity.hasEnemyTag ;
         }
 
         protected override void Execute(List<GameplayEntity> entities)
@@ -33,6 +33,12 @@ namespace Source.Ingame.Health.Sys
             foreach (var entity in entities)
             {
                 var enemyMdl = entity.aiContextMdl;
+                
+                if (entity.hasFlyingAiCmp)
+                {
+                    enemyMdl.animator.SetBool("IsDead", true);
+                    continue;
+                }
                 
                 enemyMdl.navMeshAgent.updatePosition = false;
                 enemyMdl.animator.enabled = false;

@@ -24,7 +24,7 @@ namespace Ingame.Effects
 
 		public void Execute()
 		{
-			foreach(var entity in _healingGroup)
+			foreach(var entity in _healingGroup.GetEntities())
 			{
 				var healthCmp = entity.healthCmp;
 				var addHealthCmp = entity.addHealthCmp;

@@ -22,6 +22,8 @@ namespace Ingame.Player.Abilities.UI
 			var playerEntity = gameplayContext.playerCmpEntity;
 			var uiPlayerAbilitiesView = gameplayContext.uiPlayerAbilitiesViewMdl.abilitiesView;
 
+			uiPlayerAbilitiesView.SetMagnetAbilityActiveness(gameplayContext.hasIsMagnetActiveTag && gameplayContext.hasMagnetCmp);
+			
 			if(playerEntity.hasDashingCmp)
 			{
 				var dashingCmp = playerEntity.dashingCmp;

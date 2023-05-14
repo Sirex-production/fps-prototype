@@ -1,5 +1,6 @@
 using Entitas;
 using Ingame.Input;
+using Source.Ingame.Settings.Core;
 using UnityEngine;
 using Zenject;
 
@@ -17,7 +18,8 @@ namespace Ingame.Setup
 			_systems = new Systems();
 
 			_systems
-				.Add(new InputFeature(inputActions));
+				.Add(new InputFeature(inputActions))
+				.Add(new UpdateSettingsSystem(_appContext));
 		}
 
 		private void Awake()

@@ -1,7 +1,8 @@
 ﻿using Ingame.Ai.FSM.State;
+using Ingame.Bullet;
 using NaughtyAttributes;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ingame.Ai
 {
@@ -68,9 +69,10 @@ namespace Ingame.Ai
         [SerializeField]
         private bool isRange;
 
+        [FormerlySerializedAs("bullet")]
         [Required] [SerializeField] 
         [ShowIf("IsRange")]
-        private Bullet.Bullet bullet;
+        private BulletBasic bulletBasic;
         public float MaxHealth => maxHealth;
 
         public float MaxShield => maxShield;
@@ -98,6 +100,6 @@ namespace Ingame.Ai
 
         public bool IsRange => isRange;
 
-        public Bullet.Bullet Bullet => bullet;
+        public BulletBasic BulletBasic => bulletBasic;
     }
 }

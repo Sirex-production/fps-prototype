@@ -22,5 +22,9 @@ namespace Ingame.Input
 		public bool shootTapInput;
 		public bool aimHoldInput;
 		public bool aimTapInput;
+		public bool magnetAbilityInput;
+		
+		//UI
+		public bool goBackInput;
 	}
 }

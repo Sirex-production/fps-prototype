@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b03b8782ad149c6bb758dead12c4a21, type: 3}
   m_Name: AiConfigA
   m_EditorClassIdentifier: 
-  maxHealth: 1.52
+  maxHealth: 10
+  maxShield: 0
   initState: {fileID: 11400000, guid: 3ecdd854dbee22148b71214ec8e0c0eb, type: 2}
-  chasingDistance: 9
+  chasingDistance: 15
   movementSpeed: 3
-  stoppingDistance: 2.5
-  detectionRange: 18
+  stoppingDistance: 2
+  detectionRange: 22
   detectionAngle: 128.9
   visibilityMask:
     serializedVersion: 2
     m_Bits: 0
   attackDamage: 5
   attackRange: 4
-  attackVisionRange: 3
+  attackVisionRange: 2.5
   attackAngle: 99.8
+  isRange: 0
+  bulletBasic: {fileID: 0}

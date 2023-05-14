@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackStateConfig
   m_EditorClassIdentifier: 
   stateTransformerCheckers:
-  - state: {fileID: 11400000, guid: fe24ef51816f96545b3c5b69c9d57476, type: 2}
+  - state: {fileID: 11400000, guid: 305a5078ba2d98f4fbd2aba6cc09372f, type: 2}
     conditions:
     - {fileID: 11400000, guid: fa690354a9c04d04d961b1057284ba2f, type: 2}
     - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}

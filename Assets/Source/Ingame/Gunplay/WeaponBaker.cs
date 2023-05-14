@@ -35,6 +35,8 @@ namespace Ingame.Gunplay.Sway
 		[SerializeField] [Range(0, 1f)] private float recoilGain;
 		[BoxGroup("RecoilCmp")]
 		[SerializeField] [Min(0f)] private float recoilStrength;
+		[BoxGroup("RecoilCmp")]
+		[SerializeField] private Vector2 cameraRecoilStrength;
 
 		[Inject]
 		private void Construct()
@@ -58,6 +60,7 @@ namespace Ingame.Gunplay.Sway
 				recoilStabilizationDumping,
 				recoilGain,
 				recoilStrength,
+				cameraRecoilStrength,
 				0f
 			);
 		}

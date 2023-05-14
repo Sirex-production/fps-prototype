@@ -1,4 +1,5 @@
 ﻿using Ingame.Ai.Sys;
+using Ingame.Animation.Sys;
 
 namespace Ingame.Ai
 {
@@ -6,7 +7,9 @@ namespace Ingame.Ai
     {
         public AiFeature(GameplayContext contexts)
         {
-            Add(new RunStateMachine(contexts));
+            Add(new RunStateMachineSys(contexts));
+            Add(new FloatFlyingAiSys());
+            Add(new SynchronizeAiAnimationWithNavMeshSys());
         }
     }
 }

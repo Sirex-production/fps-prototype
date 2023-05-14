@@ -1,5 +1,6 @@
 ﻿using Ingame.Ai.Cmp;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Ingame.Ai.FSM.Action
 {
@@ -7,15 +8,27 @@ namespace Ingame.Ai.FSM.Action
     {
         public override ActionStatus Run(AiContextMdl aiContextMdl)
         {
+            
             if (aiContextMdl.navMeshAgent.pathPending)
-                return ActionStatus.Running; 
-            
-            aiContextMdl.navMeshAgent.stoppingDistance = aiContextMdl.aiConfig.StoppingDistance;
-            
-            if (!(aiContextMdl.navMeshAgent.remainingDistance <= aiContextMdl.navMeshAgent.stoppingDistance))
+            {
+                aiContextMdl.navMeshAgent.isStopped = false;
                 return ActionStatus.Running;
+            }
+
+            aiContextMdl.navMeshAgent.stoppingDistance = aiContextMdl.aiConfig.StoppingDistance;
+            if (!(aiContextMdl.navMeshAgent.remainingDistance <= aiContextMdl.navMeshAgent.stoppingDistance))
+            {
+                aiContextMdl.navMeshAgent.isStopped = false;
+                return ActionStatus.Running;
+            }
+
+            if (aiContextMdl.navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
+            {
+                aiContextMdl.navMeshAgent.isStopped = true;
+                return ActionStatus.Done;
+            }
             
-            aiContextMdl.navMeshAgent.velocity = Vector3.zero;
+            aiContextMdl.navMeshAgent.isStopped = true;
             return ActionStatus.Done;
 
         }

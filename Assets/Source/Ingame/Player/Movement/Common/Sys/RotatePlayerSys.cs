@@ -30,11 +30,15 @@ namespace Ingame.Player.Movement
 
 		public void Execute()
 		{
-			var rotationOffset = _appContext.inputCmp.rotateInput * 30f * Time.deltaTime;
+			var settingsData = _appContext.settingsCmp.currentSettingsData;
+			var rotationOffset = _appContext.inputCmp.rotateInput * settingsData.sensitivity * Time.deltaTime;
 			
 			var playerEntity = _playerGroup.GetSingleEntity();
 			var hudOriginEntity = _hudOriginGroup.GetSingleEntity();
 
+			if(playerEntity.hasIsRotationLockedTag)
+				return;
+			
 			var playerTransform = playerEntity.transformMdl.transform;
 			var hudOriginCmp = hudOriginEntity.hudOriginCmp;
 			var hudOriginTransform = hudOriginEntity.transformMdl.transform;
