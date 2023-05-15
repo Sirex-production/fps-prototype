@@ -20,10 +20,14 @@ namespace Ingame.Ai.FSM.Action
             if (resp)
             {
                 aiContextMdl.navMeshAgent.updateRotation = false;
-                var transform = aiContextMdl.navMeshAgent.transform;
+                var transformPosition = aiContextMdl.navMeshAgent.transform;
                 
-                transform.LookAt(aiContextMdl.player.position);
-                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                Vector3 rotation = Quaternion.LookRotation( aiContextMdl.player.position - transformPosition.position).eulerAngles;
+                rotation.x = 0f;
+                rotation.z = 0f;
+            
+                transformPosition.rotation  = Quaternion.Euler(rotation);
+                aiContextMdl.navMeshAgent.updateRotation = true;
                 
                 return ActionStatus.Running;
             }

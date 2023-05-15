@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AiConfigE
   m_EditorClassIdentifier: 
   maxHealth: 25
-  maxShield: 0
+  maxShield: 12
   initState: {fileID: 11400000, guid: 7bba914a61b7c0f498416eadb0535d12, type: 2}
   chasingDistance: 12
   movementSpeed: 5
   stoppingDistance: 4
-  detectionRange: 18
+  detectionRange: 25
   detectionAngle: 128.9
   visibilityMask:
     serializedVersion: 2

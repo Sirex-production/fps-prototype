@@ -41,6 +41,7 @@ namespace Source.Ingame.Health.Sys
                 }
                 
                 enemyMdl.navMeshAgent.updatePosition = false;
+                enemyMdl.navMeshAgent.updateRotation = false;
                 enemyMdl.animator.enabled = false;
 
                 var enemyBody = entity.aiContextMdl.navMeshAgent.gameObject;

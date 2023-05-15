@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: AiConfigB
   m_EditorClassIdentifier: 
   maxHealth: 75
-  maxShield: 0
+  maxShield: 25
   initState: {fileID: 11400000, guid: cfbf10722a98bab4f8be7a9b11a76896, type: 2}
-  chasingDistance: 25
+  chasingDistance: 35
   movementSpeed: 1.36
   stoppingDistance: 0
-  detectionRange: 30
+  detectionRange: 45
   detectionAngle: 111.4
   visibilityMask:
     serializedVersion: 2
     m_Bits: 0
   attackDamage: 1.18
   attackRange: 2.34
-  attackVisionRange: 15
+  attackVisionRange: 25
   attackAngle: 116
   isRange: 1
   bulletBasic: {fileID: 5414942128568544713, guid: 172c0fba6d6e9504889d372f8fd1443f,

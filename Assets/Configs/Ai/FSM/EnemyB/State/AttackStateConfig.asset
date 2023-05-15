@@ -18,6 +18,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fa690354a9c04d04d961b1057284ba2f, type: 2}
     - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
     logicalOperator: 0
+  - state: {fileID: 11400000, guid: 305a5078ba2d98f4fbd2aba6cc09372f, type: 2}
+    conditions:
+    - {fileID: 11400000, guid: 62a33a466d96b1142979a252cb47e3d6, type: 2}
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
+    logicalOperator: 0
   actions:
   - {fileID: 11400000, guid: c6df79f642ca0db4d97653425e1eda35, type: 2}
   - {fileID: 11400000, guid: 8979cdddd691a49429c03575b294a15f, type: 2}

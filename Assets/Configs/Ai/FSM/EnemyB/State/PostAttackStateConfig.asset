@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: PostAttackStateConfig
   m_EditorClassIdentifier: 
   stateTransformerCheckers:
+  - state: {fileID: 11400000, guid: fe24ef51816f96545b3c5b69c9d57476, type: 2}
+    conditions:
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
+    - {fileID: 11400000, guid: 62a33a466d96b1142979a252cb47e3d6, type: 2}
+    logicalOperator: 0
   - state: {fileID: 11400000, guid: 76b5b7e78e55adc4a86a6e768e5f9f5c, type: 2}
     conditions:
     - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}

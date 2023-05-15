@@ -19,6 +19,7 @@ namespace Ingame.Bullet
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.transform.root.TryGetComponent<GameplayEntityReference>(out var entityReference)
+                && entityReference.attachedEntity.hasHealthCmp
                 && !entityReference.attachedEntity.hasApplyDamageCmp)
             {
                 if (!entityReference.attachedEntity.hasApplyDamageCmp)

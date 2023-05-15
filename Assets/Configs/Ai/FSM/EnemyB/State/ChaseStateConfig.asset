@@ -16,6 +16,7 @@ MonoBehaviour:
   - state: {fileID: 11400000, guid: 280ba1762f8ecdd47ae7a32d83297180, type: 2}
     conditions:
     - {fileID: 11400000, guid: fb107efc75182fb4596ddc174a527f68, type: 2}
+    - {fileID: 11400000, guid: 4b4c5cf12fae835489ef4c07b5993a0a, type: 2}
     logicalOperator: 0
   actions:
   - {fileID: 11400000, guid: 90e96df04c38e3d4aaab40ed4682ff84, type: 2}
