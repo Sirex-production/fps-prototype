@@ -11,6 +11,7 @@ namespace Source.Ingame.Health
 
         public GameplayEntity CashedParentBody
         {
+            get => _cashedParentBody;
             set
             {
                 if (_cashedParentBody != null)
@@ -19,7 +20,7 @@ namespace Source.Ingame.Health
                 _cashedParentBody = value;
             }
         }
-        
+
         public void ApplyDamage(float damage)
         {
             var entity = Contexts.sharedInstance.gameplay.CreateEntity();

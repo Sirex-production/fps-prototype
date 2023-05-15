@@ -1,4 +1,6 @@
+using EcsSupport.UnityIntegration;
 using Entitas;
+using Source.Ingame.Health;
 using UnityEngine;
 
 namespace Ingame.Gunplay.EnergyGun
@@ -37,8 +39,20 @@ namespace Ingame.Gunplay.EnergyGun
 
 			if(!Physics.Raycast(raycastRay, out RaycastHit hit, 999f, RAYCAST_LAYER_MASK, QueryTriggerInteraction.Ignore))
 				return;
-
+			
 			DrawShotTrail(gameplayContext, energyGunEntity, hit.point);
+			var target = hit.collider.transform;
+			if (target.TryGetComponent<DamageMultiplier>(out var damageMultiplier))
+			{
+				damageMultiplier.ApplyDamage(25f);
+				return;
+			}
+			
+			if (!target.transform.root.TryGetComponent<GameplayEntityReference>(out var entityReference))
+				return;
+				
+			if(entityReference.attachedEntity.hasAiHealthCmp)
+				Contexts.sharedInstance.gameplay.CreateEntity().AddTakeDamageReq(25f,entityReference.attachedEntity);
 		}
 
 		private void DrawShotTrail(GameplayContext gameplayContext, GameplayEntity energyGunEntity, Vector3 hitPos)

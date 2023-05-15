@@ -20,6 +20,7 @@ using Ingame.Interactive.Environment;
 using Ingame.PauseMenu;
 using Ingame.Vfx.ShotTrail.FloatingEffect;
 using Source.EcsSupport.Support;
+using Source.Ingame.Bullet;
 using Source.Ingame.Health;
 using UnityEngine;
 using Zenject;
@@ -55,7 +56,7 @@ namespace Ingame.Setup
 				.Add(new FloatingEffectFeature())
 				.Add(new GameplayCleanupSystems(Contexts.sharedInstance))
 				.Add(new AiFeature(_gameplayContext))
-				// .Add(new BulletFeature())
+				.Add(new BulletFeature())
 				.Add(new EnvironmentFeature(_gameplayContext))
 				.Add(new HealthFeature(_gameplayContext))
 				.Add(new PauseMenuFeature())

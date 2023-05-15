@@ -21,7 +21,11 @@ namespace Ingame.Bullet
             if (collision.transform.root.TryGetComponent<GameplayEntityReference>(out var entityReference)
                 && !entityReference.attachedEntity.hasApplyDamageCmp)
             {
-                entityReference.attachedEntity.AddApplyDamageCmp(damage);
+                if (!entityReference.attachedEntity.hasApplyDamageCmp)
+                {
+                    entityReference.attachedEntity.AddApplyDamageCmp(damage);
+                }
+
                 BulletService.Instance.ReleaseBullet(this);
             }
 

@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Armor.002
-    second: {fileID: 2100000, guid: 701d7ae2ebc216d458103894510e4a07, type: 2}
+    second: {fileID: 2100000, guid: e088c6b1b6a495e4887361d97aa15916, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Coil.002
-    second: {fileID: 2100000, guid: 701d7ae2ebc216d458103894510e4a07, type: 2}
+    second: {fileID: 2100000, guid: e088c6b1b6a495e4887361d97aa15916, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FACE.002
-    second: {fileID: 2100000, guid: 701d7ae2ebc216d458103894510e4a07, type: 2}
+    second: {fileID: 2100000, guid: e088c6b1b6a495e4887361d97aa15916, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gun
-    second: {fileID: 2100000, guid: 701d7ae2ebc216d458103894510e4a07, type: 2}
+    second: {fileID: 2100000, guid: e088c6b1b6a495e4887361d97aa15916, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: monk.002
-    second: {fileID: 2100000, guid: 701d7ae2ebc216d458103894510e4a07, type: 2}
+    second: {fileID: 2100000, guid: e088c6b1b6a495e4887361d97aa15916, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -34,10 +34,11 @@ namespace Source.Ingame.Health.Sys
         {
             foreach (var entity in entities)
             {
+          
                 var damageReq = entity.takeDamageReq;
                 var target = damageReq.target;
-                
-                if (target is not { hasHealthCmp : true })
+          
+                if (target is not { hasAiHealthCmp : true })
                 {
                     entity.Destroy();
                     continue;
@@ -46,27 +47,27 @@ namespace Source.Ingame.Health.Sys
                 float damageToDeal = damageReq.damageDealt;
                 
                 if (target.hasShieldCmp)
-                    ApplyDamageToShield(target, ref damageToDeal);
+                    ApplyDamageToShield(ref target, ref damageToDeal);
 
-                ApplyDamageToHealth(target, damageToDeal);
+                ApplyDamageToHealth(ref target, damageToDeal);
                 entity.Destroy();
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void ApplyDamageToShield(GameplayEntity target, ref float damageToDeal)
+        private void ApplyDamageToShield(ref GameplayEntity target, ref float damageToDeal)
         {
             float shieldAmount = target.shieldCmp.shieldPoints;
                     
             if(shieldAmount <= 0)
                 return;
-            
-            target.ReplaceShieldCmp(Mathf.Clamp(shieldAmount, 0, shieldAmount - damageToDeal));
-            damageToDeal = Mathf.Clamp(damageToDeal, 0, damageToDeal - shieldAmount);
+          
+            target.ReplaceShieldCmp(Mathf.Max( 0, shieldAmount - damageToDeal));
+            damageToDeal = Mathf.Max(0, damageToDeal - shieldAmount);
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void ApplyDamageToHealth(GameplayEntity target, float damageToDeal)
+        private void ApplyDamageToHealth(ref GameplayEntity target, float damageToDeal)
         {
             float newHealth = target.aiHealthCmp.healthPoints - damageToDeal;
 

@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Hud
   - IgnoreCollisionWithPlayer
-  - 
+  - IgnoreNavmesh
   - 
   - 
   - 

@@ -18,6 +18,7 @@ namespace Ingame.Ai.FSM.AiAttackConfig
             var cashedAiConfig = aiBaker.AIConfig;
             
             float distance = Vector3.Distance(cashedPlayerPosition, cashedEnemyPosition);
+            
             if(distance > aiBaker.AIConfig.AttackRange)
                 return;
 
@@ -34,10 +35,11 @@ namespace Ingame.Ai.FSM.AiAttackConfig
             var size = Physics.RaycastNonAlloc(cashedEnemyPosition, dir, _cashedHits, distance);
             if (size <= 0)
                 return;
-
+           
             for (int i = 0; i < size; i++)
             {
-                if (!_cashedHits[i].transform.root.TryGetComponent<GameplayEntityReference>(out var reference) || !_cashedHits[i].transform.CompareTag("Player"))
+                var root = _cashedHits[i].transform.root;
+                if (!root.TryGetComponent<GameplayEntityReference>(out var reference) || !root.transform.CompareTag("Player"))
                     continue;
                 
                 if(!reference.attachedEntity.hasApplyDamageCmp)

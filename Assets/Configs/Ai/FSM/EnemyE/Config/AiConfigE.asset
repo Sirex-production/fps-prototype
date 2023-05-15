@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b03b8782ad149c6bb758dead12c4a21, type: 3}
   m_Name: AiConfigE
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 25
   maxShield: 0
   initState: {fileID: 11400000, guid: 7bba914a61b7c0f498416eadb0535d12, type: 2}
   chasingDistance: 12
