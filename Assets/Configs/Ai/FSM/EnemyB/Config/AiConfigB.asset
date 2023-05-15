@@ -23,7 +23,7 @@ MonoBehaviour:
   visibilityMask:
     serializedVersion: 2
     m_Bits: 0
-  attackDamage: 1.18
+  attackDamage: 3
   attackRange: 2.34
   attackVisionRange: 25
   attackAngle: 116
