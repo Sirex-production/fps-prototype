@@ -24,7 +24,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackDamage: 5
-  attackRange: 4
+  attackRange: 5
   attackVisionRange: 2.5
   attackAngle: 99.8
   isRange: 0
