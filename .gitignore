@@ -21,7 +21,6 @@
 [Aa]ssets/Plugins/Editor/JetBrains*
 
 # IDE cache directory
-.vs/
 .idea/
 .vscode/
 
