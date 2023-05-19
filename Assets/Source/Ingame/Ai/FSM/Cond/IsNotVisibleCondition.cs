@@ -12,6 +12,10 @@ namespace Ingame.Ai.FSM.Cond
         private readonly RaycastHit[] _raycastHits = new RaycastHit[16];
         public override bool Predicate(AiContextMdl aiContextMdl)
         {
+            if (aiContextMdl.aiConfig.AttackRange < Vector3.Distance(aiContextMdl.player.position,
+                    aiContextMdl.navMeshAgent.transform.position))
+                return false;
+
             var result = IsVisible(ref aiContextMdl);
             return negate ? !result : result;
         }
@@ -28,10 +32,9 @@ namespace Ingame.Ai.FSM.Cond
 
             if (hitNonAlloc<=0)
                 return false;
-
+            
             for (int i = 0; i < hitNonAlloc; i++)
             {
-                Debug.Log(_raycastHits[i].collider.name);
                 var root = _raycastHits[i].collider.transform.root;
                 if(root.TryGetComponent<PlayerBaker>(out var player ) || root.TryGetComponent<AiBaker>(out var enemy))
                     continue;

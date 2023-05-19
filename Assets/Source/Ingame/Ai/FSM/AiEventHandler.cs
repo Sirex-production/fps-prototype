@@ -43,7 +43,11 @@ namespace Ingame.Ai.FSM
 
         protected void Die()
         {
-           
+            var colliders = GetComponentsInChildren<Collider>();
+            foreach (var c in colliders)
+            {
+                c.enabled = false;
+            }
         }
 
         
@@ -86,7 +90,6 @@ namespace Ingame.Ai.FSM
 
             for (int i = 0; i < hitNonAlloc; i++)
             {
-                Debug.Log(_raycastHits[i].collider.name);
                 var root = _raycastHits[i].collider.transform.root;
                 if(root.TryGetComponent<PlayerBaker>(out var player ) || root.TryGetComponent<AiBaker>(out var enemy))
                     continue;

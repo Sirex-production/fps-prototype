@@ -99,13 +99,14 @@ public static class GameplayComponentsLookup {
     public const int PerformMeleeAttackReqListener = 88;
     public const int ClearLinkOnDestroyMdl = 89;
     public const int AiTeleportPadTag = 90;
-    public const int AiHealthCmp = 91;
-    public const int DeceasedTag = 92;
-    public const int ShieldCmp = 93;
-    public const int TakeDamageReq = 94;
-    public const int WeaponSwitchEventListener = 95;
+    public const int AiTeleportRequest = 91;
+    public const int AiHealthCmp = 92;
+    public const int DeceasedTag = 93;
+    public const int ShieldCmp = 94;
+    public const int TakeDamageReq = 95;
+    public const int WeaponSwitchEventListener = 96;
 
-    public const int TotalComponents = 96;
+    public const int TotalComponents = 97;
 
     public static readonly string[] componentNames = {
         "AnimatorMdl",
@@ -199,6 +200,7 @@ public static class GameplayComponentsLookup {
         "PerformMeleeAttackReqListener",
         "ClearLinkOnDestroyMdl",
         "AiTeleportPadTag",
+        "AiTeleportRequest",
         "AiHealthCmp",
         "DeceasedTag",
         "ShieldCmp",
@@ -298,6 +300,7 @@ public static class GameplayComponentsLookup {
         typeof(PerformMeleeAttackReqListenerComponent),
         typeof(Source.EcsSupport.Support.ClearLinkOnDestroyMdl),
         typeof(Source.Ingame.AiSupport.Cmp.AiTeleportPadTag),
+        typeof(Source.Ingame.AiSupport.Cmp.AiTeleportRequest),
         typeof(Source.Ingame.Health.Cmp.AiHealthCmp),
         typeof(Source.Ingame.Health.Cmp.DeceasedTag),
         typeof(Source.Ingame.Health.Cmp.ShieldCmp),

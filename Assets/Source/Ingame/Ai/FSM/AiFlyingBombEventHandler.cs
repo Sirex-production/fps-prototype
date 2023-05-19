@@ -25,6 +25,7 @@ namespace Ingame.Ai.FSM
                 mesh.enabled = false;
             }
             
+            fire.gameObject.SetActive(false);
             explosion.gameObject.SetActive(true);
         }
         
