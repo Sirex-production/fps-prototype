@@ -11,17 +11,19 @@ public partial class GameplayEntity {
     public Ingame.Player.Movement.VelocityCmp velocityCmp { get { return (Ingame.Player.Movement.VelocityCmp)GetComponent(GameplayComponentsLookup.VelocityCmp); } }
     public bool hasVelocityCmp { get { return HasComponent(GameplayComponentsLookup.VelocityCmp); } }
 
-    public void AddVelocityCmp(UnityEngine.Vector3 newCurrentVelocity) {
+    public void AddVelocityCmp(UnityEngine.Vector3 newCurrentVelocity, float newTimeSpentTraveling) {
         var index = GameplayComponentsLookup.VelocityCmp;
         var component = (Ingame.Player.Movement.VelocityCmp)CreateComponent(index, typeof(Ingame.Player.Movement.VelocityCmp));
         component.currentVelocity = newCurrentVelocity;
+        component.timeSpentTraveling = newTimeSpentTraveling;
         AddComponent(index, component);
     }
 
-    public void ReplaceVelocityCmp(UnityEngine.Vector3 newCurrentVelocity) {
+    public void ReplaceVelocityCmp(UnityEngine.Vector3 newCurrentVelocity, float newTimeSpentTraveling) {
         var index = GameplayComponentsLookup.VelocityCmp;
         var component = (Ingame.Player.Movement.VelocityCmp)CreateComponent(index, typeof(Ingame.Player.Movement.VelocityCmp));
         component.currentVelocity = newCurrentVelocity;
+        component.timeSpentTraveling = newTimeSpentTraveling;
         ReplaceComponent(index, component);
     }
 

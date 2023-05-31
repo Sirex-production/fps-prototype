@@ -6,15 +6,15 @@ namespace Ingame.Camerawork
 {
 	public sealed class MainCameraBaker : MonoBehaviour
 	{
+		[BoxGroup("CameraMdl")]
 		[Required, SerializeField] private Camera mainCamera;
-		
+
 		[Inject]
 		private void Construct()
 		{
-			var gameplayContext = Contexts.sharedInstance.gameplay;
-			var entity = gameplayContext.CreateEntity();
+			var entity = Contexts.sharedInstance.gameplay.CreateEntity();
 			
-			entity.AddTransformMdl(mainCamera.transform);
+			entity.AddTransformMdl(transform, transform.localRotation, transform.localPosition);
 			entity.AddCameraMdl(mainCamera);
 			entity.hasMainCameraTag = true;
 		}

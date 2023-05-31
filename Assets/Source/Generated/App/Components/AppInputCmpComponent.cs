@@ -12,22 +12,22 @@ public partial class AppContext {
     public Ingame.Input.InputCmp inputCmp { get { return inputCmpEntity.inputCmp; } }
     public bool hasInputCmp { get { return inputCmpEntity != null; } }
 
-    public AppEntity SetInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput) {
+    public AppEntity SetInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput, bool newDashInput, bool newSlideInput, bool newNextWeaponInput, bool newPrevWeaponInput, int newSelectWeaponInput, bool newShootHoldInput, bool newShootTapInput, bool newAimHoldInput, bool newAimTapInput, bool newMagnetAbilityInput, bool newGoBackInput) {
         if (hasInputCmp) {
             throw new Entitas.EntitasException("Could not set InputCmp!\n" + this + " already has an entity with Ingame.Input.InputCmp!",
                 "You should check if the context already has a inputCmpEntity before setting it or use context.ReplaceInputCmp().");
         }
         var entity = CreateEntity();
-        entity.AddInputCmp(newMoveInput, newRotateInput, newJumpInput);
+        entity.AddInputCmp(newMoveInput, newRotateInput, newJumpInput, newDashInput, newSlideInput, newNextWeaponInput, newPrevWeaponInput, newSelectWeaponInput, newShootHoldInput, newShootTapInput, newAimHoldInput, newAimTapInput, newMagnetAbilityInput, newGoBackInput);
         return entity;
     }
 
-    public void ReplaceInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput) {
+    public void ReplaceInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput, bool newDashInput, bool newSlideInput, bool newNextWeaponInput, bool newPrevWeaponInput, int newSelectWeaponInput, bool newShootHoldInput, bool newShootTapInput, bool newAimHoldInput, bool newAimTapInput, bool newMagnetAbilityInput, bool newGoBackInput) {
         var entity = inputCmpEntity;
         if (entity == null) {
-            entity = SetInputCmp(newMoveInput, newRotateInput, newJumpInput);
+            entity = SetInputCmp(newMoveInput, newRotateInput, newJumpInput, newDashInput, newSlideInput, newNextWeaponInput, newPrevWeaponInput, newSelectWeaponInput, newShootHoldInput, newShootTapInput, newAimHoldInput, newAimTapInput, newMagnetAbilityInput, newGoBackInput);
         } else {
-            entity.ReplaceInputCmp(newMoveInput, newRotateInput, newJumpInput);
+            entity.ReplaceInputCmp(newMoveInput, newRotateInput, newJumpInput, newDashInput, newSlideInput, newNextWeaponInput, newPrevWeaponInput, newSelectWeaponInput, newShootHoldInput, newShootTapInput, newAimHoldInput, newAimTapInput, newMagnetAbilityInput, newGoBackInput);
         }
     }
 
@@ -49,21 +49,43 @@ public partial class AppEntity {
     public Ingame.Input.InputCmp inputCmp { get { return (Ingame.Input.InputCmp)GetComponent(AppComponentsLookup.InputCmp); } }
     public bool hasInputCmp { get { return HasComponent(AppComponentsLookup.InputCmp); } }
 
-    public void AddInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput) {
+    public void AddInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput, bool newDashInput, bool newSlideInput, bool newNextWeaponInput, bool newPrevWeaponInput, int newSelectWeaponInput, bool newShootHoldInput, bool newShootTapInput, bool newAimHoldInput, bool newAimTapInput, bool newMagnetAbilityInput, bool newGoBackInput) {
         var index = AppComponentsLookup.InputCmp;
         var component = (Ingame.Input.InputCmp)CreateComponent(index, typeof(Ingame.Input.InputCmp));
         component.moveInput = newMoveInput;
         component.rotateInput = newRotateInput;
         component.jumpInput = newJumpInput;
+        component.dashInput = newDashInput;
+        component.slideInput = newSlideInput;
+        component.nextWeaponInput = newNextWeaponInput;
+        component.prevWeaponInput = newPrevWeaponInput;
+        component.selectWeaponInput = newSelectWeaponInput;
+        component.shootHoldInput = newShootHoldInput;
+        component.shootTapInput = newShootTapInput;
+        component.aimHoldInput = newAimHoldInput;
+        component.aimTapInput = newAimTapInput;
+        component.magnetAbilityInput = newMagnetAbilityInput;
+        component.goBackInput = newGoBackInput;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput) {
+    public void ReplaceInputCmp(UnityEngine.Vector2 newMoveInput, UnityEngine.Vector2 newRotateInput, bool newJumpInput, bool newDashInput, bool newSlideInput, bool newNextWeaponInput, bool newPrevWeaponInput, int newSelectWeaponInput, bool newShootHoldInput, bool newShootTapInput, bool newAimHoldInput, bool newAimTapInput, bool newMagnetAbilityInput, bool newGoBackInput) {
         var index = AppComponentsLookup.InputCmp;
         var component = (Ingame.Input.InputCmp)CreateComponent(index, typeof(Ingame.Input.InputCmp));
         component.moveInput = newMoveInput;
         component.rotateInput = newRotateInput;
         component.jumpInput = newJumpInput;
+        component.dashInput = newDashInput;
+        component.slideInput = newSlideInput;
+        component.nextWeaponInput = newNextWeaponInput;
+        component.prevWeaponInput = newPrevWeaponInput;
+        component.selectWeaponInput = newSelectWeaponInput;
+        component.shootHoldInput = newShootHoldInput;
+        component.shootTapInput = newShootTapInput;
+        component.aimHoldInput = newAimHoldInput;
+        component.aimTapInput = newAimTapInput;
+        component.magnetAbilityInput = newMagnetAbilityInput;
+        component.goBackInput = newGoBackInput;
         ReplaceComponent(index, component);
     }
 

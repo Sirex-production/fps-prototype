@@ -55,6 +55,24 @@ namespace Ingame.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""49b55185-67ed-43d7-9951-801edd3c3ebb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sliding"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf0508fb-1ba0-40fc-b67a-f74c674fd254"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +152,224 @@ namespace Ingame.Input
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""295720c9-1c2b-4c64-8b2a-8a813651ddcf"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed246bdb-e59d-4607-9e79-c40eafd2db3c"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sliding"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Combat"",
+            ""id"": ""d670d018-e7d2-4ad8-8a44-f184692e7b52"",
+            ""actions"": [
+                {
+                    ""name"": ""NextWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""a1bb1036-1bf4-4483-924e-507a54f7cb1e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PrevWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""58b3ab39-1002-43fc-8a6c-23d155903872"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""9aea2577-ef44-43b3-9e1a-605346c68849"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""8289cfc3-9929-42d8-b7a8-7fa8eba22656"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""80898134-29fc-426e-8f68-197042766ed9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f78b603-f457-4465-a63f-58d9bae0c997"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeaponThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5c72147-c687-47e3-97ba-5bd66b30880e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MagnetAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfd03daf-3630-4004-b52a-b7f11dc3ccdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7520597d-b06e-4619-88c3-dab265b58a2c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d50e359-c5f0-4ef1-8168-8dc6fc3cf324"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd8d47f2-1f18-4178-90bc-ca96ea79e7e5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""371318e5-89b1-4355-b826-8a3ff2754bc3"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""358e31bf-45d7-44a1-8336-f7963db33338"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce7dc308-84d1-43d7-812f-89a8e2d5d4b4"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bc4a3b7-6a84-4ba9-8d44-01ea0249f54c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeaponThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e68eb940-212c-41cf-8eb4-a6e1db7dd29b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MagnetAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""f344498a-3722-4559-a187-79569020a0e7"",
+            ""actions"": [
+                {
+                    ""name"": ""GoBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebd4b472-f349-4caf-9b6b-62b6ba59000d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a6e97748-f8f5-4c04-b6f1-fbdbbe841023"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +381,21 @@ namespace Ingame.Input
             m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
             m_Movement_Rotate = m_Movement.FindAction("Rotate", throwIfNotFound: true);
             m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+            m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
+            m_Movement_Sliding = m_Movement.FindAction("Sliding", throwIfNotFound: true);
+            // Combat
+            m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
+            m_Combat_NextWeapon = m_Combat.FindAction("NextWeapon", throwIfNotFound: true);
+            m_Combat_PrevWeapon = m_Combat.FindAction("PrevWeapon", throwIfNotFound: true);
+            m_Combat_Shoot = m_Combat.FindAction("Shoot", throwIfNotFound: true);
+            m_Combat_Aim = m_Combat.FindAction("Aim", throwIfNotFound: true);
+            m_Combat_SelectWeaponOne = m_Combat.FindAction("SelectWeaponOne", throwIfNotFound: true);
+            m_Combat_SelectWeaponTwo = m_Combat.FindAction("SelectWeaponTwo", throwIfNotFound: true);
+            m_Combat_SelectWeaponThree = m_Combat.FindAction("SelectWeaponThree", throwIfNotFound: true);
+            m_Combat_MagnetAbility = m_Combat.FindAction("MagnetAbility", throwIfNotFound: true);
+            // UI
+            m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+            m_UI_GoBack = m_UI.FindAction("GoBack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -209,6 +460,8 @@ namespace Ingame.Input
         private readonly InputAction m_Movement_Move;
         private readonly InputAction m_Movement_Rotate;
         private readonly InputAction m_Movement_Jump;
+        private readonly InputAction m_Movement_Dash;
+        private readonly InputAction m_Movement_Sliding;
         public struct MovementActions
         {
             private @InputActions m_Wrapper;
@@ -216,6 +469,8 @@ namespace Ingame.Input
             public InputAction @Move => m_Wrapper.m_Movement_Move;
             public InputAction @Rotate => m_Wrapper.m_Movement_Rotate;
             public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+            public InputAction @Dash => m_Wrapper.m_Movement_Dash;
+            public InputAction @Sliding => m_Wrapper.m_Movement_Sliding;
             public InputActionMap Get() { return m_Wrapper.m_Movement; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -234,6 +489,12 @@ namespace Ingame.Input
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
+                @Sliding.started += instance.OnSliding;
+                @Sliding.performed += instance.OnSliding;
+                @Sliding.canceled += instance.OnSliding;
             }
 
             private void UnregisterCallbacks(IMovementActions instance)
@@ -247,6 +508,12 @@ namespace Ingame.Input
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
+                @Sliding.started -= instance.OnSliding;
+                @Sliding.performed -= instance.OnSliding;
+                @Sliding.canceled -= instance.OnSliding;
             }
 
             public void RemoveCallbacks(IMovementActions instance)
@@ -264,11 +531,176 @@ namespace Ingame.Input
             }
         }
         public MovementActions @Movement => new MovementActions(this);
+
+        // Combat
+        private readonly InputActionMap m_Combat;
+        private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
+        private readonly InputAction m_Combat_NextWeapon;
+        private readonly InputAction m_Combat_PrevWeapon;
+        private readonly InputAction m_Combat_Shoot;
+        private readonly InputAction m_Combat_Aim;
+        private readonly InputAction m_Combat_SelectWeaponOne;
+        private readonly InputAction m_Combat_SelectWeaponTwo;
+        private readonly InputAction m_Combat_SelectWeaponThree;
+        private readonly InputAction m_Combat_MagnetAbility;
+        public struct CombatActions
+        {
+            private @InputActions m_Wrapper;
+            public CombatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @NextWeapon => m_Wrapper.m_Combat_NextWeapon;
+            public InputAction @PrevWeapon => m_Wrapper.m_Combat_PrevWeapon;
+            public InputAction @Shoot => m_Wrapper.m_Combat_Shoot;
+            public InputAction @Aim => m_Wrapper.m_Combat_Aim;
+            public InputAction @SelectWeaponOne => m_Wrapper.m_Combat_SelectWeaponOne;
+            public InputAction @SelectWeaponTwo => m_Wrapper.m_Combat_SelectWeaponTwo;
+            public InputAction @SelectWeaponThree => m_Wrapper.m_Combat_SelectWeaponThree;
+            public InputAction @MagnetAbility => m_Wrapper.m_Combat_MagnetAbility;
+            public InputActionMap Get() { return m_Wrapper.m_Combat; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(CombatActions set) { return set.Get(); }
+            public void AddCallbacks(ICombatActions instance)
+            {
+                if (instance == null || m_Wrapper.m_CombatActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_CombatActionsCallbackInterfaces.Add(instance);
+                @NextWeapon.started += instance.OnNextWeapon;
+                @NextWeapon.performed += instance.OnNextWeapon;
+                @NextWeapon.canceled += instance.OnNextWeapon;
+                @PrevWeapon.started += instance.OnPrevWeapon;
+                @PrevWeapon.performed += instance.OnPrevWeapon;
+                @PrevWeapon.canceled += instance.OnPrevWeapon;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @SelectWeaponOne.started += instance.OnSelectWeaponOne;
+                @SelectWeaponOne.performed += instance.OnSelectWeaponOne;
+                @SelectWeaponOne.canceled += instance.OnSelectWeaponOne;
+                @SelectWeaponTwo.started += instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.performed += instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.canceled += instance.OnSelectWeaponTwo;
+                @SelectWeaponThree.started += instance.OnSelectWeaponThree;
+                @SelectWeaponThree.performed += instance.OnSelectWeaponThree;
+                @SelectWeaponThree.canceled += instance.OnSelectWeaponThree;
+                @MagnetAbility.started += instance.OnMagnetAbility;
+                @MagnetAbility.performed += instance.OnMagnetAbility;
+                @MagnetAbility.canceled += instance.OnMagnetAbility;
+            }
+
+            private void UnregisterCallbacks(ICombatActions instance)
+            {
+                @NextWeapon.started -= instance.OnNextWeapon;
+                @NextWeapon.performed -= instance.OnNextWeapon;
+                @NextWeapon.canceled -= instance.OnNextWeapon;
+                @PrevWeapon.started -= instance.OnPrevWeapon;
+                @PrevWeapon.performed -= instance.OnPrevWeapon;
+                @PrevWeapon.canceled -= instance.OnPrevWeapon;
+                @Shoot.started -= instance.OnShoot;
+                @Shoot.performed -= instance.OnShoot;
+                @Shoot.canceled -= instance.OnShoot;
+                @Aim.started -= instance.OnAim;
+                @Aim.performed -= instance.OnAim;
+                @Aim.canceled -= instance.OnAim;
+                @SelectWeaponOne.started -= instance.OnSelectWeaponOne;
+                @SelectWeaponOne.performed -= instance.OnSelectWeaponOne;
+                @SelectWeaponOne.canceled -= instance.OnSelectWeaponOne;
+                @SelectWeaponTwo.started -= instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.performed -= instance.OnSelectWeaponTwo;
+                @SelectWeaponTwo.canceled -= instance.OnSelectWeaponTwo;
+                @SelectWeaponThree.started -= instance.OnSelectWeaponThree;
+                @SelectWeaponThree.performed -= instance.OnSelectWeaponThree;
+                @SelectWeaponThree.canceled -= instance.OnSelectWeaponThree;
+                @MagnetAbility.started -= instance.OnMagnetAbility;
+                @MagnetAbility.performed -= instance.OnMagnetAbility;
+                @MagnetAbility.canceled -= instance.OnMagnetAbility;
+            }
+
+            public void RemoveCallbacks(ICombatActions instance)
+            {
+                if (m_Wrapper.m_CombatActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ICombatActions instance)
+            {
+                foreach (var item in m_Wrapper.m_CombatActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_CombatActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public CombatActions @Combat => new CombatActions(this);
+
+        // UI
+        private readonly InputActionMap m_UI;
+        private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+        private readonly InputAction m_UI_GoBack;
+        public struct UIActions
+        {
+            private @InputActions m_Wrapper;
+            public UIActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @GoBack => m_Wrapper.m_UI_GoBack;
+            public InputActionMap Get() { return m_Wrapper.m_UI; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+            public void AddCallbacks(IUIActions instance)
+            {
+                if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+                @GoBack.started += instance.OnGoBack;
+                @GoBack.performed += instance.OnGoBack;
+                @GoBack.canceled += instance.OnGoBack;
+            }
+
+            private void UnregisterCallbacks(IUIActions instance)
+            {
+                @GoBack.started -= instance.OnGoBack;
+                @GoBack.performed -= instance.OnGoBack;
+                @GoBack.canceled -= instance.OnGoBack;
+            }
+
+            public void RemoveCallbacks(IUIActions instance)
+            {
+                if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IUIActions instance)
+            {
+                foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public UIActions @UI => new UIActions(this);
         public interface IMovementActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
+            void OnSliding(InputAction.CallbackContext context);
+        }
+        public interface ICombatActions
+        {
+            void OnNextWeapon(InputAction.CallbackContext context);
+            void OnPrevWeapon(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
+            void OnSelectWeaponOne(InputAction.CallbackContext context);
+            void OnSelectWeaponTwo(InputAction.CallbackContext context);
+            void OnSelectWeaponThree(InputAction.CallbackContext context);
+            void OnMagnetAbility(InputAction.CallbackContext context);
+        }
+        public interface IUIActions
+        {
+            void OnGoBack(InputAction.CallbackContext context);
         }
     }
 }

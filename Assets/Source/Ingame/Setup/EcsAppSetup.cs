@@ -1,5 +1,6 @@
 using Entitas;
 using Ingame.Input;
+using Source.Ingame.Settings.Core;
 using UnityEngine;
 using Zenject;
 
@@ -16,7 +17,9 @@ namespace Ingame.Setup
 			_appContext = Contexts.sharedInstance.app;
 			_systems = new Systems();
 
-			_systems.Add(new InputFeature(inputActions));
+			_systems
+				.Add(new InputFeature(inputActions))
+				.Add(new UpdateSettingsSystem(_appContext));
 		}
 
 		private void Awake()
@@ -33,6 +36,11 @@ namespace Ingame.Setup
 		private void OnDestroy()
 		{
 			_systems.TearDown();
+			
+			_systems.DeactivateReactiveSystems();
+			
+			_systems.ClearReactiveSystems();
+			
 			_appContext.DestroyAllEntities();
 		}
 	}

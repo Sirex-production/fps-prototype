@@ -8,30 +8,303 @@
 //------------------------------------------------------------------------------
 public static class GameplayComponentsLookup {
 
-    public const int CameraMdl = 0;
-    public const int CharacterControllerMdl = 1;
-    public const int TransformMdl = 2;
-    public const int MainCameraTag = 3;
-    public const int PlayerCmp = 4;
-    public const int VelocityCmp = 5;
+    public const int AnimatorMdl = 0;
+    public const int CameraMdl = 1;
+    public const int CharacterControllerMdl = 2;
+    public const int CinemachineVirtualCameraMdl = 3;
+    public const int LineRendererMdl = 4;
+    public const int ParticleEffectMdl = 5;
+    public const int PostProcessingVolumeMdl = 6;
+    public const int RigidbodyMdl = 7;
+    public const int TransformMdl = 8;
+    public const int OnCollisionEnterEvent = 9;
+    public const int OnCollisionExitEvent = 10;
+    public const int OnCollisionStayEvent = 11;
+    public const int OnTriggerEnterEvent = 12;
+    public const int OnTriggerExitEvent = 13;
+    public const int OnTriggerStayEvent = 14;
+    public const int BulletMdl = 15;
+    public const int BulletPoolCmp = 16;
+    public const int BulletTypesMdl = 17;
+    public const int DirectionCmp = 18;
+    public const int ForcePowerCmp = 19;
+    public const int SpawnBulletReq = 20;
+    public const int AiContextMdl = 21;
+    public const int AiModelWrapperContainerMdl = 22;
+    public const int EnemyTag = 23;
+    public const int FlyingAiCmp = 24;
+    public const int MovementByAnimationsTag = 25;
+    public const int ReleaseBulletReq = 26;
+    public const int HudCameraTag = 27;
+    public const int MainCameraTag = 28;
+    public const int MainVirtualCameraTag = 29;
+    public const int HudRecoilCmp = 30;
+    public const int CollectableArmorCmp = 31;
+    public const int CollectableHealthCmp = 32;
+    public const int UiDeadScreenMdl = 33;
+    public const int AddArmorCmp = 34;
+    public const int AddHealthCmp = 35;
+    public const int ApplyDamageCmp = 36;
+    public const int ArmorCmp = 37;
+    public const int HealthCmp = 38;
+    public const int IsDeadTag = 39;
+    public const int UiPlayerStatsViewMdl = 40;
+    public const int ArrowCmp = 41;
+    public const int ArrowSpawnerCmp = 42;
+    public const int AxeCmp = 43;
+    public const int InHangsTag = 44;
+    public const int ShotPerformedEvent = 45;
+    public const int EnergyGunCmp = 46;
+    public const int MeleeAttackOriginTag = 47;
+    public const int PerformMeleeAttackReq = 48;
+    public const int ProjectileCmp = 49;
+    public const int RecoilCmp = 50;
+    public const int SwayCmp = 51;
+    public const int WeaponHolderCmp = 52;
+    public const int UiPlayerGunsViewMdl = 53;
+    public const int AwaitingWeaponSwitchReq = 54;
+    public const int WeaponSwitchEvent = 55;
+    public const int GasPipeTag = 56;
+    public const int InteractiveObjectTag = 57;
+    public const int PerformInteractionTag = 58;
+    public const int FreeToReuseTag = 59;
+    public const int UiPauseMenuModel = 60;
+    public const int CurrentHookTargetTag = 61;
+    public const int HookCmp = 62;
+    public const int HookTargetCmp = 63;
+    public const int IsMagnetActiveTag = 64;
+    public const int MagnetCmp = 65;
+    public const int MagneticItemTag = 66;
+    public const int UiPlayerAbilitiesViewMdl = 67;
+    public const int PlayerCmp = 68;
+    public const int CanPerformDoubleJumpTag = 69;
+    public const int DashingCmp = 70;
+    public const int GroundCheckCmp = 71;
+    public const int HudOriginCmp = 72;
+    public const int IsDashingTag = 73;
+    public const int IsMovementLockedTag = 74;
+    public const int IsRotationLockedTag = 75;
+    public const int IsSlidingTag = 76;
+    public const int SlidingCmp = 77;
+    public const int VelocityCmp = 78;
+    public const int DashPostProcessingVolumeTag = 79;
+    public const int FloatingItemEffectCmp = 80;
+    public const int ShotTrailCmp = 81;
+    public const int OnCollisionEnterEventListener = 82;
+    public const int OnCollisionExitEventListener = 83;
+    public const int OnCollisionStayEventListener = 84;
+    public const int OnTriggerEnterEventListener = 85;
+    public const int OnTriggerExitEventListener = 86;
+    public const int OnTriggerStayEventListener = 87;
+    public const int PerformMeleeAttackReqListener = 88;
+    public const int ClearLinkOnDestroyMdl = 89;
+    public const int AiTeleportPadTag = 90;
+    public const int AiTeleportRequest = 91;
+    public const int AiHealthCmp = 92;
+    public const int DeceasedTag = 93;
+    public const int ShieldCmp = 94;
+    public const int TakeDamageReq = 95;
+    public const int WeaponSwitchEventListener = 96;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 97;
 
     public static readonly string[] componentNames = {
+        "AnimatorMdl",
         "CameraMdl",
         "CharacterControllerMdl",
+        "CinemachineVirtualCameraMdl",
+        "LineRendererMdl",
+        "ParticleEffectMdl",
+        "PostProcessingVolumeMdl",
+        "RigidbodyMdl",
         "TransformMdl",
+        "OnCollisionEnterEvent",
+        "OnCollisionExitEvent",
+        "OnCollisionStayEvent",
+        "OnTriggerEnterEvent",
+        "OnTriggerExitEvent",
+        "OnTriggerStayEvent",
+        "BulletMdl",
+        "BulletPoolCmp",
+        "BulletTypesMdl",
+        "DirectionCmp",
+        "ForcePowerCmp",
+        "SpawnBulletReq",
+        "AiContextMdl",
+        "AiModelWrapperContainerMdl",
+        "EnemyTag",
+        "FlyingAiCmp",
+        "MovementByAnimationsTag",
+        "ReleaseBulletReq",
+        "HudCameraTag",
         "MainCameraTag",
+        "MainVirtualCameraTag",
+        "HudRecoilCmp",
+        "CollectableArmorCmp",
+        "CollectableHealthCmp",
+        "UiDeadScreenMdl",
+        "AddArmorCmp",
+        "AddHealthCmp",
+        "ApplyDamageCmp",
+        "ArmorCmp",
+        "HealthCmp",
+        "IsDeadTag",
+        "UiPlayerStatsViewMdl",
+        "ArrowCmp",
+        "ArrowSpawnerCmp",
+        "AxeCmp",
+        "InHangsTag",
+        "ShotPerformedEvent",
+        "EnergyGunCmp",
+        "MeleeAttackOriginTag",
+        "PerformMeleeAttackReq",
+        "ProjectileCmp",
+        "RecoilCmp",
+        "SwayCmp",
+        "WeaponHolderCmp",
+        "UiPlayerGunsViewMdl",
+        "AwaitingWeaponSwitchReq",
+        "WeaponSwitchEvent",
+        "GasPipeTag",
+        "InteractiveObjectTag",
+        "PerformInteractionTag",
+        "FreeToReuseTag",
+        "UiPauseMenuModel",
+        "CurrentHookTargetTag",
+        "HookCmp",
+        "HookTargetCmp",
+        "IsMagnetActiveTag",
+        "MagnetCmp",
+        "MagneticItemTag",
+        "UiPlayerAbilitiesViewMdl",
         "PlayerCmp",
-        "VelocityCmp"
+        "CanPerformDoubleJumpTag",
+        "DashingCmp",
+        "GroundCheckCmp",
+        "HudOriginCmp",
+        "IsDashingTag",
+        "IsMovementLockedTag",
+        "IsRotationLockedTag",
+        "IsSlidingTag",
+        "SlidingCmp",
+        "VelocityCmp",
+        "DashPostProcessingVolumeTag",
+        "FloatingItemEffectCmp",
+        "ShotTrailCmp",
+        "OnCollisionEnterEventListener",
+        "OnCollisionExitEventListener",
+        "OnCollisionStayEventListener",
+        "OnTriggerEnterEventListener",
+        "OnTriggerExitEventListener",
+        "OnTriggerStayEventListener",
+        "PerformMeleeAttackReqListener",
+        "ClearLinkOnDestroyMdl",
+        "AiTeleportPadTag",
+        "AiTeleportRequest",
+        "AiHealthCmp",
+        "DeceasedTag",
+        "ShieldCmp",
+        "TakeDamageReq",
+        "WeaponSwitchEventListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(EcsSupport.UnityIntegration.Models.AnimatorMdl),
         typeof(EcsSupport.UnityIntegration.Models.CameraMdl),
         typeof(EcsSupport.UnityIntegration.Models.CharacterControllerMdl),
+        typeof(EcsSupport.UnityIntegration.Models.CinemachineVirtualCameraMdl),
+        typeof(EcsSupport.UnityIntegration.Models.LineRendererMdl),
+        typeof(EcsSupport.UnityIntegration.Models.ParticleEffectMdl),
+        typeof(EcsSupport.UnityIntegration.Models.PostProcessingVolumeMdl),
+        typeof(EcsSupport.UnityIntegration.Models.RigidbodyMdl),
         typeof(EcsSupport.UnityIntegration.Models.TransformMdl),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionEnterEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionExitEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnCollisionStayEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerEnterEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerExitEvent),
+        typeof(EcsSupport.UnityIntegration.Physics.OnTriggerStayEvent),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletMdl),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletPoolCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.BulletTypesMdl),
+        typeof(Ingame.Ai.Bullet.Cmp.DirectionCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.ForcePowerCmp),
+        typeof(Ingame.Ai.Bullet.Cmp.SpawnBulletReq),
+        typeof(Ingame.Ai.Cmp.AiContextMdl),
+        typeof(Ingame.Ai.Cmp.AiModelWrapperContainerMdl),
+        typeof(Ingame.Ai.Cmp.EnemyTag),
+        typeof(Ingame.Ai.Cmp.FlyingAiCmp),
+        typeof(Ingame.Animation.Cmp.MovementByAnimationsTag),
+        typeof(Ingame.Bullet.Sys.ReleaseBulletReq),
+        typeof(Ingame.Camerawork.HudCameraTag),
         typeof(Ingame.Camerawork.MainCameraTag),
+        typeof(Ingame.Camerawork.MainVirtualCameraTag),
+        typeof(Ingame.Camerawork.Recoil.HudRecoilCmp),
+        typeof(Ingame.CollectableResources.CollectableArmorCmp),
+        typeof(Ingame.CollectableResources.CollectableHealthCmp),
+        typeof(Ingame.DeadScreen.UiDeadScreenMdl),
+        typeof(Ingame.Effects.AddArmorCmp),
+        typeof(Ingame.Effects.AddHealthCmp),
+        typeof(Ingame.Effects.ApplyDamageCmp),
+        typeof(Ingame.Effects.ArmorCmp),
+        typeof(Ingame.Effects.HealthCmp),
+        typeof(Ingame.Effects.IsDeadTag),
+        typeof(Ingame.Effects.UI.UiPlayerStatsViewMdl),
+        typeof(Ingame.Gunplay.ArrowGun.ArrowCmp),
+        typeof(Ingame.Gunplay.ArrowGun.ArrowSpawnerCmp),
+        typeof(Ingame.Gunplay.Axe.AxeCmp),
+        typeof(Ingame.Gunplay.Common.InHangsTag),
+        typeof(Ingame.Gunplay.Common.ShotPerformedEvent),
+        typeof(Ingame.Gunplay.EnergyGun.EnergyGunCmp),
+        typeof(Ingame.Gunplay.MeleeAttack.MeleeAttackOriginTag),
+        typeof(Ingame.Gunplay.MeleeAttack.PerformMeleeAttackReq),
+        typeof(Ingame.Gunplay.Projectile.ProjectileCmp),
+        typeof(Ingame.Gunplay.Sway.RecoilCmp),
+        typeof(Ingame.Gunplay.Sway.SwayCmp),
+        typeof(Ingame.Gunplay.Sway.WeaponSwitch.WeaponHolderCmp),
+        typeof(Ingame.Gunplay.UI.UiPlayerGunsViewMdl),
+        typeof(Ingame.Gunplay.WeaponSwitch.Cmp.AwaitingWeaponSwitchReq),
+        typeof(Ingame.Gunplay.WeaponSwitch.WeaponSwitchEvent),
+        typeof(Ingame.Interactive.Environment.Cmp.GasPipeTag),
+        typeof(Ingame.Interactive.Environment.Cmp.InteractiveObjectTag),
+        typeof(Ingame.Interactive.Environment.Cmp.PerformInteractionTag),
+        typeof(Ingame.ObjectPooling.FreeToReuseTag),
+        typeof(Ingame.PauseMenu.UiPauseMenuModel),
+        typeof(Ingame.Player.Abilities.Hook.CurrentHookTargetTag),
+        typeof(Ingame.Player.Abilities.Hook.HookCmp),
+        typeof(Ingame.Player.Abilities.Hook.HookTargetCmp),
+        typeof(Ingame.Player.Abilities.Magnet.IsMagnetActiveTag),
+        typeof(Ingame.Player.Abilities.Magnet.MagnetCmp),
+        typeof(Ingame.Player.Abilities.Magnet.MagneticItemTag),
+        typeof(Ingame.Player.Abilities.UI.UiPlayerAbilitiesViewMdl),
         typeof(Ingame.Player.Common.PlayerCmp),
-        typeof(Ingame.Player.Movement.VelocityCmp)
+        typeof(Ingame.Player.Movement.CanPerformDoubleJumpTag),
+        typeof(Ingame.Player.Movement.DashingCmp),
+        typeof(Ingame.Player.Movement.GroundCheckCmp),
+        typeof(Ingame.Player.Movement.HudOriginCmp),
+        typeof(Ingame.Player.Movement.IsDashingTag),
+        typeof(Ingame.Player.Movement.IsMovementLockedTag),
+        typeof(Ingame.Player.Movement.IsRotationLockedTag),
+        typeof(Ingame.Player.Movement.IsSlidingTag),
+        typeof(Ingame.Player.Movement.SlidingCmp),
+        typeof(Ingame.Player.Movement.VelocityCmp),
+        typeof(Ingame.Vfx.Dash.DashPostProcessingVolumeTag),
+        typeof(Ingame.Vfx.ShotTrail.FloatingEffect.FloatingItemEffectCmp),
+        typeof(Ingame.Vfx.ShotTrail.ShotTrailCmp),
+        typeof(OnCollisionEnterEventListenerComponent),
+        typeof(OnCollisionExitEventListenerComponent),
+        typeof(OnCollisionStayEventListenerComponent),
+        typeof(OnTriggerEnterEventListenerComponent),
+        typeof(OnTriggerExitEventListenerComponent),
+        typeof(OnTriggerStayEventListenerComponent),
+        typeof(PerformMeleeAttackReqListenerComponent),
+        typeof(Source.EcsSupport.Support.ClearLinkOnDestroyMdl),
+        typeof(Source.Ingame.AiSupport.Cmp.AiTeleportPadTag),
+        typeof(Source.Ingame.AiSupport.Cmp.AiTeleportRequest),
+        typeof(Source.Ingame.Health.Cmp.AiHealthCmp),
+        typeof(Source.Ingame.Health.Cmp.DeceasedTag),
+        typeof(Source.Ingame.Health.Cmp.ShieldCmp),
+        typeof(Source.Ingame.Health.Cmp.TakeDamageReq),
+        typeof(WeaponSwitchEventListenerComponent)
     };
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf99824737ed4523aa47819eabcb7a0a, type: 3}
+  m_Name: SpecialActionState
+  m_EditorClassIdentifier: 
+  stateTransformerCheckers:
+  - state: {fileID: 11400000, guid: 6cfaae57b6b12284fbdb713ec163f2ac, type: 2}
+    conditions:
+    - {fileID: 11400000, guid: fa690354a9c04d04d961b1057284ba2f, type: 2}
+    - {fileID: 11400000, guid: 8d33d48ae7f32c042bf34b8408f430ae, type: 2}
+    logicalOperator: 0
+  actions:
+  - {fileID: 11400000, guid: 6101639aa02592e4daad444fc7ee7693, type: 2}
+  - {fileID: 11400000, guid: a5c9fa8241bd5294ba52b42e457d4c04, type: 2}
+  - {fileID: 11400000, guid: a5c9fa8241bd5294ba52b42e457d4c04, type: 2}
+  - {fileID: 11400000, guid: dc3ca1c4c31c6cd4f809a38cf181391a, type: 2}
+  isRepeatable: 1

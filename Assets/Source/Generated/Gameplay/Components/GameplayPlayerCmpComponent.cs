@@ -10,13 +10,13 @@ public partial class GameplayContext {
 
     public GameplayEntity playerCmpEntity { get { return GetGroup(GameplayMatcher.PlayerCmp).GetSingleEntity(); } }
 
-    public bool isPlayerCmp {
+    public bool hasPlayerCmp {
         get { return playerCmpEntity != null; }
         set {
             var entity = playerCmpEntity;
             if (value != (entity != null)) {
                 if (value) {
-                    CreateEntity().isPlayerCmp = true;
+                    CreateEntity().hasPlayerCmp = true;
                 } else {
                     entity.Destroy();
                 }
@@ -37,10 +37,10 @@ public partial class GameplayEntity {
 
     static readonly Ingame.Player.Common.PlayerCmp playerCmpComponent = new Ingame.Player.Common.PlayerCmp();
 
-    public bool isPlayerCmp {
+    public bool hasPlayerCmp {
         get { return HasComponent(GameplayComponentsLookup.PlayerCmp); }
         set {
-            if (value != isPlayerCmp) {
+            if (value != hasPlayerCmp) {
                 var index = GameplayComponentsLookup.PlayerCmp;
                 if (value) {
                     var componentPool = GetComponentPool(index);
